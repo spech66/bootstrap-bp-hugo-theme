@@ -2,6 +2,18 @@
 
 Bootstrap based Hugo theme which provides out of the box best practices like performance and SEO readiness. Featured images will be resized automatically. This is based on the [Hugo docs](https://gohugo.io/templates/homepage/), [hugo-best-practices](https://github.com/spech66/hugo-best-practices), [Front-End Checklist](https://github.com/thedaviddias/Front-End-Checklist) and the [Front-End Performance Checklist](https://github.com/thedaviddias/Front-End-Performance-Checklist).
 
+## Install the theme
+
+With Git installed, run the following commands inside the Hugo site folder. If Hugo has not yet been installed, read the setup guide [here](https://gohugo.io/overview/installing/).
+
+```sh
+mkdir themes
+cd themes
+git clone https://github.com/spech66/bootstrap-best-practices-hugo-theme.git hpstr
+```
+
+You can get a zip of the latest version of the theme from the [home page](https://github.com/spech66/bootstrap-best-practices-hugo-theme) and extract it to the themes folder.
+
 ## Theme settings
 
 Most settings should be done with hugo specific variables. There are only a few (optional) additional `[params]`.
