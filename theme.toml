@@ -7,7 +7,7 @@ licenselink = "https://github.com/spech66/bootstrap-best-practices-hugo-theme/bl
 description = "Bootstrap based Hugo theme which provides out of the box best practices."
 homepage = "https://github.com/spech66/bootstrap-best-practices-hugo-theme/"
 tags = ["minimalist", "blog", "clean", "simple", "bootstrap"]
-features = ["responsive", "google analytics", "bootstrap v4.1.x"]
+features = ["responsive", "google analytics", "bootstrap v4.1.x", "open graph"]
 min_version = "0.48"
 
 [author]

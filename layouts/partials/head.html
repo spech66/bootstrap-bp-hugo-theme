@@ -6,6 +6,8 @@
 
 <title>Starter Template for Bootstrap</title>
 
+{{ template "_internal/opengraph.html" . }}
+
 {{ $cssbootstrap := resources.Get "/css/bootstrap.min.css" }}
 {{ $cssmain := resources.Get "/css/main.css" }}
 {{ $allcss := slice $cssbootstrap $cssmain | resources.Concat "/css/vendor.css" | minify | fingerprint }}
