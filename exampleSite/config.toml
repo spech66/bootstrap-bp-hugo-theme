@@ -27,3 +27,4 @@ paginate = 5
   images = ["site-feature-image.jpg"]
   showPostSummary = true
   startPageColumns = true
+  # customDateFormat = "02.01.2006"

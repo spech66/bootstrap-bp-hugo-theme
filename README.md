@@ -4,9 +4,10 @@ Bootstrap based Hugo theme which provides out of the box best practices like per
 
 ## Theme settings
 
-Most settings should be done with hugo specific variables. There are only a few (optional) additional settings.
+Most settings should be done with hugo specific variables. There are only a few (optional) additional `[params]`.
 
 * `startPageColumns = true` will show the start page in a Masonry-like mode.
+* `customDateFormat` to override the date format.
 
 ## Google Analytics
 

@@ -13,12 +13,29 @@
     {{ end }}
     <div class="card-body">
         <h1 class="card-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
-        <h6 class="card-subtitle mb-2 text-muted">{{ .PublishDate.Format $customDateFormat }}{{ if gt .Lastmod .PublishDate }}, last updated {{ .Lastmod.Format $customDateFormat }}{{ end }} - </h6>
+        <h6 class="card-subtitle mb-2 text-muted">
+            {{ .PublishDate.Format $customDateFormat }}{{ if gt .Lastmod .PublishDate }}, last updated {{ .Lastmod.Format $customDateFormat }}{{ end }} - 
+            {{ range .Site.Author }}{{ . }}{{ end }} -
+            Reading time ~{{ if le .ReadingTime 1 }}1 Minute{{ else }}{{ .ReadingTime }} Minutes{{ end }}
+        </h6>
 
         <p class="card-text">{{ .Content }}</p>
 
     </div>
     <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
+        <small class="text-muted">
+            {{ if ne .Type "page" }}
+                {{ if gt .Params.tags 0 }}
+                    {{ range .Params.tags }}
+                        <a href="{{ "/tags/" | relURL }}#{{ . | urlize }}" class="badge badge-primary"><span>{{ . | urlize }}</span></a>
+                    {{ end }}
+                {{ end }}
+                {{ if gt .Params.categories 0 }}
+                    {{ range .Params.categories }}
+                        <a href="{{ "/categories/" | relURL }}#{{ . | urlize }}" class="badge badge-secondary"><span>{{ . | urlize }}</span></a>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        </small>
     </div>
 </div>

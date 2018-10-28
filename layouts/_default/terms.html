@@ -1,11 +1,11 @@
 {{ define "main" }}
 
-<div class="container">
-    <ul>
+<div class="container mt-3 mb-3">
+    <h1>{{ .Title }}</h1>
+
     {{ range $key, $value := .Data.Terms }}
-            <li><a href="#{{ $key }}"><span>{{ $key }}</span> <span>{{ $value.Count }}</span></a></li>
+        <a href="#{{ $key }}" class="badge badge-primary"><span>{{ $key }}</span> <span class="badge badge-light">{{ $value.Count }}</span></a>
     {{ end}}
-    </ul>
     
     {{ range $key, $value := .Data.Terms }}
         <h2 id="{{ $key }}">{{ $key }}</h2>
