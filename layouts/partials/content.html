@@ -2,9 +2,17 @@
 {{ with .Site.Params.customDateFormat }}{{ $customDateFormat = . }}{{ end }}
 
 <div class="card">
-    <img class="card-img-top" src="" alt="{{ .Title }}" title="{{ .Title }}">
+    {{ if .Params.images }}
+        {{ $siteurl := (.RelPermalink) }}
+        {{ $sitetitle := (.Title) }}
+        {{ $imgname := (index (.Params.images) 0 ) }}
+        {{ with .Resources.GetMatch $imgname }}
+            {{ $thumb := .Resize "800x" }}
+            <img class="card-img-top" src="{{ $thumb.Permalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
+        {{ end }}
+    {{ end }}
     <div class="card-body">
-        <h1 class="card-title">{{ .Title | markdownify }}</h1>
+        <h1 class="card-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
         <h6 class="card-subtitle mb-2 text-muted">{{ .PublishDate.Format $customDateFormat }}{{ if gt .Lastmod .PublishDate }}, last updated {{ .Lastmod.Format $customDateFormat }}{{ end }} - </h6>
 
         <p class="card-text">{{ .Content }}</p>

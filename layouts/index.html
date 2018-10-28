@@ -3,9 +3,11 @@
 <div class="container">
     <h1>{{ .Site.Title }}</h1>
 
-    {{ range where .Pages.ByPublishDate.Reverse "Section" "post" }}
-        {{- partial "content_summary.html" . -}}
-    {{ end }}
+    <div class="card-columns">
+        {{ range where .Pages.ByPublishDate.Reverse "Section" "post" }}
+            {{- partial "content_summary.html" . -}}
+        {{ end }}
+    </div>
 </div>
 
 <div class="container-flex bg-dark">

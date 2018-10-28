@@ -1,5 +1,7 @@
 ---
-title: "{{ replace .Name "-" " " }}"
+title: "{{ replace .Name "-" " " | title }}"
+type: post
+author: Sebastian
 date: {{ .Date }}
 publishdate: {{ now.Format "2006-01-02" }}
 lastmod: {{ now.Format "2006-01-02" }}
@@ -15,4 +17,4 @@ categories:
 
 ## Post Header
 
-Text
+CONTENT
