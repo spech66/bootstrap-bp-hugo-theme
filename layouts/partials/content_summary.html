@@ -3,12 +3,18 @@
 
 <div class="card">
     {{ if .Params.images }}
+        {{ $startPageColumns := .Site.Params.startPageColumns }}
         {{ $siteurl := (.RelPermalink) }}
         {{ $sitetitle := (.Title) }}
         {{ $imgname := (index (.Params.images) 0 ) }}
         {{ with .Resources.GetMatch $imgname }}
-            {{ $thumb := .Resize "360x" }}
-            <img class="card-img-top" src="{{ $thumb.Permalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
+            {{ if $startPageColumns }}
+                {{ $thumb := .Resize "360x" }}
+                <img class="card-img-top" src="{{ $thumb.Permalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
+            {{ else }}
+                {{ $thumb := .Resize "800x" }}
+                <img class="card-img-top" src="{{ $thumb.Permalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
+            {{ end }}
         {{ end }}
     {{ end }}
     <div class="card-body">

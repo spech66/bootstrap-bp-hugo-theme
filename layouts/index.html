@@ -1,13 +1,21 @@
 {{ define "main" }}
 
-<div class="container">
+<div class="container mt-3 mb-3">
     <h1>{{ .Site.Title }}</h1>
 
-    <div class="card-columns">
+    {{ if .Site.Params.startPageColumns }}
+        <div class="card-columns">
+            {{ range where .Pages.ByPublishDate.Reverse "Section" "post" }}
+                {{- partial "content_summary.html" . -}}
+            {{ end }}
+        </div>
+    {{ else }}
         {{ range where .Pages.ByPublishDate.Reverse "Section" "post" }}
-            {{- partial "content_summary.html" . -}}
+            <div class="mb-3">
+                {{- partial "content_summary.html" . -}}
+            </div>
         {{ end }}
-    </div>
+    {{ end }}
 </div>
 
 <!--<div class="container-flex bg-dark">
