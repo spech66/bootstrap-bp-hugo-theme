@@ -10,6 +10,15 @@ This theme uses the internal asynchronous template for Google Analytics tracking
 googleAnalytics = "UA-123-45"
 ```
 
+## Schema.org support
+
+Provide one author to enable the Schema.org support.
+
+```yaml
+[Author]  
+  name = "Sebastian Pech"
+```
+
 ## Images, Open Graph and Twitter Cards
 
 This theme uses Hugos `images` array to set the optimized feature image. You can use the array to provide content images as well.
