@@ -1,19 +1,10 @@
 {{- define "main" -}}
 
 <div class="container">
-    <h1>xxxx</h1>
+    <h1>{{ .Site.Title }}</h1>
 
     {{ range where .Pages.ByPublishDate.Reverse "Section" "post" }}
-    <p>
-        <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
-        {{ $customDateFormat := "January 2, 2006" }}
-        {{ with .Site.Params.customDateFormat }}{{ $customDateFormat = . }}{{ end }}
-        <small class="text-secondary">{{ .PublishDate.Format $customDateFormat }}</small>
-        {{ if eq .Site.Params.showPostSummary true }}
-        <br>
-        {{ .Summary }}
-        {{ end }}
-    </p>
+        {{- partial "content_summary.html" . -}}
     {{ end }}
 </div>
 

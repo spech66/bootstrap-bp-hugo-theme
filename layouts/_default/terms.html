@@ -1,5 +1,6 @@
 {{ define "main" }}
 
+<div class="container">
     <ul>
     {{ range $key, $value := .Data.Terms }}
             <li><a href="#{{ $key }}"><span>{{ $key }}</span> <span>{{ $value.Count }}</span></a></li>
@@ -13,6 +14,7 @@
                 <li><a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a></li>
             {{ end}}
         </ul>
-    {{ end}}
-        
+    {{ end}} 
+</div>
+
 {{ end }}

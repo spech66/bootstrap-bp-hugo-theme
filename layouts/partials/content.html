@@ -1,0 +1,17 @@
+{{ $customDateFormat := "02.01.2006" }}
+{{ with .Site.Params.customDateFormat }}{{ $customDateFormat = . }}{{ end }}
+
+<div class="card">
+    <img class="card-img-top" src="" alt="{{ .Title }}" title="{{ .Title }}">
+    <div class="card-body">
+        <h1 class="card-title">{{ .Title | markdownify }}</h1>
+        <h6 class="card-subtitle mb-2 text-muted">{{ .PublishDate.Format $customDateFormat }}{{ if gt .Lastmod .PublishDate }}, last updated {{ .Lastmod.Format $customDateFormat }}{{ end }} - </h6>
+
+        <p class="card-text">{{ .Content }}</p>
+
+        <a href="{{ .Permalink }}" class="card-link">Read more</a>
+    </div>
+    <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+</div>

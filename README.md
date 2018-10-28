@@ -1,6 +1,6 @@
 # bootstrap-best-practices-hugo-theme
 
-Bootstrap based Hugo theme which provides out of the box best practices.
+Bootstrap based Hugo theme which provides out of the box best practices like performance and SEO readiness. This is based on the [Hugo docs](https://gohugo.io/templates/homepage/), [hugo-best-practices](https://github.com/spech66/hugo-best-practices), [Front-End Checklist](https://github.com/thedaviddias/Front-End-Checklist) and the [Front-End Performance Checklist](https://github.com/thedaviddias/Front-End-Performance-Checklist).
 
 ## Google Analytics
 

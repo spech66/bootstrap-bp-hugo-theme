@@ -4,7 +4,8 @@
 
 {{- define "main" -}}
 
-<h1>{{ .Title | markdownify }}</h1>
-{{ .Content }}
+    <div class="container">
+        {{- partial "content.html" . -}}
+    </div>
 
 {{- end -}}
