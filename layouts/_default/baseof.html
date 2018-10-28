@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+    <meta charset="utf-8">
+    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
     {{- partial "head.html" . -}}
     <body>
         {{- partial "header.html" . -}}

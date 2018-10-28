@@ -1,0 +1,18 @@
+{{ define "main" }}
+
+    <ul>
+    {{ range $key, $value := .Data.Terms }}
+            <li><a href="#{{ $key }}"><span>{{ $key }}</span> <span>{{ $value.Count }}</span></a></li>
+    {{ end}}
+    </ul>
+    
+    {{ range $key, $value := .Data.Terms }}
+        <h2 id="{{ $key }}">{{ $key }}</h2>
+        <ul>
+            {{ range $value.Pages.ByDate.Reverse }}
+                <li><a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a></li>
+            {{ end}}
+        </ul>
+    {{ end}}
+        
+{{ end }}
