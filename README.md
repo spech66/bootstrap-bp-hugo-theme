@@ -10,12 +10,31 @@ This theme uses the internal asynchronous template for Google Analytics tracking
 googleAnalytics = "UA-123-45"
 ```
 
-## Images and Open Graph
+## Images, Open Graph and Twitter Cards
 
 This theme uses Hugos `images` array to set the optimized feature image. You can use the array to provide content images as well.
 
 ```yaml
+# Site Config toml
+title = "My hugo site"
 
+[params]
+  description = "Text about the site"
+  images = ["site-feature-image.jpg"]
+
+# Post yaml
+---
+title: "{{ replace .Name "-" " " }}"
+date: {{ .Date }}
+publishdate: {{ now.Format "2006-01-02" }}
+lastmod: {{ now.Format "2006-01-02" }}
+draft: true
+description: "Text about this post"
+images:
+    - "post-cover.png"
+tags:
+    - "tag 1"
+---
 ```
 
 From the Docu of Open Graph:

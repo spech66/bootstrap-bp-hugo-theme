@@ -9,6 +9,8 @@ images:
     - "post-cover.png"
 tags:
     - "tag 1"
+categories:
+    - "c 1"
 ---
 
 ## Post Header

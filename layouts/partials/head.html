@@ -6,7 +6,9 @@
 
 <title>Starter Template for Bootstrap</title>
 
+{{ template "_internal/schema.html" . }}
 {{ template "_internal/opengraph.html" . }}
+{{ template "_internal/twitter_cards.html" . }}
 
 {{ $cssbootstrap := resources.Get "/css/bootstrap.min.css" }}
 {{ $cssmain := resources.Get "/css/main.css" }}
