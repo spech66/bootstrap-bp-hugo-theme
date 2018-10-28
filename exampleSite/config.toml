@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://example.com/"
 languageCode = "en-US"
 title = "My New Hugo Site"
 theme = "bootstrap-best-practices-hugo-theme"
