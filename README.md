@@ -21,6 +21,10 @@ Most settings should be done with hugo specific variables. There are only a few 
 * `startPageColumns = true` will show the start page in a Masonry-like mode.
 * `customDateFormat` to override the date format.
 
+![startPageColumns = true](https://raw.githubusercontent.com/spech66/bootstrap-best-practices-hugo-theme/master/images/tn.png)
+
+![startPageColumns = false](https://raw.githubusercontent.com/spech66/bootstrap-best-practices-hugo-theme/master/images/tn2.png)
+
 ## Google Analytics
 
 This theme uses the internal asynchronous template for Google Analytics tracking. You only have to provide your tracking id in your configuration file:
