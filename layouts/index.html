@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 <div class="container mt-3 mb-3">
-    <h1>{{ .Site.Title }}</h1>
+    <h1><a href="{{ .RelPermalink }}">{{ .Site.Title }}</a></h1>
 
     {{ if .Site.Params.startPageColumns }}
         <div class="card-columns">
