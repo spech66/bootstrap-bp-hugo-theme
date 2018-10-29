@@ -1,7 +1,7 @@
 baseURL = "https://example.com/"
 languageCode = "en-US"
 title = "My New Hugo Site"
-theme = "bootstrap-best-practices-hugo-theme"
+theme = "bootstrap-bp-hugo-theme"
 # googleAnalytics = "UA-123-45"
 copyright = "Sebastian Pech"
 enableRobotsTXT = true

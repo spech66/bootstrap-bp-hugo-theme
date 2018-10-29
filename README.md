@@ -1,6 +1,6 @@
-# bootstrap-best-practices-hugo-theme
+# Bootstrap-BP hugo theme
 
-Bootstrap based Hugo theme which provides out of the box best practices like performance and SEO readiness. Featured images will be resized automatically. This is based on the [Hugo docs](https://gohugo.io/templates/homepage/), [hugo-best-practices](https://github.com/spech66/hugo-best-practices), [Front-End Checklist](https://github.com/thedaviddias/Front-End-Checklist) and the [Front-End Performance Checklist](https://github.com/thedaviddias/Front-End-Performance-Checklist).
+[Bootstrap v4](https://getbootstrap.com/) based Hugo theme which provides out of the box best practices like performance and SEO readiness. Featured images will be resized automatically. This is based on the [Hugo docs](https://gohugo.io/templates/homepage/), [hugo-best-practices](https://github.com/spech66/hugo-best-practices), [Front-End Checklist](https://github.com/thedaviddias/Front-End-Checklist) and the [Front-End Performance Checklist](https://github.com/thedaviddias/Front-End-Performance-Checklist).
 
 ## Install the theme
 
@@ -9,10 +9,10 @@ With Git installed, run the following commands inside the Hugo site folder. If H
 ```sh
 mkdir themes
 cd themes
-git clone https://github.com/spech66/bootstrap-best-practices-hugo-theme.git hpstr
+git clone https://github.com/spech66/bootstrap-bp-hugo-theme.git hpstr
 ```
 
-You can get a zip of the latest version of the theme from the [home page](https://github.com/spech66/bootstrap-best-practices-hugo-theme) and extract it to the themes folder.
+You can get a zip of the latest version of the theme from the [home page](https://github.com/spech66/bootstrap-bp-hugo-theme) and extract it to the themes folder.
 
 ## Theme settings
 
@@ -21,9 +21,9 @@ Most settings should be done with hugo specific variables. There are only a few 
 * `startPageColumns = true` will show the start page in a Masonry-like mode.
 * `customDateFormat` to override the date format.
 
-![startPageColumns = true](https://raw.githubusercontent.com/spech66/bootstrap-best-practices-hugo-theme/master/images/tn.png)
+![startPageColumns = true](https://raw.githubusercontent.com/spech66/bootstrap-bp-hugo-theme/master/images/tn.png)
 
-![startPageColumns = false](https://raw.githubusercontent.com/spech66/bootstrap-best-practices-hugo-theme/master/images/tn2.png)
+![startPageColumns = false](https://raw.githubusercontent.com/spech66/bootstrap-bp-hugo-theme/master/images/tn2.png)
 
 ## Google Analytics
 
