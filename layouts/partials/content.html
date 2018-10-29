@@ -25,14 +25,14 @@
     <div class="card-footer">
         <small class="text-muted">
             {{ if ne .Type "page" }}
-                {{ if gt .Params.tags 0 }}
-                    {{ range .Params.tags }}
-                        <a href="{{ "/tags/" | relURL }}#{{ . | urlize }}" class="badge badge-primary"><span>{{ . | urlize }}</span></a>
-                    {{ end }}
-                {{ end }}
                 {{ if gt .Params.categories 0 }}
                     {{ range .Params.categories }}
-                        <a href="{{ "/categories/" | relURL }}#{{ . | urlize }}" class="badge badge-secondary"><span>{{ . | urlize }}</span></a>
+                        <a href="{{ "/categories/" | relURL }}#{{ . | urlize }}" class="badge badge-primary"><span>{{ . | urlize }}</span></a>
+                    {{ end }}
+                {{ end }}
+                {{ if gt .Params.tags 0 }}
+                    {{ range .Params.tags }}
+                        <a href="{{ "/tags/" | relURL }}#{{ . | urlize }}" class="badge badge-secondary"><span>{{ . | urlize }}</span></a>
                     {{ end }}
                 {{ end }}
             {{ end }}
