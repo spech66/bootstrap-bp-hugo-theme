@@ -1,7 +1,7 @@
 <nav class="navbar navbar-light navbar-expand-lg bg-white border-bottom shadow-sm">
         
     <div class="container">
-        <a class="navbar-brand" href="/">{{ .Site.Title }}</a>
+        <a class="navbar-brand text-primary" href="/">{{ .Site.Title }}</a>
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -14,17 +14,17 @@
                 {{ range $index, $element := .Site.Menus.main }}
                     {{ if .HasChildren }}
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown{{$index}}" data-toggle="dropdown"
+                            <a class="nav-link dropdown-toggle text-primary" href="#" id="dropdown{{$index}}" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">{{ .Name }}</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown{{$index}}">
                             {{ range .Children }}
-                                <a class="dropdown-item" href="{{ .URL }}">{{ .Name }}</a>
+                                <a class="dropdown-item text-primary" href="{{ .URL }}">{{ .Name }}</a>
                             {{ end }}
                             </div>
                         </li>
                     {{ else }}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ .URL }}">{{ .Name }}</a>
+                            <a class="nav-link text-primary" href="{{ .URL }}">{{ .Name }}</a>
                         </li>
                     {{ end }}
                 {{ end }}
