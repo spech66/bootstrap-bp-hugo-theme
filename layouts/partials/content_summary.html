@@ -10,15 +10,15 @@
         {{ with .Resources.GetMatch $imgname }}
             {{ if $startPageColumns }}
                 {{ $thumb := .Resize "360x" }}
-                <img class="card-img-top" src="{{ $thumb.Permalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
+                <img class="card-img-top" src="{{ $thumb.RelPermalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
             {{ else }}
                 {{ $thumb := .Resize "800x" }}
-                <img class="card-img-top" src="{{ $thumb.Permalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
+                <img class="card-img-top" src="{{ $thumb.RelPermalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
             {{ end }}
         {{ end }}
     {{ end }}
     <div class="card-body">
-        <h1 class="card-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
+        <h1 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h1>
         <h6 class="card-subtitle mb-2 text-muted">
             {{ .PublishDate.Format $customDateFormat }}{{ if gt .Lastmod .PublishDate }}, last updated {{ .Lastmod.Format $customDateFormat }}{{ end }} - 
             {{ range .Site.Author }}{{ . }}{{ end }} -
@@ -27,7 +27,7 @@
         
         {{ if eq .Site.Params.showPostSummary true }}
             <p class="card-text">{{ .Summary }}</p>
-            <a href="{{ .Permalink }}" class="card-link">Read more</a>
+            <a href="{{ .RelPermalink }}" class="card-link">Read more</a>
         {{ else }}
             <p class="card-text">{{ .Content }}</p>
         {{ end }}
