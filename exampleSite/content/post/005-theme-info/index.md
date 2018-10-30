@@ -17,6 +17,8 @@ categories:
 
 ## Headline 2
 
+The header image is automatically added if there is a file called `*feature*` or `*cover*`. The first wildcard is prefered over the second one. If there are multiple images the first one is used.
+
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
 ### Headline 3
@@ -42,6 +44,8 @@ var config = {
     [...]
 }
 ```
+
+{{< optfigure src="cover-home-office-599475_1920" class="figure" title="Home office" caption="This is the home office caption. The image is resized automatically using `optfigure` shortcode." >}}
 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
