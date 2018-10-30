@@ -5,9 +5,6 @@ date: 2018-10-28T08:59:27+01:00
 publishdate: 2018-10-28
 lastmod: 2018-10-28
 description: "Information about the theme"
-images:
-    - laptop-2838918_1920.jpg
-    - "home-office-599475_1920.jpg"
 tags:
     - Code
     - Lorem ipsum

@@ -2,15 +2,15 @@
 {{ with .Site.Params.customDateFormat }}{{ $customDateFormat = . }}{{ end }}
 
 <div class="card">
-    {{ if .Params.images }}
-        {{ $siteurl := (.RelPermalink) }}
-        {{ $sitetitle := (.Title) }}
-        {{ $imgname := (index (.Params.images) 0 ) }}
-        {{ with .Resources.GetMatch $imgname }}
-            {{ $thumb := .Resize "800x" }}
-            <img class="card-img-top" src="{{ $thumb.RelPermalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
-        {{ end }}
+    {{- $images := $.Resources.ByType "image" -}}
+    {{- $featured := $images.GetMatch "*feature*" -}}
+    {{- $featured := cond (ne $featured nil) $featured ($images.GetMatch "{*cover*,*thumbnail*}") -}}
+    {{ $sitetitle := (.Title) }}
+    {{- with $featured -}}
+        {{ $thumb := .Resize "800x" }}
+        <img class="card-img-top" src="{{ $thumb.RelPermalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
     {{ end }}
+
     <div class="card-body">
         <h1 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h1>
         <h6 class="card-subtitle mb-2 text-muted">

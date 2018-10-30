@@ -2,19 +2,18 @@
 {{ with .Site.Params.customDateFormat }}{{ $customDateFormat = . }}{{ end }}
 
 <div class="card">
-    {{ if .Params.images }}
-        {{ $startPageColumns := .Site.Params.startPageColumns }}
-        {{ $siteurl := (.RelPermalink) }}
-        {{ $sitetitle := (.Title) }}
-        {{ $imgname := (index (.Params.images) 0 ) }}
-        {{ with .Resources.GetMatch $imgname }}
-            {{ if $startPageColumns }}
-                {{ $thumb := .Resize "360x" }}
-                <img class="card-img-top" src="{{ $thumb.RelPermalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
-            {{ else }}
-                {{ $thumb := .Resize "800x" }}
-                <img class="card-img-top" src="{{ $thumb.RelPermalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
-            {{ end }}
+    {{- $images := $.Resources.ByType "image" -}}
+    {{- $featured := $images.GetMatch "*feature*" -}}
+    {{- $featured := cond (ne $featured nil) $featured ($images.GetMatch "{*cover*,*thumbnail*}") -}}
+    {{ $startPageColumns := .Site.Params.startPageColumns }}
+    {{ $sitetitle := (.Title) }}
+    {{- with $featured -}}
+        {{ if $startPageColumns }}
+            {{ $thumb := .Resize "360x" }}
+            <img class="card-img-top" src="{{ $thumb.RelPermalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
+        {{ else }}
+            {{ $thumb := .Resize "800x" }}
+            <img class="card-img-top" src="{{ $thumb.RelPermalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
         {{ end }}
     {{ end }}
     <div class="card-body">
