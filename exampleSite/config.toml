@@ -24,7 +24,7 @@ paginate = 5
 
 [params]
   description = "Text about the site"
-  images = ["site-feature-image.jpg"]
+  #images = ["logo.jpg"]
   showPostSummary = true
   startPageColumns = true
   # customDateFormat = "02.01.2006"
