@@ -9,7 +9,7 @@ With Git installed, run the following commands inside the Hugo site folder. If H
 ```sh
 mkdir themes
 cd themes
-git clone https://github.com/spech66/bootstrap-bp-hugo-theme.git hpstr
+git clone https://github.com/spech66/bootstrap-bp-hugo-theme.git
 ```
 
 You can get a zip of the latest version of the theme from the [home page](https://github.com/spech66/bootstrap-bp-hugo-theme) and extract it to the themes folder.
