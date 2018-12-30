@@ -9,7 +9,7 @@
         "articleSection" : "{{ .Section }}",
         "name" : "{{ .Title }}",
         "headline" : "{{ .Title }}",
-        "description" : "{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}""
+        "description" : "{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}",
         "inLanguage" : "{{ .Lang }}",
         "author" : "{{ range .Site.Author }}{{ . }}{{ end }}",
         "creator" : "{{ range .Site.Author }}{{ . }}{{ end }}",
