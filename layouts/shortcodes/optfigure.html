@@ -15,7 +15,11 @@
             {{- end -}}
         />
     {{ else }}
-        <img src="{{ $original.RelPermalink }}" width="{{ $original.Width }}" height="{{ $original.Height }}" />
+        <img src="{{ $original.RelPermalink }}" width="{{ $original.Width }}" height="{{ $original.Height }}"
+        {{- if or ($alt) ($caption) }}
+            alt="{{ with $alt }}{{ . }}{{ else }}{{ $caption | markdownify| plainify }}{{ end }}"
+            {{- end -}}
+        />
     {{ end }}    
 {{ end }}
     {{- if .Get "link" }}</a>{{ end -}}
