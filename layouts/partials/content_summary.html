@@ -25,7 +25,9 @@
         
         {{ if eq .Site.Params.showPostSummary true }}
             <p class="card-text">{{ .Summary }}</p>
-            <a href="{{ .RelPermalink }}" class="card-link">Read more&hellip;</a> (~{{ .ReadingTime }} Min.)
+            {{ if ne .Site.Params.hideReadingTime true }}
+                <a href="{{ .RelPermalink }}" class="card-link">Read more&hellip;</a> (~{{ .ReadingTime }} Min.)
+            {{end}}
         {{ else }}
             <p class="card-text">{{ .Content }}</p>
         {{ end }}

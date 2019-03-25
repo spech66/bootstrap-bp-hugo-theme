@@ -20,6 +20,7 @@ Most settings should be done with hugo specific variables. There are only a few 
 
 * `startPageColumns = true` will show the start page in a Masonry-like mode.
 * `customDateFormat` to override the date format.
+* `hideReadingTime` to hide reading time
 
 ![startPageColumns = true](https://raw.githubusercontent.com/spech66/bootstrap-bp-hugo-theme/master/images/tn.png)
 
