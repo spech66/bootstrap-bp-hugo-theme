@@ -16,3 +16,5 @@
 {{ $cssmain := resources.Get "/css/main.css" }}
 {{ $allcss := slice $cssbootstrap $cssmain | resources.Concat "/css/vendor.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $allcss.RelPermalink }}" integrity="{{ $allcss.Data.Integrity }}">
+<link rel="stylesheet" href="{{.Site.BaseURL}}/css/style.css">
+
