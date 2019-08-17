@@ -8,7 +8,7 @@ description = "Bootstrap based Hugo theme which supports out of the box best pra
 homepage = "https://github.com/spech66/bootstrap-bp-hugo-theme/"
 tags = ["minimalist", "blog", "clean", "simple", "bootstrap", "responsive", "google analytics", "syntax sighlighting", "light", "fast"]
 features = ["responsive", "google analytics", "bootstrap v4.1.x", "open graph", "twitter cards"]
-min_version = "0.48"
+min_version = "0.57"
 
 [author]
   name = "Sebastian Pech"
