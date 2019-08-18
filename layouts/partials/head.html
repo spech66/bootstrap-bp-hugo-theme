@@ -14,6 +14,13 @@
 
 {{ $cssbootstrap := resources.Get "/css/bootstrap.min.css" }}
 {{ $cssfontawesome := resources.Get "/css/fontawesome-free-5.10.1-web-all.min.css" }}
-{{ $cssmain := resources.Get "/css/main.css" }}
-{{ $allcss := slice $cssbootstrap $cssfontawesome $cssmain | resources.Concat "/css/vendor.css" | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $allcss.RelPermalink }}" integrity="{{ $allcss.Data.Integrity }}">
+
+{{ if .Site.Params.themeColor }}
+    {{ $cssmain := resources.Get (printf "/css/main-%s.css" .Site.Params.themeColor) }}
+    {{ $allcss := slice $cssbootstrap $cssfontawesome $cssmain | resources.Concat "/css/vendor.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $allcss.RelPermalink }}" integrity="{{ $allcss.Data.Integrity }}">
+{{ else }}
+    {{ $cssmain := resources.Get "/css/main.css" }}
+    {{ $allcss := slice $cssbootstrap $cssfontawesome $cssmain | resources.Concat "/css/vendor.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $allcss.RelPermalink }}" integrity="{{ $allcss.Data.Integrity }}">
+{{ end }}

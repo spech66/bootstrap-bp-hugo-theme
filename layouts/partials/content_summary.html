@@ -19,13 +19,13 @@
     <div class="card-body">
         <h1 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h1>
         <h6 class="card-subtitle mb-2 text-muted">
-            {{ .PublishDate.Format $customDateFormat }}{{ if gt .Lastmod .PublishDate }}, last updated {{ .Lastmod.Format $customDateFormat }}{{ end }} - 
-            {{ range .Site.Author }}{{ . }}{{ end }}
+            <i class="fas fa-calendar-day"></i> {{ .PublishDate.Format $customDateFormat }}{{ if gt .Lastmod .PublishDate }}, last updated {{ .Lastmod.Format $customDateFormat }}{{ end }} - 
+            <i class="fas fa-user"></i> {{ range .Site.Author }}{{ . }}{{ end }}
         </h6>
         
         {{ if eq .Site.Params.showPostSummary true }}
             <p class="card-text">{{ .Summary }}</p>
-            <a href="{{ .RelPermalink }}" class="card-link">Read more&hellip;</a> (~{{ .ReadingTime }} Min.)
+            <a href="{{ .RelPermalink }}" class="card-link">Read more&hellip;</a> (<i class="fas fa-clock"></i>  ~{{ .ReadingTime }} Min.)
         {{ else }}
             <p class="card-text">{{ .Content }}</p>
         {{ end }}

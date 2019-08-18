@@ -1,6 +1,6 @@
 # Bootstrap-BP hugo theme
 
-[Bootstrap v4](https://getbootstrap.com/) based Hugo theme which provides out of the box best practices like performance and SEO readiness. Featured images will be resized automatically. This is based on the [Hugo docs](https://gohugo.io/templates/homepage/), [hugo-best-practices](https://github.com/spech66/hugo-best-practices), [Front-End Checklist](https://github.com/thedaviddias/Front-End-Checklist) and the [Front-End Performance Checklist](https://github.com/thedaviddias/Front-End-Performance-Checklist).
+[Bootstrap v4](https://getbootstrap.com/) based Hugo theme which provides out of the box best practices like performance and SEO readiness. Featured images will be resized automatically. This is based on the [Hugo docs](https://gohugo.io/templates/homepage/), [hugo-best-practices](https://github.com/spech66/hugo-best-practices), [Front-End Checklist](https://github.com/thedaviddias/Front-End-Checklist) and the [Front-End Performance Checklist](https://github.com/thedaviddias/Front-End-Performance-Checklist). Contains four different color themes.
 
 ## Install the theme
 
@@ -22,6 +22,7 @@ Most settings should be done with hugo specific variables. There are only a few 
 * `customDateFormat` to override the date format.
 * `showListsGrouped` to add headers for every year.
 * `showPostSummary` only show a summary on index and lists.
+* `colorTheme` set to dark, light, blue (do not set for bootstrap default)
 
 ![startPageColumns = true](https://raw.githubusercontent.com/spech66/bootstrap-bp-hugo-theme/master/images/tn.png)
 
@@ -47,6 +48,8 @@ Provide one author to enable the Schema.org support.
 ## Images, Open Graph and Twitter Cards
 
 This theme uses Hugos `feature/cover` name method to set the optimized feature image. The image named `*feature*` or `*cover*` is used for the posts featured image and get resized. This will also be in the Twitter Cards and Open Graph block.
+
+The header image is automatically added if there is a file called `*feature*` or `*cover*`. The first wildcard is prefered over the second one. If there are multiple images the first one is used.
 
 ```yaml
 # Site Config toml
