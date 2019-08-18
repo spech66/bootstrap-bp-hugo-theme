@@ -4,3 +4,17 @@ footer {
     background-color: #f9f9f9;
     border-top: 0.05rem solid #e5e5e5;
 }
+
+a { color: #999; }
+a:link { color: #999; }
+a:visited { color: #999; }
+a:hover { color: #999; }
+a:active { color: #999; }
+.text-primary { color: #999!important; }
+.text-muted { color: #999!important; }
+.badge-primary { background-color: #999; color: #ffffff!important; }
+.badge-secondary { background-color: #999; color: #ffffff!important; }
+.bg-white { background-color: rgba(0,0,0,.03)!important; }
+
+h1, h2, h3, h4, h5, h6 { color: #000!important }
+h1 a { color: #000!important }
