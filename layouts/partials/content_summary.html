@@ -5,6 +5,7 @@
     {{- $images := $.Resources.ByType "image" -}}
     {{- $featured := $images.GetMatch "*feature*" -}}
     {{- $featured := cond (ne $featured nil) $featured ($images.GetMatch "{*cover*,*thumbnail*}") -}}
+    {{- $featured := cond (ne $.Params.featured_image nil) (.Page.Resources.GetMatch (printf "*%s" $.Params.featured_image)) $featured -}}
     {{ $startPageColumns := .Site.Params.startPageColumns }}
     {{ $sitetitle := (.Title) }}
     {{- with $featured -}}
