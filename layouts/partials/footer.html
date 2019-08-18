@@ -3,22 +3,24 @@
         <div class="row">
             <div class="col-3 col-md">
                 <h5>{{ .Site.Title }}</h5>
-                &copy; {{ now.Format "2006" }} {{ range .Site.Author }}{{ . }}{{ end }}                
+                {{ .Site.Params.description }}
             </div>
             <div class="col-3 col-md">
-                <h5>&nbsp;</h5>
-                &nbsp;
-            </div>
-            <div class="col-3 col-md">
-                <h5>&nbsp;</h5>
-                &nbsp;
+                <h5>Social</h5>
+                <ul class="list-unstyled list-inline">
+                    {{- partial "social.html" . -}}
+                </ul>
             </div>
             <div class="col-3 col-md">
                 <h5>Site</h5>
-                <ul class="list-unstyled text-small">
+                <ul class="list-unstyled">
                     <li><a class="text-muted" href="/categories/">Categories</a></li>
                     <li><a class="text-muted" href="/tags/">Tags</a></li>
                 </ul>
+            </div>
+            <div class="col-3 col-md">
+                &copy; {{ now.Format "2006" }} {{ range .Site.Author }}{{ . }}{{ end }}<br/>
+                Theme by <a href="https://www.spech.de">Sebastian Pech</a>.
             </div>
         </div>
     </div>

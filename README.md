@@ -70,3 +70,51 @@ tags:
     - "tag 1"
 ---
 ```
+
+## Social Icons
+Icons for socialmedia. Add to config.
+
+```yaml
+# Sets Social Media icons to appear and link to your account. Value should be your
+# username unless otherwise noted.
+# Code from https://themes.gohugo.io/future-imperfect/ theme
+[social]
+  # Coding Communities
+  github           = "a"
+  gitlab           = "a"
+  stackoverflow    = "a" # User Number
+  bitbucket        = "a"
+  jsfiddle         = "a"
+  codepen          = "a"
+  # Visual Art Communities
+  deviantart       = "a"
+  flickr           = "a"
+  behance          = "a"
+  dribbble         = "a"
+  # Publishing Communities
+  wordpress        = "a"
+  medium           = "a"
+  # Professional/Business Oriented Communities
+  linkedin         = "a"
+  linkedin_company = "a"
+  foursquare       = "a"
+  xing             = "a"
+  slideshare       = "a"
+  # Social Networks
+  facebook         = "flowartsde" # https://fb.me/flowartsde
+  googleplus       = "a"
+  reddit           = "a"
+  quora            = "a"
+  youtube          = "/channel/UCmWkMX_QkSLxxEDT-A1gu3w" # https://www.youtube.com/channel/UCmWkMX_QkSLxxEDT-A1gu3w
+  vimeo            = "a"
+  whatsapp         = "a" # WhatsApp Number
+  instagram        = "flowartsde" # https://www.instagram.com/flowartsde/
+  tumblr           = "a"
+  twitter          = "a"
+  skype            = "a"
+  snapchat         = "a"
+  pinterest        = "a"
+  telegram         = "a"
+  # Email
+  email            = "a"
+```
