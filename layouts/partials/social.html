@@ -86,6 +86,10 @@
   <li class="list-inline-item"><a href="//youtube.com/{{.}}" target="_blank" title="YouTube" class="fab fa-youtube"></a></li>
 {{ end }}
 
+{{ with .Site.Social.youtube2 }}
+  <li class="list-inline-item"><a href="//youtube.com/{{.}}" target="_blank" title="YouTube" class="fab fa-youtube"></a></li>
+{{ end }}
+
 {{ with .Site.Social.vimeo }}
   <li class="list-inline-item"><a href="//vimeo.com/{{.}}" target="_blank" title="Vimeo" class="fab fa-vimeo"></a></li>
 {{ end }}
@@ -120,6 +124,10 @@
 
 {{ with .Site.Social.telegram }}
   <li class="list-inline-item"><a href="//telegram.me/{{.}}" target="_blank" title="telegram" class="fab fa-telegram"></a></li>
+{{ end }}
+
+{{ with .Site.Social.twitch }}
+  <li class="list-inline-item"><a href="//twitch.tv/{{.}}" target="_blank" title="twitch" class="fab fa-twitch"></a></li>
 {{ end }}
 
 {{ with .Site.Social.email }}
