@@ -89,6 +89,18 @@ There are two menus in the theme. `main` and `footer`. Specify the entries in th
     name = "Imprint"
     url = "/imprint/"
     weight = 10
+
+  [[menu.footer]]
+    identifier = "categories"
+    name = "Categories"
+    url = "/categories/"
+    weight = 20
+
+  [[menu.footer]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 30
 ```
 
 ```yaml
