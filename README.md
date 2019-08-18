@@ -20,6 +20,8 @@ Most settings should be done with hugo specific variables. There are only a few 
 
 * `startPageColumns = true` will show the start page in a Masonry-like mode.
 * `customDateFormat` to override the date format.
+* `showListsGrouped` to add headers for every year.
+* `showPostSummary` only show a summary on index and lists.
 
 ![startPageColumns = true](https://raw.githubusercontent.com/spech66/bootstrap-bp-hugo-theme/master/images/tn.png)
 
