@@ -14,9 +14,9 @@
     <div class="card-body">
         <h1 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h1>
         <h6 class="card-subtitle mb-2 text-muted">
-            <i class="fas fa-calendar-day"></i> {{ .PublishDate.Format $customDateFormat }}{{ if gt .Lastmod .PublishDate }}, last updated {{ .Lastmod.Format $customDateFormat }}{{ end }} - 
-            <i class="fas fa-user"></i> {{ range .Site.Author }}{{ . }}{{ end }} -
-            <i class="fas fa-clock"></i> ~{{ if le .ReadingTime 1 }}1 Minute{{ else }}{{ .ReadingTime }} Minutes{{ end }}
+            <i class="fas fa-calendar-day"></i>&nbsp;{{ .PublishDate.Format $customDateFormat }}{{ if gt .Lastmod .PublishDate }}, last updated {{ .Lastmod.Format $customDateFormat }}{{ end }} - 
+            <i class="fas fa-user"></i>&nbsp;{{ range .Site.Author }}{{ . }}{{ end }} -
+            <i class="fas fa-clock"></i>&nbsp;~{{ if le .ReadingTime 1 }}1 Minute{{ else }}{{ .ReadingTime }} Minutes{{ end }}
         </h6>
 
         <p class="card-text">{{ .Content }}</p>
@@ -26,14 +26,14 @@
         <small class="text-muted">
             {{ if ne .Type "page" }}
                 {{ if gt .Params.categories 0 }}
-                    <i class="fas fa-folder text-primary"></i> 
+                    <i class="fas fa-folder text-primary"></i>&nbsp;
                     {{ range .Params.categories }}
                         <a href="{{ "/categories/" | relURL }}#{{ . | urlize }}" class="badge badge-primary"><span>{{ . | urlize }}</span></a>
                     {{ end }}
                     <br />
                 {{ end }}
                 {{ if gt .Params.tags 0 }}
-                    <i class="fas fa-tags text-secondary"></i> 
+                    <i class="fas fa-tags text-secondary"></i>&nbsp; 
                     {{ range .Params.tags }}
                         <a href="{{ "/tags/" | relURL }}#{{ . | urlize }}" class="badge badge-secondary"><span>{{ . | urlize }}</span></a>
                     {{ end }}

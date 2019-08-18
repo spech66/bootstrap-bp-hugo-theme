@@ -19,13 +19,13 @@
     <div class="card-body">
         <h1 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h1>
         <h6 class="card-subtitle mb-2 text-muted">
-            <i class="fas fa-calendar-day"></i> {{ .PublishDate.Format $customDateFormat }}{{ if gt .Lastmod .PublishDate }}, last updated {{ .Lastmod.Format $customDateFormat }}{{ end }} - 
-            <i class="fas fa-user"></i> {{ range .Site.Author }}{{ . }}{{ end }}
+            <i class="fas fa-calendar-day"></i>&nbsp;{{ .PublishDate.Format $customDateFormat }} - 
+            <i class="fas fa-user"></i>&nbsp;{{ range .Site.Author }}{{ . }}{{ end }}
         </h6>
         
         {{ if eq .Site.Params.showPostSummary true }}
             <p class="card-text">{{ .Summary }}</p>
-            <a href="{{ .RelPermalink }}" class="card-link">Read more&hellip;</a> (<i class="fas fa-clock"></i>  ~{{ .ReadingTime }} Min.)
+            <a href="{{ .RelPermalink }}" class="card-link">Read more&hellip;</a> (<i class="fas fa-clock"></i>&nbsp;~{{ .ReadingTime }} Min.)
         {{ else }}
             <p class="card-text">{{ .Content }}</p>
         {{ end }}
@@ -35,14 +35,14 @@
         <small class="text-muted">
             {{ if ne .Type "page" }}
                 {{ if gt .Params.categories 0 }}
-                    <i class="fas fa-folder text-primary"></i> 
+                    <i class="fas fa-folder text-primary"></i>&nbsp;
                     {{ range .Params.categories }}
                         <a href="{{ "/categories/" | relURL }}#{{ . | urlize }}" class="badge badge-primary"><span>{{ . | urlize }}</span></a>
                     {{ end }}
                     <br />
                 {{ end }}
                 {{ if gt .Params.tags 0 }}
-                    <i class="fas fa-tags text-secondary"></i> 
+                    <i class="fas fa-tags text-secondary"></i>&nbsp;
                     {{ range .Params.tags }}
                         <a href="{{ "/tags/" | relURL }}#{{ . | urlize }}" class="badge badge-secondary"><span>{{ . | urlize }}</span></a>
                     {{ end }}

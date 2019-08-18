@@ -4,3 +4,5 @@ footer {
     background-color: #f9f9f9;
     border-top: 0.05rem solid #e5e5e5;
 }
+
+.navbar-light .navbar-nav .nav-link { border-bottom: 0px; border-left: dotted 1px #dee2e6; }

@@ -10,9 +10,16 @@ a:link { color: #337ab7; }
 a:visited { color: #337ab7; }
 a:hover { color: #337ab7; }
 a:active { color: #337ab7; }
+.navbar-light .navbar-nav .nav-link { border-bottom: 0px; border-left: dotted 1px #337ab7; }
 .text-primary { color: #337ab7!important; }
 .text-secondary { color: #6c757d!important; }
 .text-muted { color: #6c757d!important; }
 .badge-primary { background-color: #337ab7; color: #ffffff!important; }
 .badge-secondary { background-color: #6c757d; color: #ffffff!important; }
 .bg-white { background-color: rgba(0,0,0,.03)!important; }
+
+.page-item.active .page-link {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}

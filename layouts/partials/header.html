@@ -1,5 +1,13 @@
-<nav class="navbar navbar-light navbar-expand-lg bg-white border-bottom">
-        
+{{ if .Site.Params.themeColor }}    
+    {{ if eq .Site.Params.themeColor "dark" }}
+        <nav class="navbar navbar-dark navbar-expand-lg bg-dark border-bottom">    
+    {{ else }}
+        <nav class="navbar navbar-light navbar-expand-lg bg-white border-bottom">
+    {{ end }}
+{{ else }}
+    <nav class="navbar navbar-light navbar-expand-lg bg-white border-bottom">
+{{ end }}
+
     <div class="container">
         <a class="navbar-brand text-primary" href="/">{{ .Site.Title }}</a>
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse"
