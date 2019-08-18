@@ -6,7 +6,7 @@ license = "MIT"
 licenselink = "https://github.com/spech66/bootstrap-bp-hugo-theme/blob/master/LICENSE"
 description = "Bootstrap based Hugo theme which supports out of the box best practices."
 homepage = "https://github.com/spech66/bootstrap-bp-hugo-theme/"
-tags = ["minimalist", "minimal", "blog", "clean", "simple", "bootstrap", "responsive", "google analytics", "syntax sighlighting", "light", "fast"]
+tags = ["minimalist", "minimal", "blog", "clean", "simple", "bootstrap", "responsive", "google analytics", "syntax sighlighting", "light", "fast", "pages", "font awesome", "fontawesome"]
 features = ["responsive", "google analytics", "bootstrap v4.3.x", "open graph", "twitter cards"]
 min_version = "0.57"
 
