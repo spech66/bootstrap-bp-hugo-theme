@@ -26,11 +26,13 @@
         <small class="text-muted">
             {{ if ne .Type "page" }}
                 {{ if gt .Params.categories 0 }}
+                    <i class="fas fa-folder text-primary"></i> 
                     {{ range .Params.categories }}
                         <a href="{{ "/categories/" | relURL }}#{{ . | urlize }}" class="badge badge-primary"><span>{{ . | urlize }}</span></a>
                     {{ end }}
                 {{ end }}
                 {{ if gt .Params.tags 0 }}
+                    <i class="fas fa-tags text-secondary"></i> 
                     {{ range .Params.tags }}
                         <a href="{{ "/tags/" | relURL }}#{{ . | urlize }}" class="badge badge-secondary"><span>{{ . | urlize }}</span></a>
                     {{ end }}
