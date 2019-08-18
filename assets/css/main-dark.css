@@ -22,6 +22,9 @@ body {
 pre { background-color: #252627!important; color: #a9a9b3; }
 .dropdown-menu { background-color: #252627!important; }
 .dropdown-item { color: #a9a9b3!important; background-color: #252627!important; }
+.navbar-light .navbar-toggler-icon {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMzAgMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNSkiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGQ9Ik00IDdoMjJNNCAxNWgyMk00IDIzaDIyIi8+PC9zdmc+);
+}
 
 a { color: #ffffff; }
 a:link { color: #ffffff; }
