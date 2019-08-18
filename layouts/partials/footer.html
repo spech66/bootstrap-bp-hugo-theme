@@ -13,7 +13,17 @@
             </div>
             <div class="col-3 col-md">
                 <h5>Site</h5>
-                <ul class="list-unstyled">
+                <ul class="list-unstyled">                    
+                    {{ range $index, $element := .Site.Menus.footer }}
+                        {{ if .HasChildren }}
+                            <li><a class="text-muted" href="{{ .URL }}">{{ .Name }}</a></li>
+                            {{ range .Children }}
+                                <li><a class="text-muted" href="{{ .URL }}">{{ .Name }}</a></li>
+                            {{ end }}
+                        {{ else }}
+                            <li><a class="text-muted" href="{{ .URL }}">{{ .Name }}</a></li>
+                        {{ end }}
+                    {{ end }}
                     <li><a class="text-muted" href="/categories/">Categories</a></li>
                     <li><a class="text-muted" href="/tags/">Tags</a></li>
                 </ul>

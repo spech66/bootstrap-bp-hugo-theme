@@ -71,6 +71,33 @@ tags:
 ---
 ```
 
+## Menus
+
+There are two menus in the theme. `main` and `footer`. Specify the entries in the config or the header of the content.
+
+```yaml
+[menu]
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 10
+
+  [[menu.footer]]
+    identifier = "Imprint"
+    name = "Imprint"
+    url = "/imprint/"
+    weight = 10
+```
+
+```yaml
+---
+[...]
+menu = "main"
+---
+```
+
 ## Social Icons
 Icons for socialmedia. Add to config.
 
