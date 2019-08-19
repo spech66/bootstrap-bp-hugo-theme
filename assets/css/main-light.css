@@ -10,6 +10,7 @@ body {
     color: #333;
 }
 
+blockquote { border-left: 2px solid #333; padding-left: 10px; margin-top: 2rem; margin-bottom: 2rem; }
 a { color: #333; border-bottom: dotted 2px rgba(160,160,160,.65); }
 a:link { color: #333; border-bottom: dotted 2px rgba(160,160,160,.65); }
 a:visited { color: #333; border-bottom: dotted 2px rgba(160,160,160,.65); }
@@ -26,6 +27,7 @@ a.text-primary:focus, a.text-primary:hover { color: #333!important; }
 .text-muted { color: #999!important; }
 .badge-primary { background-color: #333; color: #ffffff!important; }
 .badge-secondary { background-color: #333; color: #ffffff!important; }
+.btn-primary { background-color: #333; color: #ffffff!important; border-color: #333; }
 .bg-white { background-color: #fff; border-bottom: solid 1px rgba(160,160,160,.3); }
 .shadow-sm { box-shadow: 0 0 0!important; }
 

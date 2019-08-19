@@ -5,6 +5,7 @@ footer {
     border-top: 0.05rem solid #e5e5e5;
 }
 
+blockquote { border-left: 2px solid #6c757d; padding-left: 10px; margin-top: 2rem; margin-bottom: 2rem; }
 a { color: #337ab7; }
 a:link { color: #337ab7; }
 a:visited { color: #337ab7; }
@@ -16,6 +17,7 @@ a:active { color: #337ab7; }
 .text-muted { color: #6c757d!important; }
 .badge-primary { background-color: #337ab7; color: #ffffff!important; }
 .badge-secondary { background-color: #6c757d; color: #ffffff!important; }
+.btn-primary { background-color: #337ab7; color: #ffffff!important; border-color: #337ab7; }
 .bg-white { background-color: rgba(0,0,0,.03)!important; }
 
 .page-item.active .page-link {

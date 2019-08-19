@@ -25,6 +25,7 @@ pre { background-color: #252627!important; color: #a9a9b3; }
 .dropdown-menu { background-color: #252627!important; }
 .dropdown-item { color: #a9a9b3!important; background-color: #252627!important; }
 
+blockquote { border-left: 2px solid #a9a9b3; padding-left: 10px; margin-top: 2rem; margin-bottom: 2rem; }
 a { color: #ffffff; }
 a:link { color: #ffffff; }
 a:visited { color: #ffffff; }
@@ -35,6 +36,7 @@ a:active { color: #ffffff; }
 .text-muted { color: #a9a9b3!important; }
 .badge-primary { background-color: #a9a9b3; color: #ffffff!important; }
 .badge-secondary { background-color: #a9a9b3; color: #ffffff!important; }
+.btn-primary { background-color: #a9a9b3; color: #ffffff!important; border-color: #a9a9b3; }
 
 h1, h2, h3, h4, h5, h6 { color: #ffffff!important; }
 h1 a { color: #ffffff!important; }

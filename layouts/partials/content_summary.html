@@ -17,6 +17,9 @@
             <img class="card-img-top" src="{{ $thumb.RelPermalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
         {{ end }}
     {{ end }}
+    {{ .Scratch.Set "fullsize" (not $startPageColumns) }}
+    {{- partial "content_type_header.html" . -}}
+
     <div class="card-body">
         <h1 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h1>
         <h6 class="card-subtitle mb-2 text-muted">
@@ -25,13 +28,15 @@
         </h6>
         
         {{ if eq .Site.Params.showPostSummary true }}
+            {{- partial "content_type_body.html" . -}}
             <p class="card-text">{{ .Summary }}</p>
             <a href="{{ .RelPermalink }}" class="card-link">Read more&hellip;</a> (<i class="fas fa-clock"></i>&nbsp;~{{ .ReadingTime }} Min.)
         {{ else }}
+            {{- partial "content_type_body.html" . -}}
             <p class="card-text">{{ .Content }}</p>
         {{ end }}
-
     </div>
+
     <div class="card-footer">
         <small class="text-muted">
             {{ if ne .Type "page" }}

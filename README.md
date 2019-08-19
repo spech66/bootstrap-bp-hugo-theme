@@ -36,6 +36,17 @@ This theme uses the internal asynchronous template for Google Analytics tracking
 googleAnalytics = "UA-123-45"
 ```
 
+## Page templates / archetypes
+
+This theme has support for the following archetypes:
+
+* Page (not on the startpage)
+* Post (regular post/blog pages)
+* Audio (shows spotify in the header)
+* Video (shows youtube in the header)
+* Quote (highlights a quote and the author)
+* Link (show a link with the page title)
+
 ## Schema.org support
 
 Provide one author to enable the Schema.org support.
@@ -111,7 +122,8 @@ menu = "main"
 ```
 
 ## Social Icons
-Icons for socialmedia. Add to config.
+
+Icons for Social Media. Add the block to the config.
 
 ```yaml
 # Sets Social Media icons to appear and link to your account. Value should be your
@@ -119,41 +131,41 @@ Icons for socialmedia. Add to config.
 # Code from https://themes.gohugo.io/future-imperfect/ theme
 [social]
   # Coding Communities
-  github           = "a"
-  gitlab           = "a"
-  stackoverflow    = "a" # User Number
-  bitbucket        = "a"
-  jsfiddle         = "a"
-  codepen          = "a"
+  github           = ""
+  gitlab           = ""
+  stackoverflow    = "" # User Number
+  bitbucket        = ""
+  jsfiddle         = ""
+  codepen          = ""
   # Visual Art Communities
-  deviantart       = "a"
-  flickr           = "a"
-  behance          = "a"
-  dribbble         = "a"
+  deviantart       = ""
+  flickr           = ""
+  behance          = ""
+  dribbble         = ""
   # Publishing Communities
-  wordpress        = "a"
-  medium           = "a"
+  wordpress        = ""
+  medium           = ""
   # Professional/Business Oriented Communities
-  linkedin         = "a"
-  linkedin_company = "a"
-  foursquare       = "a"
-  xing             = "a"
-  slideshare       = "a"
+  linkedin         = ""
+  linkedin_company = ""
+  foursquare       = ""
+  xing             = ""
+  slideshare       = ""
   # Social Networks
-  facebook         = "flowartsde" # https://fb.me/flowartsde
-  googleplus       = "a"
-  reddit           = "a"
-  quora            = "a"
-  youtube          = "/channel/UCmWkMX_QkSLxxEDT-A1gu3w" # https://www.youtube.com/channel/UCmWkMX_QkSLxxEDT-A1gu3w
-  vimeo            = "a"
-  whatsapp         = "a" # WhatsApp Number
-  instagram        = "flowartsde" # https://www.instagram.com/flowartsde/
-  tumblr           = "a"
-  twitter          = "a"
-  skype            = "a"
-  snapchat         = "a"
-  pinterest        = "a"
-  telegram         = "a"
+  facebook         = "spechde" # https://fb.me/spech.de
+  googleplus       = ""
+  reddit           = ""
+  quora            = ""
+  youtube          = "/channel/UCrRRKovAoTYGIIB9T08pbHw" # https://www.youtube.com/channel/UCrRRKovAoTYGIIB9T08pbHw
+  vimeo            = ""
+  whatsapp         = "" # WhatsApp Number
+  instagram        = "sebastian_pech" # https://www.instagram.com/flowartsde/
+  tumblr           = ""
+  twitter          = "spech84"
+  skype            = ""
+  snapchat         = ""
+  pinterest        = ""
+  telegram         = ""
   # Email
-  email            = "a"
+  email            = ""
 ```

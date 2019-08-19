@@ -11,6 +11,8 @@
         {{ $thumb := .Resize "800x" }}
         <img class="card-img-top" src="{{ $thumb.RelPermalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
     {{ end }}
+    {{ .Scratch.Set "fullsize" true }}
+    {{- partial "content_type_header.html" . -}}
 
     <div class="card-body">
         <h1 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h1>
@@ -20,9 +22,10 @@
             <i class="fas fa-clock"></i>&nbsp;~{{ if le .ReadingTime 1 }}1 Minute{{ else }}{{ .ReadingTime }} Minutes{{ end }}
         </h6>
 
+        {{- partial "content_type_body.html" . -}}
         <p class="card-text">{{ .Content }}</p>
-
     </div>
+
     <div class="card-footer">
         <small class="text-muted">
             {{ if ne .Type "page" }}
