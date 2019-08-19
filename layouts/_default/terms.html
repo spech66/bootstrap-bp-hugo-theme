@@ -6,7 +6,7 @@
             <div class="card-body">
                 <h1>{{ .Title }}</h1>
                 {{ range $key, $value := .Data.Terms }}
-                    <a href="#{{ $key }}" class="badge badge-primary"><span>{{ $key }}</span> <span class="badge badge-light">{{ $value.Count }}</span></a>
+                    <a href="#{{ $key | urlize }}" class="badge badge-primary"><span>{{ $key }}</span> <span class="badge badge-light">{{ $value.Count }}</span></a>
                 {{ end}}
             </div>
         </div>
@@ -16,7 +16,7 @@
         <div class="mb-3">    
             <div class="card">
                         <div class="card-body">  
-                    <h2 id="{{ $key }}">{{ $key }}</h2>
+                    <h2 id="{{ $key | urlize }}">{{ $key }}</h2>
                     <ul>
                         {{ range $value.Pages.ByDate.Reverse }}
                             <li><a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a></li>
