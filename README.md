@@ -94,6 +94,7 @@ There are two menus in the theme. `main` and `footer`. Specify the entries in th
     name = "About"
     url = "/about/"
     weight = 10
+    pre = "<i class='fas fa-newspaper'></i>"
 
   [[menu.footer]]
     identifier = "Imprint"
