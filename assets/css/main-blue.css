@@ -11,7 +11,7 @@ a:link { color: #337ab7; }
 a:visited { color: #337ab7; }
 a:hover { color: #337ab7; }
 a:active { color: #337ab7; }
-.navbar-light .navbar-nav .nav-link { border-bottom: 0px; border-left: dotted 1px #337ab7; }
+.navbar-light .navbar-nav .nav-link { border-bottom: 0px; }
 .text-primary { color: #337ab7!important; }
 .text-secondary { color: #6c757d!important; }
 .text-muted { color: #6c757d!important; }
@@ -25,3 +25,5 @@ a:active { color: #337ab7; }
     background-color: #337ab7;
     border-color: #337ab7;
 }
+
+div.card-columns > div.card > div.card-body > h1.card-title { font-size: 1.5rem!important; }

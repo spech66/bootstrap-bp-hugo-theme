@@ -18,7 +18,7 @@ a:hover { color: #333; border-bottom: solid 2px rgba(160,160,160,.65); }
 a:active { color: #333; border-bottom: solid 2px rgba(160,160,160,.65); }
 .navbar-light .navbar-brand { border-bottom: 0px; }
 .navbar-light .navbar-brand:hover { border-bottom: 0px; } 
-.navbar-light .navbar-nav .nav-link { border-bottom: 0px; border-left: dotted 1px rgba(160,160,160,.3); }
+.navbar-light .navbar-nav .nav-link { border-bottom: 0px; }
 .navbar-light .navbar-nav .nav-link:hover { color: #999!important; }
 .dropdown-menu .dropdown-item { border-bottom: 0px; }
 a.text-primary:focus, a.text-primary:hover { color: #333!important; }
@@ -40,3 +40,5 @@ h1 a:link  { color: #333!important; border-bottom: 0px; }
     background-color: #333;
     border-color: #333;
 }
+
+div.card-columns > div.card > div.card-body > h1.card-title { font-size: 1.5rem!important; }

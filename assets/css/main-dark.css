@@ -14,7 +14,7 @@ body {
 .border-bottom { border-bottom: 0px!important; }
 .navbar-dark .navbar-brand { border-bottom: 0px; }
 .navbar-dark .navbar-brand:hover { border-bottom: 0px; } 
-.navbar-dark .navbar-nav .nav-link { border-bottom: 0px; border-left: dotted 1px #a9a9b3; }
+.navbar-dark .navbar-nav .nav-link { border-bottom: 0px; }
 .navbar-dark .navbar-nav .nav-link:hover { color: #ffffff!important; }
 a.text-primary:focus, a.text-primary:hover { color: #ffffff!important; }
 .card-body { background-color: #292a2d!important; }
@@ -52,3 +52,6 @@ h1 a:link  { color: #ffffff!important; border-bottom: 0px; }
     background-color: #333;
     border-color: #333;
 }
+.page-item.disabled { color: #fff; }
+
+div.card-columns > div.card > div.card-body > h1.card-title { font-size: 1.5rem!important; }
