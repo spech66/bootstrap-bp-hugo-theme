@@ -170,3 +170,24 @@ Icons for Social Media. Add the block to the config.
   # Email
   email            = ""
 ```
+
+## Custom CSS/JS
+
+The theme provides two ways for custom css/js. The first way is writing your styles to `/assets/css/custom.css` and scripts to `/assets/js/custom.js`. This will merge and minify the styles/scripts with the theme specific files resulting in only one file for the whole website.
+
+The second way is using the Site configuration or the post metadata to target specific files in the `/assets/` folder. This will result in one import line per script/style.
+
+```toml
+[params]
+  js=["/js/test_site.js"]
+  css=["/css/test_site.css"]
+```
+
+```yaml
+---
+js:
+    - /js/test.js
+css:
+    - /css/test.css
+---
+```

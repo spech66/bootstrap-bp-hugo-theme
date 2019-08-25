@@ -25,3 +25,13 @@
     {{ $allcss := slice $cssbootstrap $cssfontawesome $cssmain $customcss | resources.Concat "/css/vendor.css" | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $allcss.RelPermalink }}" integrity="{{ $allcss.Data.Integrity }}">
 {{ end }}
+
+{{- range .Site.Params.css }}
+    {{ $pagestyle := resources.Get . | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $pagestyle.RelPermalink }}" integrity="{{ $pagestyle.Data.Integrity }}">
+{{- end }}
+
+{{- range .Params.css }}
+    {{ $pagestyle := resources.Get . | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $pagestyle.RelPermalink }}" integrity="{{ $pagestyle.Data.Integrity }}">
+{{- end }}

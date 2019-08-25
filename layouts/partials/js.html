@@ -2,6 +2,17 @@
 {{ $bootstrap := resources.Get "/js/bootstrap.min.js" }}
 {{ $customjs := resources.Get "/js/custom.js" }}
 {{ $allscript := slice $jquery $bootstrap $customjs | resources.Concat "/js/vendor.js" | minify | fingerprint }}
-<script src="{{ $allscript.RelPermalink }}"></script>
+<script src="{{ $allscript.RelPermalink }}" integrity="{{ $allscript.Data.Integrity }}"></script>
+
+
+{{- range .Site.Params.js }}
+    {{ $pagescript := resources.Get . | minify | fingerprint }}
+    <script src="{{ $pagescript.RelPermalink }}" integrity="{{ $pagescript.Data.Integrity }}"></script>
+{{- end }}
+
+{{- range .Params.js }}
+    {{ $pagescript := resources.Get . | minify | fingerprint }}
+    <script src="{{ $pagescript.RelPermalink }}" integrity="{{ $pagescript.Data.Integrity }}"></script>
+{{- end }}
 
 {{ template "_internal/google_analytics_async.html" . }}
