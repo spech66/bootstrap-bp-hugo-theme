@@ -181,6 +181,7 @@ The second way is using the Site configuration or the post metadata to target sp
 [params]
   js=["/js/test_site.js"]
   css=["/css/test_site.css"]
+  csscdn=["https://fonts.googleapis.com/css?family=Roboto&display=swap"]
 ```
 
 ```yaml
