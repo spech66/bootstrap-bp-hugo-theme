@@ -22,7 +22,7 @@ Most settings should be done with hugo specific variables. There are only a few 
 * `customDateFormat` to override the date format.
 * `showListsGrouped` to add headers for every year.
 * `showPostSummary` only show a summary on index and lists.
-* `colorTheme` set to dark, light, blue (do not set for bootstrap default)
+* `themeColor` set to dark, light, blue (do not set for bootstrap default)
 
 ![startPageColumns = true](https://raw.githubusercontent.com/spech66/bootstrap-bp-hugo-theme/master/images/tn.png)
 
