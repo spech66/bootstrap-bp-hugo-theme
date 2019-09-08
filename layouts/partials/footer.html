@@ -1,17 +1,17 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-3 col-md">
+            <div class="col-12 col-md-3 mb-3">
                 <h5>{{ .Site.Title }}</h5>
                 {{ .Site.Params.description }}
             </div>
-            <div class="col-3 col-md">
+            <div class="col-12 col-md-3 mb-3">
                 <h5>Social</h5>
                 <ul class="list-unstyled list-inline">
                     {{- partial "social.html" . -}}
                 </ul>
             </div>
-            <div class="col-3 col-md">
+            <div class="col-12 col-md-3 mb-3">
                 <h5>Site</h5>
                 <ul class="list-unstyled">                    
                     {{ range $index, $element := .Site.Menus.footer }}
@@ -26,7 +26,7 @@
                     {{ end }}
                 </ul>
             </div>
-            <div class="col-3 col-md">
+            <div class="col-12 col-md-3 mb-3">
                 &copy; {{ now.Format "2006" }} {{ range .Site.Author }}{{ . }}{{ end }}<br/>
                 Theme by <a href="https://www.spech.de">Sebastian Pech</a>.
             </div>
