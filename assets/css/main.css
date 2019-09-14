@@ -1,9 +1,5 @@
-footer {
-    padding: 2.5rem 0;
-    color: #999;
-    background-color: #f9f9f9;
-    border-top: 0.05rem solid #e5e5e5;
-}
+footer { padding: 2.5rem 0; }
+blockquote { border-left: 2px solid #6c757d; padding-left: 10px; margin-top: 2rem; margin-bottom: 2rem; }
 
 figure > img {
     display: block;
@@ -11,7 +7,5 @@ figure > img {
     width: auto;
     height: auto;
 }
-
-.navbar-light .navbar-nav .nav-link { border-bottom: 0px; }
 
 div.card-columns > div.card > div.card-body > h1.card-title { font-size: 1.5rem!important; }

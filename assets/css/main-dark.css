@@ -1,64 +1,12 @@
-footer {
-    padding: 2.5rem 0;
-    color: #a9a9b3;
-    background-color: #252627;
-    border-top: 0px;
-}
+.navbar-light { background-color: #252627!important; }
 
-figure > img {
-    display: block;
-    max-width: 100%;
-    width: auto;
-    height: auto;
-}
+body { background-color: #a9a9b3; }
 
-body {
-    background-color: #a9a9b3;
-    color: #a9a9b3;
-}
-
-.bg-dark { background-color: #252627!important; }
-.border-bottom { border-bottom: 0px!important; }
-.navbar-dark .navbar-brand { border-bottom: 0px; }
-.navbar-dark .navbar-brand:hover { border-bottom: 0px; } 
-.navbar-dark .navbar-nav .nav-link { border-bottom: 0px; }
-.navbar-dark .navbar-nav .nav-link:hover { color: #ffffff!important; }
-a.text-primary:focus, a.text-primary:hover { color: #ffffff!important; }
-.card-body { background-color: #292a2d!important; }
-.card-footer { background-color: #252627!important; border-top: 0px; }
-.card { border: 2px solid #252627; }
-.card-footer:last-child { border-radius: 0; }
-pre { background-color: #252627!important; color: #a9a9b3; }
 .dropdown-menu { background-color: #252627!important; }
 .dropdown-item { color: #a9a9b3!important; background-color: #252627!important; }
 
-blockquote { border-left: 2px solid #a9a9b3; padding-left: 10px; margin-top: 2rem; margin-bottom: 2rem; }
-a { color: #ffffff; }
-a:link { color: #ffffff; }
-a:visited { color: #ffffff; }
-a:hover { color: #ffffff; }
-a:active { color: #ffffff; }
-.text-primary { color: #a9a9b3!important; }
-.text-secondary { color: #a9a9b3!important; }
-.text-muted { color: #a9a9b3!important; }
-.badge-primary { background-color: #a9a9b3; color: #ffffff!important; }
-.badge-secondary { background-color: #a9a9b3; color: #ffffff!important; }
-.btn-primary { background-color: #a9a9b3; color: #ffffff!important; border-color: #a9a9b3; }
-
-h1, h2, h3, h4, h5, h6 { color: #ffffff!important; }
-h1 a { color: #ffffff!important; }
-h1 a:link  { color: #ffffff!important; border-bottom: 0px; }
-
-.page-link {
-    color: #007bff;
-    background-color: #252627;
-    border: 1px solid #252627;
-}
 .page-item.active .page-link {
     color: #fff;
     background-color: #333;
     border-color: #333;
 }
-.page-item.disabled { color: #fff; }
-
-div.card-columns > div.card > div.card-body > h1.card-title { font-size: 1.5rem!important; }

@@ -1,51 +1,19 @@
-footer {
-    padding: 2.5rem 0;
-    color: #999;
-    background-color: #f9f9f9;
-    border-top: 0.05rem solid #e5e5e5;
-}
+.navbar-light { background-color: #fff!important; }
 
-figure > img {
-    display: block;
-    max-width: 100%;
-    width: auto;
-    height: auto;
-}
+body { background-color: #f4f4f4; }
 
-body {
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-blockquote { border-left: 2px solid #333; padding-left: 10px; margin-top: 2rem; margin-bottom: 2rem; }
-a { color: #333; border-bottom: dotted 2px rgba(160,160,160,.65); }
-a:link { color: #333; border-bottom: dotted 2px rgba(160,160,160,.65); }
-a:visited { color: #333; border-bottom: dotted 2px rgba(160,160,160,.65); }
-a:hover { color: #333; border-bottom: solid 2px rgba(160,160,160,.65); }
-a:active { color: #333; border-bottom: solid 2px rgba(160,160,160,.65); }
+a { border-bottom: dotted 2px rgba(160,160,160,.65); }
+a:link { border-bottom: dotted 2px rgba(160,160,160,.65); }
+a:visited { border-bottom: dotted 2px rgba(160,160,160,.65); }
+a:hover { border-bottom: solid 2px rgba(160,160,160,.65); }
+a:active { border-bottom: solid 2px rgba(160,160,160,.65); }
 .navbar-light .navbar-brand { border-bottom: 0px; }
 .navbar-light .navbar-brand:hover { border-bottom: 0px; } 
 .navbar-light .navbar-nav .nav-link { border-bottom: 0px; }
-.navbar-light .navbar-nav .nav-link:hover { color: #999!important; }
 .dropdown-menu .dropdown-item { border-bottom: 0px; }
-a.text-primary:focus, a.text-primary:hover { color: #333!important; }
-.text-primary { color: #333!important; }
-.text-secondary { color: #333!important; }
-.text-muted { color: #999!important; }
-.badge-primary { background-color: #333; color: #ffffff!important; }
-.badge-secondary { background-color: #333; color: #ffffff!important; }
-.btn-primary { background-color: #333; color: #ffffff!important; border-color: #333; }
-.bg-white { background-color: #fff; border-bottom: solid 1px rgba(160,160,160,.3); }
-.shadow-sm { box-shadow: 0 0 0!important; }
-
-h1, h2, h3, h4, h5, h6 { color: #333!important; }
-h1 a { color: #333!important; border-bottom: 0px; }
-h1 a:link  { color: #333!important; border-bottom: 0px; }
-
-.page-item.active .page-link {
-    color: #fff;
-    background-color: #333;
-    border-color: #333;
-}
-
-div.card-columns > div.card > div.card-body > h1.card-title { font-size: 1.5rem!important; }
+h1 a { border-bottom: 0px; }
+h1 a:link  { border-bottom: 0px; }
+a.fab { border-bottom: 0px; }
+a.fas { border-bottom: 0px; }
+a.badge { border-bottom: 0px; }
+a.page-link { border-bottom: 1px solid rgba(160,160,160,.65); }

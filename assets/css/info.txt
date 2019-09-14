@@ -1,0 +1,47 @@
+Generate minified CSS using https://themestr.app/theme
+Create bootstrap-NAME.min.css as base.
+Overwrite main-NAME.css for extra stuff.
+
+# *-default.css
+
+# *-blue.css
+$primary:#337ab7;
+$secondary:#6c757d;
+$success:#28a745;
+$danger:#dc3545;
+$info:#17a2b8;
+$warning:#ffc107;
+$light:#f8f9fa;
+$dark:#6c757d;
+@import "bootstrap";
+
+# *-light.css
+$primary:#333333;
+$secondary:#333333;
+$success:#28a745;
+$danger:#dc3545;
+$info:#17a2b8;
+$warning:#ffc107;
+$light:#f8f9fa;
+$dark:#6c757d;
+@import "bootstrap";
+
+# *-dark.css
+$primary:#a9a9b3;
+$secondary:#a9a9b3;
+$success:#28a745;
+$danger:#dc3545;
+$info:#17a2b8;
+$warning:#ffc107;
+$light:#a9a9b3;
+$dark:#252627;
+$body-bg:$dark;
+$body-color:#a9a9b3;
+$white:#a9a9b3;
+$black:#252627;
+$link-color:#f0f0f0;
+$link-hover-color:darken($link-color,20%);
+$navbar-dark-hover-color:$white;
+$card-border-color:rgba($black, 0.6);
+$card-bg:lighten($body-bg, 5%);
+@import "bootstrap";
