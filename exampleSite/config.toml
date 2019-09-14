@@ -1,13 +1,23 @@
-baseURL = "https://example.com/"
-languageCode = "en-US"
-title = "My New Hugo Site"
-theme = "bootstrap-bp-hugo-theme"
-# googleAnalytics = "UA-123-45"
+ignoreFiles = ["content/posts/\\.*","content/portfolio/\\.*","content/product/\\.*","content/sketch/\\.*","content/en/\\.*","content/fr/\\.*"]
+baseURL = "https://gohugo.io/"
+title = "Hugo Themes"
+# author = "Steve Francia"
+# copyright = "Copyright © 2008–2019, Steve Francia and the Hugo Authors; all rights reserved."
+# paginate = 3
+languageCode = "en"
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+footnoteReturnLinkContents = "^"
+
+# Theme specific examples
+author = "Sebastian Pech"
 copyright = "Sebastian Pech"
+# googleAnalytics = "UA-123-45"
 enableRobotsTXT = true
 pygmentsCodeFences = true
 canonifyurls = true
-paginate = 5
+paginate = 6
+theme="bootstrap-bp-hugo-theme"
 
 [sitemap]
     changefreq = "weekly"
@@ -26,5 +36,119 @@ paginate = 5
   description = "Text about the site"
   #images = ["logo.jpg"]
   showPostSummary = true
-  startPageColumns = true
-  # customDateFormat = "02.01.2006"
+  # startPageColumns = true
+  showListsGrouped = true
+  # alwaysExpandMenu = true
+  customDateFormat = "02.01.2006"
+  # hideReadingTime = true
+  themeColor="dark" # dark, light, blue, do not set for bootstrap default
+  # js=["/js/test_site.js"]
+  # css=["/css/test_site.css"]
+  # csscdn=["https://fonts.googleapis.com/css?family=Concert+One|Roboto&display=swap"]
+
+
+
+# Sets Social Media icons to appear and link to your account. Value should be your
+# username unless otherwise noted.
+# Code from https://themes.gohugo.io/future-imperfect/ theme
+[social]
+  # Coding Communities
+  github           = "a"
+  gitlab           = "a"
+  stackoverflow    = "a" # User Number
+  bitbucket        = "a"
+  jsfiddle         = "a"
+  codepen          = "a"
+  # Visual Art Communities
+  deviantart       = "a"
+  flickr           = "a"
+  behance          = "a"
+  dribbble         = "a"
+  # Publishing Communities
+  wordpress        = "a"
+  medium           = "a"
+  # Professional/Business Oriented Communities
+  linkedin         = "a"
+  linkedin_company = "a"
+  foursquare       = "a"
+  xing             = "a"
+  slideshare       = "a"
+  # Social Networks
+  facebook         = "spechde" # https://fb.me/flowartsde
+  googleplus       = "a"
+  reddit           = "a"
+  quora            = "a"
+  youtube          = "" 
+  vimeo            = "a"
+  whatsapp         = "a" # WhatsApp Number
+  instagram        = "sebastian_pech"
+  tumblr           = "a"
+  twitter          = "a"
+  skype            = "a"
+  snapchat         = "a"
+  pinterest        = "a"
+  telegram         = "a"
+  # Email
+  email            = "a"
+
+
+[menu]
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 10
+    pre = "<i class='fas fa-heart'></i>"
+
+  [[menu.footer]]
+    identifier = "xxx"
+    name = "xxx"
+    url = "/xxx/"
+    weight = 10
+
+  [[menu.footer]]
+    identifier = "categories"
+    name = "Categories"
+    url = "/categories/"
+    weight = 20
+
+  [[menu.footer]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 30
+    pre = "<i class='fas fa-heart'></i>"
+
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+series = "series"
+
+[privacy]
+
+  [privacy.vimeo]
+    disabled = false
+    simple = true
+
+  [privacy.twitter]
+    disabled = false
+    enableDNT = true
+    simple = true
+
+  [privacy.instagram]
+    disabled = false
+    simple = true
+
+  [privacy.youtube]
+    disabled = false
+    privacyEnhanced = true
+
+[services]
+
+  [services.instagram]
+    disableInlineCSS = true
+
+  [services.twitter]
+    disableInlineCSS = true

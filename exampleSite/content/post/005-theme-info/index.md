@@ -1,9 +1,9 @@
 ---
 title: "Theme Info"
 type: post
-date: 2018-10-28T08:59:27+01:00
-publishdate: 2018-10-28
-lastmod: 2018-10-28
+date: 2019-08-17T08:59:27+01:00
+publishdate: 2019-08-17
+lastmod: 2019-08-17
 description: "Information about the theme"
 tags:
     - Code
@@ -11,8 +11,10 @@ tags:
     - Test
     - Table
     - Quote
+    - Aöäüß
 categories:
     - Theme
+    - Aöäüß
 ---
 
 ## Headline 2
