@@ -1,0 +1,15 @@
+{{ if eq .Type "video" }}
+    <div class="w-100">
+        {{ if .Scratch.Get "fullsize" }}
+            <iframe src="https://www.youtube-nocookie.com/embed/{{ .Params.youtube }}?rel=0" width="100%" height="600px" frameborder="0" allowfullscreen></iframe>
+        {{ else }}
+            <iframe src="https://www.youtube-nocookie.com/embed/{{ .Params.youtube }}?rel=0" width="100%" height="200px" frameborder="0" allowfullscreen></iframe>
+        {{ end }}
+    </div>
+{{ else if eq .Type "audio" }}
+    <div class="w-100">
+        <iframe src="https://open.spotify.com/embed?uri={{ .Params.spotify }}" width="100%" height="80" frameborder="0" allowtransparency="true"></iframe>
+    </div>
+{{ else if eq .Type "link" }}
+{{ else if eq .Type "quote" }}
+{{ end }}

@@ -1,6 +1,18 @@
 {{ $jquery := resources.Get "/js/jquery-3.3.1.slim.min.js" }}
 {{ $bootstrap := resources.Get "/js/bootstrap.min.js" }}
-{{ $allscript := slice $jquery $bootstrap | resources.Concat "/js/vendor.js" | minify | fingerprint }}
-<script src="{{ $allscript.RelPermalink }}"></script>
+{{ $customjs := resources.Get "/js/custom.js" }}
+{{ $allscript := slice $jquery $bootstrap $customjs | resources.Concat "/js/vendor.js" | minify | fingerprint }}
+<script src="{{ $allscript.RelPermalink }}" integrity="{{ $allscript.Data.Integrity }}"></script>
+
+
+{{- range .Site.Params.js }}
+    {{ $pagescript := resources.Get . | minify | fingerprint }}
+    <script src="{{ $pagescript.RelPermalink }}" integrity="{{ $pagescript.Data.Integrity }}"></script>
+{{- end }}
+
+{{- range .Params.js }}
+    {{ $pagescript := resources.Get . | minify | fingerprint }}
+    <script src="{{ $pagescript.RelPermalink }}" integrity="{{ $pagescript.Data.Integrity }}"></script>
+{{- end }}
 
 {{ template "_internal/google_analytics_async.html" . }}

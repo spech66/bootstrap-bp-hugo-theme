@@ -1,19 +1,24 @@
 {{ define "main" }}
 
 <div class="container mt-3 mb-3">
+    <!--<h1><a href="{{ .RelPermalink }}">{{ .Site.Title }}</a></h1>-->
+
+    {{ $paginator := .Paginate ( where .Site.RegularPages.ByPublishDate.Reverse "Type" "!=" "page") }}
     {{ if .Site.Params.startPageColumns }}
         <div class="card-columns">
-            {{ range where .Pages.ByPublishDate.Reverse "Section" "post" }}
+            {{ range $paginator.Pages }}
                 {{- partial "content_summary.html" . -}}
             {{ end }}
         </div>
     {{ else }}
-        {{ range where .Pages.ByPublishDate.Reverse "Section" "post" }}
+        {{ range $paginator.Pages }}
             <div class="mb-3">
                 {{- partial "content_summary.html" . -}}
             </div>
         {{ end }}
     {{ end }}
+    
+    {{ template "_internal/pagination.html" . }}
 </div>
 
 {{ end }}

@@ -1,6 +1,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="author" content="{{ range .Site.Author }}{{ . }}{{ end }}">
 <link rel="icon" href="/favicon.ico">
 <!--<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -13,8 +13,29 @@
 {{ if .Site.RSSLink }}<link rel="alternate" href="{{ .Site.RSSLink }}" type="application/rss+xml" title="{{ .Site.Title }}"/>{{ end }}
 
 {{ $cssbootstrap := resources.Get "/css/bootstrap.min.css" }}
-{{ $cssmain := resources.Get "/css/main.css" }}
-{{ $allcss := slice $cssbootstrap $cssmain | resources.Concat "/css/vendor.css" | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $allcss.RelPermalink }}" integrity="{{ $allcss.Data.Integrity }}">
-<link rel="stylesheet" href="{{.Site.BaseURL}}/css/style.css">
+{{ $cssfontawesome := resources.Get "/css/fontawesome-free-5.10.1-web-all.min.css" }}
+{{ $customcss := resources.Get "/css/custom.css" }}
 
+{{ if .Site.Params.themeColor }}
+    {{ $cssmain := resources.Get (printf "/css/main-%s.css" .Site.Params.themeColor) }}
+    {{ $allcss := slice $cssbootstrap $cssfontawesome $cssmain $customcss | resources.Concat "/css/vendor.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $allcss.RelPermalink }}" integrity="{{ $allcss.Data.Integrity }}">
+{{ else }}
+    {{ $cssmain := resources.Get "/css/main.css" }}
+    {{ $allcss := slice $cssbootstrap $cssfontawesome $cssmain $customcss | resources.Concat "/css/vendor.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $allcss.RelPermalink }}" integrity="{{ $allcss.Data.Integrity }}">
+{{ end }}
+
+{{- range .Site.Params.csscdn }}
+    <link rel="stylesheet" href="{{ . }}">
+{{- end }}
+
+{{- range .Site.Params.css }}
+    {{ $pagestyle := resources.Get . | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $pagestyle.RelPermalink }}" integrity="{{ $pagestyle.Data.Integrity }}">
+{{- end }}
+
+{{- range .Params.css }}
+    {{ $pagestyle := resources.Get . | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $pagestyle.RelPermalink }}" integrity="{{ $pagestyle.Data.Integrity }}">
+{{- end }}

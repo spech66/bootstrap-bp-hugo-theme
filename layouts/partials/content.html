@@ -5,32 +5,41 @@
     {{- $images := $.Resources.ByType "image" -}}
     {{- $featured := $images.GetMatch "*feature*" -}}
     {{- $featured := cond (ne $featured nil) $featured ($images.GetMatch "{*cover*,*thumbnail*}") -}}
+    {{- $featured := cond (ne $.Params.featured_image nil) (.Page.Resources.GetMatch (printf "*%s" $.Params.featured_image)) $featured -}}
     {{ $sitetitle := (.Title) }}
     {{- with $featured -}}
         {{ $thumb := .Resize "800x" }}
         <img class="card-img-top" src="{{ $thumb.RelPermalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
     {{ end }}
+    {{ .Scratch.Set "fullsize" true }}
+    {{- partial "content_type_header.html" . -}}
 
     <div class="card-body">
         <h1 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h1>
         <h6 class="card-subtitle mb-2 text-muted">
-            {{ .PublishDate.Format $customDateFormat }}{{ if gt .Lastmod .PublishDate }}, last updated {{ .Lastmod.Format $customDateFormat }}{{ end }}
+            <i class="fas fa-calendar-day"></i>&nbsp;{{ .PublishDate.Format $customDateFormat }}{{ if gt .Lastmod .PublishDate }}, last updated {{ .Lastmod.Format $customDateFormat }}{{ end }} - 
+            <i class="fas fa-user"></i>&nbsp;{{ range .Site.Author }}{{ . }}{{ end }} -
+            <i class="fas fa-clock"></i>&nbsp;~{{ if le .ReadingTime 1 }}1 Minute{{ else }}{{ .ReadingTime }} Minutes{{ end }}
         </h6>
 
+        {{- partial "content_type_body.html" . -}}
         <p class="card-text">{{ .Content }}</p>
-
     </div>
+
     <div class="card-footer">
         <small class="text-muted">
             {{ if ne .Type "page" }}
                 {{ if gt .Params.categories 0 }}
+                    <i class="fas fa-folder text-primary"></i>&nbsp;
                     {{ range .Params.categories }}
-                        <a href="{{ "/categories/" | relURL }}#{{ . | urlize }}" class="badge badge-primary"><span>{{ . | urlize }}</span></a>
+                        <a href="{{ "/categories/" | relURL }}#{{ . | urlize }}" class="badge badge-primary"><span>{{ . }}</span></a>
                     {{ end }}
+                    <br />
                 {{ end }}
                 {{ if gt .Params.tags 0 }}
+                    <i class="fas fa-tags text-secondary"></i>&nbsp; 
                     {{ range .Params.tags }}
-                        <a href="{{ "/tags/" | relURL }}#{{ . | urlize }}" class="badge badge-secondary"><span>{{ . | urlize }}</span></a>
+                        <a href="{{ "/tags/" | relURL }}#{{ . | urlize }}" class="badge badge-secondary"><span>{{ . }}</span></a>
                     {{ end }}
                 {{ end }}
             {{ end }}

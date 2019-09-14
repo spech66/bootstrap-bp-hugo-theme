@@ -1,5 +1,14 @@
-<nav class="navbar navbar-light navbar-expand-lg bg-white border-bottom shadow-sm">
-        
+{{ $alwaysExpandMenu := "" }}
+{{ if and (.Site.Params.alwaysExpandMenu) (eq .Site.Params.alwaysExpandMenu true) }}
+    {{ $alwaysExpandMenu = "navbar-expand-lg" }}
+{{ end }}
+
+{{ $navClasses := "navbar-light bg-white" }}
+{{ if and (.Site.Params.themeColor) (eq .Site.Params.themeColor "dark") }}
+    {{ $navClasses = "navbar-dark bg-dark" }}
+{{ end }}
+
+<nav class="navbar {{ $navClasses }} {{ $alwaysExpandMenu }} border-bottom">
     <div class="container">
         <a class="navbar-brand text-primary" href="/">{{ .Site.Title }}</a>
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse"
@@ -8,31 +17,26 @@
         </button>
 
         <div class="navbar-collapse collapse" id="navbarCollapse">
-
             <ul class="navbar-nav mr-auto">
                 {{ $currentPage := . }}
                 {{ range $index, $element := .Site.Menus.main }}
                     {{ if .HasChildren }}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-primary" href="#" id="dropdown{{$index}}" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">{{ .Name }}</a>
+                                aria-haspopup="true" aria-expanded="false">{{ .Pre }} {{ .Name }}</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown{{$index}}">
                             {{ range .Children }}
-                                <a class="dropdown-item text-primary" href="{{ .URL }}">{{ .Name }}</a>
+                                <a class="dropdown-item text-primary" href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a>
                             {{ end }}
                             </div>
                         </li>
                     {{ else }}
                         <li class="nav-item">
-                            <a class="nav-link text-primary" href="{{ .URL }}">{{ .Name }}</a>
+                            <a class="nav-link text-primary" href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a>
                         </li>
                     {{ end }}
                 {{ end }}
             </ul>
-
-            <!--<form class="form-inline my-2 my-md-0">
-                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-            </form>-->
         </div>
     </div>
 </nav>

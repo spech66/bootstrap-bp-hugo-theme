@@ -1,13 +1,49 @@
 {{- define "main" -}}
 
-<div class="container">
-    <h1>Posts</h1>
-    {{ range .Pages }}
-    <article>
-        <h2>{{ .Title }}</h2>
-        {{ .Content }}
-    </article>
-    {{ end }}
+{{ $customDateFormat := "02.01.2006" }}
+{{ with .Site.Params.customDateFormat }}{{ $customDateFormat = . }}{{ end }}
+{{ $sitetitle := (.Title) }}
 
-    {{- end -}}
+<div class="container mt-3 mb-3">
+    {{ if .Site.Params.showListsGrouped }}
+        <div class="mb-3">       
+            <div class="card">
+                <div class="card-body">
+                    <h1>{{ $sitetitle }}</h1>
+                    {{ range $key, $value := .Pages.GroupByDate "2006" }}
+                        <a href="#{{ .Key | urlize }}" class="badge badge-primary"><span>{{ .Key }}</span> <span class="badge badge-light">{{ len .Pages }}</span></a>
+                    {{ end}}
+                </div>
+            </div>
+        </div>
+        {{ range .Pages.GroupByDate "2006" }} 
+            <div class="mb-3">    
+                <div class="card">
+                    <div class="card-body">  
+                        <h2 id="{{ .Key | urlize }}">{{ .Key }}</h2>
+                        <ul>
+                            {{ range .Pages }}
+                                <li>{{ .PublishDate.Format $customDateFormat }} - <a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a></li>
+                            {{ end}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {{ end }}
+    {{ else }}
+        <div class="mb-3">    
+            <div class="card">
+                <div class="card-body">  
+                    <h1>{{ .Title }}</h1>
+                    <ul>
+                        {{ range .Pages.ByPublishDate.Reverse }}
+                            <li>{{ .PublishDate.Format $customDateFormat }} - <a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a></li>
+                        {{ end}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {{ end }}
 </div>
+
+{{- end -}}

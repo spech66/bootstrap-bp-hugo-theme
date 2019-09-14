@@ -1,24 +1,34 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-3 col-md">
+            <div class="col-12 col-md-3 mb-3">
                 <h5>{{ .Site.Title }}</h5>
-                &copy; {{ now.Format "2006" }} {{ range .Site.Author }}{{ . }}{{ end }}                
+                {{ .Site.Params.description }}
             </div>
-            <div class="col-3 col-md">
-                <h5>&nbsp;</h5>
-                &nbsp;
-            </div>
-            <div class="col-3 col-md">
-                <h5>&nbsp;</h5>
-                &nbsp;
-            </div>
-            <div class="col-3 col-md">
-                <h5>Site</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="/categories/">Kategorie</a></li>
-                    <li><a class="text-muted" href="/tags/">Tagi</a></li>
+            <div class="col-12 col-md-3 mb-3">
+                <h5>Social</h5>
+                <ul class="list-unstyled list-inline">
+                    {{- partial "social.html" . -}}
                 </ul>
+            </div>
+            <div class="col-12 col-md-3 mb-3">
+                <h5>Site</h5>
+                <ul class="list-unstyled">
+                    {{ range $index, $element := .Site.Menus.footer }}
+                        {{ if .HasChildren }}
+                            <li><a class="text-muted" href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a></li>
+                            {{ range .Children }}
+                                <li><a class="text-muted" href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a></li>
+                            {{ end }}
+                        {{ else }}
+                            <li><a class="text-muted" href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a></li>
+                        {{ end }}
+                    {{ end }}
+                </ul>
+            </div>
+            <div class="col-12 col-md-3 mb-3">
+                &copy; {{ now.Format "2006" }} {{ range .Site.Author }}{{ . }}{{ end }}<br/>
+                Theme by <a href="https://www.spech.de">Sebastian Pech</a>.
             </div>
         </div>
     </div>
