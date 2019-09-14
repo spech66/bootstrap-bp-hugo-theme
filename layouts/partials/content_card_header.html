@@ -19,10 +19,10 @@
     {{ $fullsize := .Scratch.Get "fullsize" }}
     {{- with $featured -}}
         {{ if $fullsize }}
-            {{ $thumb := .Resize "360x" }}
+            {{ $thumb := .Resize "1108x" }}
             <img class="card-img-top" src="{{ $thumb.RelPermalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
         {{ else }}
-            {{ $thumb := .Resize "800x" }}
+            {{ $thumb := .Resize "360x" }}
             <img class="card-img-top" src="{{ $thumb.RelPermalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
         {{ end }}
     {{ end }}
