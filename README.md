@@ -1,6 +1,14 @@
+
 # Bootstrap-BP hugo theme
 
 [Bootstrap v4](https://getbootstrap.com/) based Hugo theme which provides out of the box best practices like performance and SEO readiness. Featured images will be resized automatically. This is based on the [Hugo docs](https://gohugo.io/templates/homepage/), [hugo-best-practices](https://github.com/spech66/hugo-best-practices), [Front-End Checklist](https://github.com/thedaviddias/Front-End-Checklist) and the [Front-End Performance Checklist](https://github.com/thedaviddias/Front-End-Performance-Checklist). Contains four different color themes.
+
+<!-- START doctoc -->
+<!-- END doctoc -->
+
+## Features
+
+* x
 
 ## Install the theme
 
@@ -14,9 +22,27 @@ git clone https://github.com/spech66/bootstrap-bp-hugo-theme.git
 
 You can get a zip of the latest version of the theme from the [home page](https://github.com/spech66/bootstrap-bp-hugo-theme) and extract it to the themes folder.
 
-## Theme settings
+
+## Update the theme
+
+Go to the themes folder as in the installation and run the following command.
+
+```sh
+git pull
+```
+
+## Run example site
+
+Go to the `exampleSite` folder from the theme `themes/cupper-hugo-theme/exampleSite` and run the following command.
+
+```sh
+hugo server --themesDir ../..
+```
+
+## Configuration and theme specific settings
 
 Most settings should be done with hugo specific variables. There are only a few (optional) additional `[params]`.
+Use the `config.toml` from the `exampleSite` subdirectory as base.
 
 * `startPageColumns = true` will show the start page in a Masonry-like mode.
 * `customDateFormat = "02.01.2006"` to override the date format.
@@ -26,13 +52,19 @@ Most settings should be done with hugo specific variables. There are only a few 
 * `themeColor` set to dark, light, blue (do not set for bootstrap default).
 * `hideReadingTime` to hide reading time.
 
+## Screenshots of cofigurations
+
+`startPageColumns = false`
+
 ![startPageColumns = false](https://raw.githubusercontent.com/spech66/bootstrap-bp-hugo-theme/master/images/tn.png)
+
+`startPageColumns = true`
 
 ![startPageColumns = true](https://raw.githubusercontent.com/spech66/bootstrap-bp-hugo-theme/master/images/tn2.png)
 
 ## Google Analytics
 
-This theme uses the internal asynchronous template for Google Analytics tracking. You only have to provide your tracking id in your configuration file:
+This theme uses the internal asynchronous template for Google Analytics tracking. You only have to provide your tracking id in your configuration file.
 
 ```yaml
 googleAnalytics = "UA-123-45"
@@ -40,7 +72,7 @@ googleAnalytics = "UA-123-45"
 
 ## Page templates / archetypes
 
-This theme has support for the following archetypes:
+This theme has support for the following archetypes. Based on the specified types the layout and functionality of a page is slightly changed.
 
 * Page (not on the startpage)
 * Post (regular post/blog pages)
