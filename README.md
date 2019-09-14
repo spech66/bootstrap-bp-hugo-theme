@@ -19,14 +19,15 @@ You can get a zip of the latest version of the theme from the [home page](https:
 Most settings should be done with hugo specific variables. There are only a few (optional) additional `[params]`.
 
 * `startPageColumns = true` will show the start page in a Masonry-like mode.
-* `customDateFormat` to override the date format.
-* `showListsGrouped` to add headers for every year.
-* `showPostSummary` only show a summary on index and lists.
+* `customDateFormat = "02.01.2006"` to override the date format.
+* `showListsGrouped = true` to add headers for every year.
+* `showPostSummary = true` to only show a summary on index and lists.
+* `alwaysExpandMenu = true` to expand the menu on non-mobile devices otherwise the mobile button is shown on all devices.
 * `themeColor` set to dark, light, blue (do not set for bootstrap default)
 
-![startPageColumns = true](https://raw.githubusercontent.com/spech66/bootstrap-bp-hugo-theme/master/images/tn.png)
+![startPageColumns = false](https://raw.githubusercontent.com/spech66/bootstrap-bp-hugo-theme/master/images/tn.png)
 
-![startPageColumns = false](https://raw.githubusercontent.com/spech66/bootstrap-bp-hugo-theme/master/images/tn2.png)
+![startPageColumns = true](https://raw.githubusercontent.com/spech66/bootstrap-bp-hugo-theme/master/images/tn2.png)
 
 ## Google Analytics
 

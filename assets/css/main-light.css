@@ -5,6 +5,13 @@ footer {
     border-top: 0.05rem solid #e5e5e5;
 }
 
+figure > img {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
 body {
     background-color: #f4f4f4;
     color: #333;

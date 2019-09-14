@@ -1,14 +1,14 @@
-{{ if .Site.Params.themeColor }}    
-    {{ if eq .Site.Params.themeColor "dark" }}
-        <nav class="navbar navbar-dark bg-dark border-bottom">    
-    {{ else }}
-        <nav class="navbar navbar-light bg-white border-bottom">
-    {{ end }}
-{{ else }}
-    <nav class="navbar navbar-light bg-white border-bottom">
-    <!--<nav class="navbar navbar-light navbar-expand-lg bg-white border-bottom">-->
+{{ $alwaysExpandMenu := "" }}
+{{ if and (.Site.Params.alwaysExpandMenu) (eq .Site.Params.alwaysExpandMenu true) }}
+    {{ $alwaysExpandMenu = "navbar-expand-lg" }}
 {{ end }}
 
+{{ $navClasses := "navbar-light bg-white" }}
+{{ if and (.Site.Params.themeColor) (eq .Site.Params.themeColor "dark") }}
+    {{ $navClasses = "navbar-dark bg-dark" }}
+{{ end }}
+
+<nav class="navbar {{ $navClasses }} {{ $alwaysExpandMenu }} border-bottom">
     <div class="container">
         <a class="navbar-brand text-primary" href="/">{{ .Site.Title }}</a>
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse"
@@ -39,5 +39,4 @@
             </ul>
         </div>
     </div>
-
 </nav>

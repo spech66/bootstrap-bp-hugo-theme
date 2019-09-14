@@ -5,6 +5,13 @@ footer {
     border-top: 0.05rem solid #e5e5e5;
 }
 
+figure > img {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
 .navbar-light .navbar-nav .nav-link { border-bottom: 0px; }
 
 div.card-columns > div.card > div.card-body > h1.card-title { font-size: 1.5rem!important; }
