@@ -4,7 +4,6 @@
 {{ $allscript := slice $jquery $bootstrap $customjs | resources.Concat "/js/vendor.js" | minify | fingerprint }}
 <script src="{{ $allscript.RelPermalink }}" integrity="{{ $allscript.Data.Integrity }}"></script>
 
-
 {{- range .Site.Params.js }}
     {{ $pagescript := resources.Get . | minify | fingerprint }}
     <script src="{{ $pagescript.RelPermalink }}" integrity="{{ $pagescript.Data.Integrity }}"></script>

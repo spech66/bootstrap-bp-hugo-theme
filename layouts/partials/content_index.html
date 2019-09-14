@@ -1,0 +1,10 @@
+<div class="card">
+    {{ $startPageColumns := .Site.Params.startPageColumns }}
+    {{ .Scratch.Set "fullsize" (not $startPageColumns) }}
+    {{- partial "content_card_header.html" . -}}
+
+    {{ .Scratch.Set "showPostSummary" .Site.Params.showPostSummary }}
+    {{- partial "content_card_body.html" . -}}
+
+    {{- partial "content_card_footer.html" . -}}
+</div>

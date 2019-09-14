@@ -1,7 +1,7 @@
 {{ define "main" }}
 
-<div class="container mt-3 mb-3"> 
-    <div class="mb-3">       
+<div class="container mt-3 mb-3">
+    <div class="mb-3">
         <div class="card">
             <div class="card-body">
                 <h1>{{ .Title }}</h1>
@@ -11,11 +11,11 @@
             </div>
         </div>
     </div>
-                 
+
     {{ range $key, $value := .Data.Terms }}
-        <div class="mb-3">    
+        <div class="mb-3">
             <div class="card">
-                        <div class="card-body">  
+                        <div class="card-body">
                     <h2 id="{{ $key | urlize }}">{{ $key }}</h2>
                     <ul>
                         {{ range $value.Pages.ByDate.Reverse }}
@@ -25,7 +25,7 @@
                 </div>
             </div>
         </div>
-    {{ end}} 
+    {{ end}}
 </div>
 
 {{ end }}

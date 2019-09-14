@@ -24,7 +24,7 @@ Most settings should be done with hugo specific variables. There are only a few 
 * `showPostSummary = true` to only show a summary on index and lists.
 * `alwaysExpandMenu = true` to expand the menu on non-mobile devices otherwise the mobile button is shown on all devices.
 * `themeColor` set to dark, light, blue (do not set for bootstrap default).
-* `hideReadingTime` to hide reading time on "Read more" links in summaries.
+* `hideReadingTime` to hide reading time.
 
 ![startPageColumns = false](https://raw.githubusercontent.com/spech66/bootstrap-bp-hugo-theme/master/images/tn.png)
 

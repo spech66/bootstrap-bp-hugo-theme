@@ -22,7 +22,6 @@
 {{ $cssmain := resources.Get "/css/main.css" }}
 {{ $csstheme := resources.Get (printf "/css/main-%s.css" $themeColor) }}
 {{ $customcss := resources.Get "/css/custom.css" }}
-
 {{ $allcss := slice $cssbootstrap $cssfontawesome $cssmain $csstheme $customcss | resources.Concat "/css/vendor.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $allcss.RelPermalink }}" integrity="{{ $allcss.Data.Integrity }}">
 

@@ -1,0 +1,29 @@
+{{ if eq .Type "video" }}
+    <div class="w-100">
+        {{ if .Scratch.Get "fullsize" }}
+            <iframe src="https://www.youtube-nocookie.com/embed/{{ .Params.youtube }}?rel=0" width="100%" height="600px" frameborder="0" allowfullscreen></iframe>
+        {{ else }}
+            <iframe src="https://www.youtube-nocookie.com/embed/{{ .Params.youtube }}?rel=0" width="100%" height="200px" frameborder="0" allowfullscreen></iframe>
+        {{ end }}
+    </div>
+{{ else if eq .Type "audio" }}
+    <div class="w-100">
+        <iframe src="https://open.spotify.com/embed?uri={{ .Params.spotify }}" width="100%" height="80" frameborder="0" allowtransparency="true"></iframe>
+    </div>
+{{ else }}
+    {{- $images := $.Resources.ByType "image" -}}
+    {{- $featured := $images.GetMatch "*feature*" -}}
+    {{- $featured := cond (ne $featured nil) $featured ($images.GetMatch "{*cover*,*thumbnail*}") -}}
+    {{- $featured := cond (ne $.Params.featured_image nil) (.Page.Resources.GetMatch (printf "*%s" $.Params.featured_image)) $featured -}}
+    {{ $sitetitle := (.Title) }}
+    {{ $fullsize := .Scratch.Get "fullsize" }}
+    {{- with $featured -}}
+        {{ if $fullsize }}
+            {{ $thumb := .Resize "360x" }}
+            <img class="card-img-top" src="{{ $thumb.RelPermalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
+        {{ else }}
+            {{ $thumb := .Resize "800x" }}
+            <img class="card-img-top" src="{{ $thumb.RelPermalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
+        {{ end }}
+    {{ end }}
+{{ end }}

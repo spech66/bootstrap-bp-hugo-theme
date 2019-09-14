@@ -1,0 +1,37 @@
+{{ $customDateFormat := "02.01.2006" }}
+{{ with .Site.Params.customDateFormat }}{{ $customDateFormat = . }}{{ end }}
+
+<div class="card-body">
+    <h1 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h1>
+    <h6 class="card-subtitle mb-2 text-muted">
+        <i class="fas fa-calendar-day"></i>&nbsp;{{ .PublishDate.Format $customDateFormat }}{{ if gt .Lastmod .PublishDate }}, last updated {{ .Lastmod.Format $customDateFormat }}{{ end }} -
+        <i class="fas fa-user"></i>&nbsp;{{ range .Site.Author }}{{ . }}{{ end }}
+        {{ if ne .Site.Params.hideReadingTime true }}
+            {{ if and (not (.Scratch.Get "showPostSummary")) (.Scratch.Get "fullsize") }}
+                - <i class="fas fa-clock"></i>&nbsp;~{{ if le .ReadingTime 1 }}1 Minute{{ else }}{{ .ReadingTime }} Minutes{{ end }}
+            {{ end }}
+        {{ end }}
+    </h6>
+
+    {{ if eq .Type "video" }}
+    {{ else if eq .Type "audio" }}
+    {{ else if eq .Type "link" }}
+        <p class="text-center"><a href="{{ .Params.link }}" target="_blank" class="btn btn-primary btn-lg" tabindex="-1" role="button"><i class="fas fa-link"></i>&nbsp;{{ .Title }}</a></p>
+    {{ else if eq .Type "quote" }}
+        <blockquote class="blockquote text-center">
+            <p class="mb-0"><i class="fas fa-quote-left fa-2x"></i>&nbsp;{{ .Params.quote }}&nbsp;<i class="fas fa-quote-right fa-2x"></i></p>
+            <p class="blockquote-footer"><cite title="{{ .Params.quoteauthor }}">{{ .Params.quoteauthor }}</cite></p>
+        </blockquote>
+    {{ end }}
+
+    {{ if .Scratch.Get "showPostSummary" }}
+        <p class="card-text">{{ .Summary }}</p>
+
+        <a href="{{ .RelPermalink }}" class="card-link">Read more&hellip;</a>
+        {{ if ne .Site.Params.hideReadingTime true }}
+             (<i class="fas fa-clock"></i>&nbsp;~{{ .ReadingTime }} Min.)
+        {{end}}
+    {{ else }}
+        <p class="card-text">{{ .Content }}</p>
+    {{ end }}
+</div>

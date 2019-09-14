@@ -20,7 +20,7 @@
             alt="{{ with $alt }}{{ . }}{{ else }}{{ $caption | markdownify| plainify }}{{ end }}"
             {{- end -}}
         />
-    {{ end }}    
+    {{ end }}
 {{ end }}
     {{- if .Get "link" }}</a>{{ end -}}
     {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr") -}}
