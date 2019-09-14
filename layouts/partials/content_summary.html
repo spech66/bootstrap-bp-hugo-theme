@@ -30,8 +30,10 @@
         {{ if eq .Site.Params.showPostSummary true }}
             {{- partial "content_type_body.html" . -}}
             <p class="card-text">{{ .Summary }}</p>
+            
+            <a href="{{ .RelPermalink }}" class="card-link">Read more&hellip;</a>
             {{ if ne .Site.Params.hideReadingTime true }}
-                <a href="{{ .RelPermalink }}" class="card-link">Read more&hellip;</a> (<i class="fas fa-clock"></i>&nbsp;~{{ .ReadingTime }} Min.)
+                 (<i class="fas fa-clock"></i>&nbsp;~{{ .ReadingTime }} Min.)
             {{end}}
         {{ else }}
             {{- partial "content_type_body.html" . -}}
