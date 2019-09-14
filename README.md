@@ -3,12 +3,43 @@
 
 [Bootstrap v4](https://getbootstrap.com/) based Hugo theme which provides out of the box best practices like performance and SEO readiness. Featured images will be resized automatically. This is based on the [Hugo docs](https://gohugo.io/templates/homepage/), [hugo-best-practices](https://github.com/spech66/hugo-best-practices), [Front-End Checklist](https://github.com/thedaviddias/Front-End-Checklist) and the [Front-End Performance Checklist](https://github.com/thedaviddias/Front-End-Performance-Checklist). Contains four different color themes.
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+## Table of contents
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Bootstrap-BP hugo theme](#bootstrap-bp-hugo-theme)
+  - [Table of contents](#table-of-contents)
+  - [Features](#features)
+  - [Install the theme](#install-the-theme)
+  - [Update the theme](#update-the-theme)
+  - [Run example site](#run-example-site)
+  - [Configuration and theme specific settings](#configuration-and-theme-specific-settings)
+  - [Screenshots of cofigurations](#screenshots-of-cofigurations)
+  - [Google Analytics](#google-analytics)
+  - [Page templates / archetypes](#page-templates--archetypes)
+  - [Schema.org support](#schemaorg-support)
+  - [Images, Open Graph and Twitter Cards](#images-open-graph-and-twitter-cards)
+  - [Menus](#menus)
+  - [Social Icons](#social-icons)
+  - [Custom CSS/JS](#custom-cssjs)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Features
 
-* x
+- Color themes
+- SEO best practices supported (Schema.org, open graph, meta information, ...)
+- Automatically resizing of images
+- One minified file per ressource only (js, css)
+- CDN font support (Google Fonts, ...)
+- Optional masonry-like mode for startpage
+- Settings for easy customization of layouts and features
+- Multiple page templates / archetypes supported
+- Icons for Social Media
+- Custom css/js
+- ...
 
 ## Install the theme
 
@@ -21,7 +52,6 @@ git clone https://github.com/spech66/bootstrap-bp-hugo-theme.git
 ```
 
 You can get a zip of the latest version of the theme from the [home page](https://github.com/spech66/bootstrap-bp-hugo-theme) and extract it to the themes folder.
-
 
 ## Update the theme
 
@@ -44,13 +74,13 @@ hugo server --themesDir ../..
 Most settings should be done with hugo specific variables. There are only a few (optional) additional `[params]`.
 Use the `config.toml` from the `exampleSite` subdirectory as base.
 
-* `startPageColumns = true` will show the start page in a Masonry-like mode.
-* `customDateFormat = "02.01.2006"` to override the date format.
-* `showListsGrouped = true` to add headers for every year.
-* `showPostSummary = true` to only show a summary on index and lists.
-* `alwaysExpandMenu = true` to expand the menu on non-mobile devices otherwise the mobile button is shown on all devices.
-* `themeColor` set to dark, light, blue (do not set for bootstrap default).
-* `hideReadingTime` to hide reading time.
+- `startPageColumns = true` will show the start page in a Masonry-like mode.
+- `customDateFormat = "02.01.2006"` to override the date format.
+- `showListsGrouped = true` to add headers for every year.
+- `showPostSummary = true` to only show a summary on index and lists.
+- `alwaysExpandMenu = true` to expand the menu on non-mobile devices otherwise the mobile button is shown on all devices.
+- `themeColor` set to dark, light, blue (do not set for bootstrap default).
+- `hideReadingTime` to hide reading time.
 
 ## Screenshots of cofigurations
 
@@ -74,12 +104,12 @@ googleAnalytics = "UA-123-45"
 
 This theme has support for the following archetypes. Based on the specified types the layout and functionality of a page is slightly changed.
 
-* Page (not on the startpage)
-* Post (regular post/blog pages)
-* Audio (shows spotify in the header)
-* Video (shows youtube in the header)
-* Quote (highlights a quote and the author)
-* Link (show a link with the page title)
+- Page (not on the startpage)
+- Post (regular post/blog pages)
+- Audio (shows spotify in the header)
+- Video (shows youtube in the header)
+- Quote (highlights a quote and the author)
+- Link (show a link with the page title)
 
 ## Schema.org support
 
