@@ -9,21 +9,19 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Bootstrap-BP hugo theme](#bootstrap-bp-hugo-theme)
-  - [Table of contents](#table-of-contents)
-  - [Features](#features)
-  - [Install the theme](#install-the-theme)
-  - [Update the theme](#update-the-theme)
-  - [Run example site](#run-example-site)
-  - [Configuration and theme specific settings](#configuration-and-theme-specific-settings)
-  - [Screenshots of cofigurations](#screenshots-of-cofigurations)
-  - [Google Analytics](#google-analytics)
-  - [Page templates / archetypes](#page-templates--archetypes)
-  - [Schema.org support](#schemaorg-support)
-  - [Images, Open Graph and Twitter Cards](#images-open-graph-and-twitter-cards)
-  - [Menus](#menus)
-  - [Social Icons](#social-icons)
-  - [Custom CSS/JS](#custom-cssjs)
+- [Features](#features)
+- [Install the theme](#install-the-theme)
+- [Update the theme](#update-the-theme)
+- [Run example site](#run-example-site)
+- [Configuration and theme specific settings](#configuration-and-theme-specific-settings)
+- [Screenshots of cofigurations](#screenshots-of-cofigurations)
+- [Google Analytics](#google-analytics)
+- [Page templates / archetypes](#page-templates--archetypes)
+- [Schema.org support](#schemaorg-support)
+- [Images, Open Graph and Twitter Cards](#images-open-graph-and-twitter-cards)
+- [Menus](#menus)
+- [Social Icons](#social-icons)
+- [Custom CSS/JS](#custom-cssjs)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
