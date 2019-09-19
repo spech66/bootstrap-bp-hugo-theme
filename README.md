@@ -61,7 +61,7 @@ git pull
 
 ## Run example site
 
-Go to the `exampleSite` folder from the theme `themes/cupper-hugo-theme/exampleSite` and run the following command.
+Go to the `exampleSite` folder from the theme `themes/bootstrap-bp-hugo-theme/exampleSite` and run the following command.
 
 ```sh
 hugo server --themesDir ../..
