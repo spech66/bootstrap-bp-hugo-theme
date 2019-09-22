@@ -1,4 +1,4 @@
-ignoreFiles = ["content/posts/\\.*","content/portfolio/\\.*","content/product/\\.*","content/sketch/\\.*","content/en/\\.*","content/fr/\\.*"]
+ignoreFiles = ["content/portfolio/\\.*","content/product/\\.*","content/sketch/\\.*"]
 baseURL = "https://gohugo.io/"
 title = "Hugo Themes"
 # author = "Steve Francia"
@@ -35,13 +35,13 @@ theme="bootstrap-bp-hugo-theme"
 [params]
   description = "Text about the site"
   #images = ["logo.jpg"]
-  showPostSummary = true
+  # showPostSummary = true
   # startPageColumns = true
-  showListsGrouped = true
+  # showListsGrouped = true
   # alwaysExpandMenu = true
   customDateFormat = "02.01.2006"
   # hideReadingTime = true
-  themeColor="dark" # dark, light, blue, do not set for bootstrap default
+  # themeColor="dark" # dark, light, blue, do not set for bootstrap default
   # js=["/js/test_site.js"]
   # css=["/css/test_site.css"]
   # csscdn=["https://fonts.googleapis.com/css?family=Concert+One|Roboto&display=swap"]
