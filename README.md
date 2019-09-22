@@ -3,25 +3,30 @@
 
 [Bootstrap v4](https://getbootstrap.com/) based Hugo theme which provides out of the box best practices like performance and SEO readiness. Featured images will be resized automatically. This is based on the [Hugo docs](https://gohugo.io/templates/homepage/), [hugo-best-practices](https://github.com/spech66/hugo-best-practices), [Front-End Checklist](https://github.com/thedaviddias/Front-End-Checklist) and the [Front-End Performance Checklist](https://github.com/thedaviddias/Front-End-Performance-Checklist). Contains four different color themes.
 
+Other themes by Sebastian Pech: [Bootstrap-BP](https://github.com/spech66/bootstrap-bp-hugo-theme), [Materialize-BP](https://github.com/spech66/materialize-bp-hugo-theme),
+[Semantic-UI-BP](https://github.com/spech66/semantic-ui-bp-hugo-theme), [Bootstrap-BP hugo startpage](https://github.com/spech66/bootstrap-bp-hugo-startpage).
+
 ## Table of contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Features](#features)
-- [Install the theme](#install-the-theme)
-- [Update the theme](#update-the-theme)
-- [Run example site](#run-example-site)
-- [Configuration and theme specific settings](#configuration-and-theme-specific-settings)
-- [Screenshots of cofigurations](#screenshots-of-cofigurations)
-- [Google Analytics](#google-analytics)
-- [Page templates / archetypes](#page-templates--archetypes)
-- [Schema.org support](#schemaorg-support)
-- [Images, Open Graph and Twitter Cards](#images-open-graph-and-twitter-cards)
-- [Menus](#menus)
-- [Social Icons](#social-icons)
-- [Custom CSS/JS](#custom-cssjs)
+- [Bootstrap-BP hugo theme](#bootstrap-bp-hugo-theme)
+  - [Table of contents](#table-of-contents)
+  - [Features](#features)
+  - [Install the theme](#install-the-theme)
+  - [Update the theme](#update-the-theme)
+  - [Run example site](#run-example-site)
+  - [Configuration and theme specific settings](#configuration-and-theme-specific-settings)
+  - [Screenshots of cofigurations](#screenshots-of-cofigurations)
+  - [Google Analytics](#google-analytics)
+  - [Page templates / archetypes](#page-templates--archetypes)
+  - [Schema.org support](#schemaorg-support)
+  - [Images, Open Graph and Twitter Cards](#images-open-graph-and-twitter-cards)
+  - [Menus](#menus)
+  - [Social Icons](#social-icons)
+  - [Custom CSS/JS](#custom-cssjs)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
