@@ -1,0 +1,21 @@
+[readmore]
+other = "Read more"
+
+[lastupdated]
+other = "last updated"
+
+[readingTime]
+one = "1 Minute"
+other = "{{.Count}} Minutes"
+
+[social]
+other = "Social"
+
+[site]
+other = "Site"
+
+[translations]
+other="Translations"
+
+[themeby]
+other = "Theme by"

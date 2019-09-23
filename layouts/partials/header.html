@@ -10,7 +10,7 @@
 
 <nav class="navbar {{ $navClasses }} {{ $alwaysExpandMenu }} border-bottom">
     <div class="container">
-        <a class="navbar-brand text-primary" href="/">{{ .Site.Title }}</a>
+        <a class="navbar-brand text-primary" href="{{ "/" | relLangURL }}">{{ .Site.Title }}</a>
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

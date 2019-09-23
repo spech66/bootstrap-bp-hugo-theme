@@ -1,0 +1,21 @@
+[readmore]
+other = "Weiterlesen"
+
+[lastupdated]
+other = "zuletzt aktualisiert"
+
+[readingTime]
+one = "1 Minute"
+other = "{{.Count}} Minuten"
+
+[social]
+other = "Sozial"
+
+[site]
+other = "Seite"
+
+[translations]
+other="Übersetzungen"
+
+[themeby]
+other = "Theme von"

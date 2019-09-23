@@ -47,6 +47,18 @@ theme="bootstrap-bp-hugo-theme"
   # csscdn=["https://fonts.googleapis.com/css?family=Concert+One|Roboto&display=swap"]
 
 
+#[languages]
+#  [languages.en]
+#    languageName = "English"
+#    title = "My blog"
+#    weight = 1
+#    [languages.en.params]
+#  [languages.de]
+#    languageName = "Deutsch"
+#    title = "Mein Blog"
+#    weight = 2
+#    [languages.de.params]
+
 
 # Sets Social Media icons to appear and link to your account. Value should be your
 # username unless otherwise noted.

@@ -42,6 +42,7 @@ Other themes by Sebastian Pech: [Bootstrap-BP](https://github.com/spech66/bootst
 - Multiple page templates / archetypes supported
 - Icons for Social Media
 - Custom css/js
+- Multilingual and i18n support
 - ...
 
 ## Install the theme
