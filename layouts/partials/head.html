@@ -22,7 +22,7 @@
 {{ $cssmain := resources.Get "/css/main.css" }}
 {{ $csstheme := resources.Get (printf "/css/main-%s.css" $themeColor) }}
 {{ $customcss := resources.Get "/css/custom.css" }}
-{{ $allcss := slice $cssbootstrap $cssfontawesome $cssmain $csstheme $customcss | resources.Concat "/css/vendor.css" | minify | fingerprint }}
+{{ $allcss := slice $cssbootstrap $cssfontawesome $cssmain $csstheme $customcss | resources.Concat "/css/vendor.css" | minify | fingerprint "sha512" }}
 <link rel="stylesheet" href="{{ $allcss.RelPermalink }}" integrity="{{ $allcss.Data.Integrity }}">
 
 {{- range .Site.Params.csscdn }}
@@ -30,11 +30,11 @@
 {{- end }}
 
 {{- range .Site.Params.css }}
-    {{ $pagestyle := resources.Get . | minify | fingerprint }}
+    {{ $pagestyle := resources.Get . | minify | fingerprint "sha512" }}
     <link rel="stylesheet" href="{{ $pagestyle.RelPermalink }}" integrity="{{ $pagestyle.Data.Integrity }}">
 {{- end }}
 
 {{- range .Params.css }}
-    {{ $pagestyle := resources.Get . | minify | fingerprint }}
+    {{ $pagestyle := resources.Get . | minify | fingerprint "sha512" }}
     <link rel="stylesheet" href="{{ $pagestyle.RelPermalink }}" integrity="{{ $pagestyle.Data.Integrity }}">
 {{- end }}
