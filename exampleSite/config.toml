@@ -65,43 +65,43 @@ theme="bootstrap-bp-hugo-theme"
 # Code from https://themes.gohugo.io/future-imperfect/ theme
 [social]
   # Coding Communities
-  github           = "a"
-  gitlab           = "a"
-  stackoverflow    = "a" # User Number
-  bitbucket        = "a"
-  jsfiddle         = "a"
-  codepen          = "a"
+  github           = "spech66"
+  gitlab           = ""
+  stackoverflow    = "" # User Number
+  bitbucket        = ""
+  jsfiddle         = ""
+  codepen          = ""
   # Visual Art Communities
-  deviantart       = "a"
-  flickr           = "a"
-  behance          = "a"
-  dribbble         = "a"
+  deviantart       = ""
+  flickr           = ""
+  behance          = ""
+  dribbble         = ""
   # Publishing Communities
-  wordpress        = "a"
-  medium           = "a"
+  wordpress        = ""
+  medium           = ""
   # Professional/Business Oriented Communities
-  linkedin         = "a"
-  linkedin_company = "a"
-  foursquare       = "a"
-  xing             = "a"
-  slideshare       = "a"
+  linkedin         = "sebastian-pech"
+  linkedin_company = ""
+  foursquare       = ""
+  xing             = "Sebastian_Pech3"
+  slideshare       = ""
   # Social Networks
   facebook         = "spechde" # https://fb.me/flowartsde
-  googleplus       = "a"
-  reddit           = "a"
-  quora            = "a"
+  googleplus       = ""
+  reddit           = ""
+  quora            = ""
   youtube          = "" 
-  vimeo            = "a"
-  whatsapp         = "a" # WhatsApp Number
+  vimeo            = ""
+  whatsapp         = "" # WhatsApp Number
   instagram        = "sebastian_pech"
-  tumblr           = "a"
-  twitter          = "a"
-  skype            = "a"
-  snapchat         = "a"
-  pinterest        = "a"
-  telegram         = "a"
+  tumblr           = ""
+  twitter          = "spech84"
+  skype            = ""
+  snapchat         = ""
+  pinterest        = ""
+  telegram         = ""
   # Email
-  email            = "a"
+  email            = ""
 
 
 [menu]
@@ -114,23 +114,25 @@ theme="bootstrap-bp-hugo-theme"
     pre = "<i class='fas fa-heart'></i>"
 
   [[menu.footer]]
-    identifier = "xxx"
-    name = "xxx"
-    url = "/xxx/"
+    identifier = "about"
+    name = "About"
+    url = "/about/"
     weight = 10
+    pre = "<i class='fas fa-address-card'></i>"
 
   [[menu.footer]]
     identifier = "categories"
     name = "Categories"
     url = "/categories/"
     weight = 20
+    pre = "<i class='fas fa-folder'></i>"
 
   [[menu.footer]]
     identifier = "tags"
     name = "Tags"
     url = "/tags/"
     weight = 30
-    pre = "<i class='fas fa-heart'></i>"
+    pre = "<i class='fas fa-tags'></i>"
 
 
 [taxonomies]

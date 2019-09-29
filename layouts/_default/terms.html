@@ -4,7 +4,7 @@
     <div class="mb-3">
         <div class="card">
             <div class="card-body">
-                <h1>{{ .Title }}</h1>
+                <h1>{{ i18n .Title }}</h1>
                 {{ range $key, $value := .Data.Terms }}
                     <a href="#{{ $key | urlize }}" class="badge badge-primary"><span>{{ $key }}</span> <span class="badge badge-light">{{ $value.Count }}</span></a>
                 {{ end}}

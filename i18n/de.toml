@@ -19,3 +19,13 @@ other="Übersetzungen"
 
 [themeby]
 other = "Theme von"
+
+# Taxonomoy title hack
+[Categories]
+other = "Kategorien"
+[Categorie]
+other = "Kategorien"
+[Tags]
+other = "Tags"
+[Tag]
+other = "Tag"
