@@ -20,6 +20,12 @@ other="Übersetzungen"
 [themeby]
 other = "Theme von"
 
+[error404]
+other = "Es tut uns wirklich leid aber hier scheint es nichts zu geben."
+
+[gotohome]
+other = "Gehe zur Startseite"
+
 # Taxonomoy title hack
 [Categories]
 other = "Kategorien"

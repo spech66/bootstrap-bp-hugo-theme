@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="{{.Site.Language.Lang }}">
+    <meta charset="utf-8">
+    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+    {{- partial "head.html" . -}}
+    <body>
+        {{- partial "header.html" . -}}
+        <main role="main">
+            <div class="container mt-3 mb-3">
+                <div class="mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="card-title"><a href="{{ "/" | relLangURL }}"></a>{{ .Title | markdownify }}</a></h1>
+                            <p class="card-text">{{ i18n "error404" }}</p>
+                            <a href="{{ "/" | relLangURL }}" class="card-link">{{ i18n "gotohome" }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        {{- partial "footer.html" . -}}
+        {{- partial "js.html" . -}}
+    </body>
+</html>
