@@ -1,4 +1,4 @@
-{{ if eq .Type "video" }}
+{{ if and (eq .Type "video") (not .Site.Config.Privacy.YouTube.Disable) }} 
     <div class="w-100">
         {{ if .Scratch.Get "fullsize" }}
             <iframe src="https://www.youtube-nocookie.com/embed/{{ .Params.youtube }}?rel=0" width="100%" height="600px" frameborder="0" allowfullscreen></iframe>

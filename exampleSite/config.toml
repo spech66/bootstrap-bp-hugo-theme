@@ -143,20 +143,20 @@ series = "series"
 [privacy]
 
   [privacy.vimeo]
-    disabled = false
+    disable = false
     simple = true
 
   [privacy.twitter]
-    disabled = false
+    disable = false
     enableDNT = true
     simple = true
 
   [privacy.instagram]
-    disabled = false
+    disable = false
     simple = true
 
   [privacy.youtube]
-    disabled = false
+    disable = false
     privacyEnhanced = true
 
 [services]
