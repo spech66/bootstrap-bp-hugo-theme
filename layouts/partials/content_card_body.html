@@ -5,7 +5,7 @@
     <h1 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h1>
     <h6 class="card-subtitle mb-2 text-muted">
         <i class="fas fa-calendar-day"></i>&nbsp;{{ .PublishDate.Format $customDateFormat }}{{ if gt .Lastmod .PublishDate }}, {{ i18n "lastupdated" }} {{ .Lastmod.Format $customDateFormat }}{{ end }} -
-        <i class="fas fa-user"></i>&nbsp;{{ range .Site.Author }}{{ . }}{{ end }}
+        <i class="fas fa-user"></i>&nbsp;{{ if reflect.IsSlice ($.Param "author") }}{{ range $.Param "author" }}{{ . }}{{ end }}{{ else }}{{ $.Param "author" }}{{ end }}
         {{ if ne .Site.Params.hideReadingTime true }}
             {{ if and (not (.Scratch.Get "showPostSummary")) (.Scratch.Get "fullsize") }}
                 - <i class="fas fa-clock"></i>&nbsp;~{{ i18n "readingTime" .ReadingTime }}
