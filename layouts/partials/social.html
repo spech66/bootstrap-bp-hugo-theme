@@ -126,6 +126,10 @@
   <li class="list-inline-item"><a href="https://telegram.me/{{.}}" target="_blank" rel="noopener noreferrer" title="telegram" class="fab fa-telegram fa-2x"></a></li>
 {{ end }}
 
+{{ with .Site.Social.discord }}
+  <li class="list-inline-item"><a href="{{.}}" target="_blank" rel="noopener noreferrer" title="Discord" class="fab fa-discord fa-2x white-text"></a></li>
+{{ end }}
+
 {{ with .Site.Social.twitch }}
   <li class="list-inline-item"><a href="https://twitch.tv/{{.}}" target="_blank" rel="noopener noreferrer" title="twitch" class="fab fa-twitch fa-2x"></a></li>
 {{ end }}
