@@ -100,6 +100,7 @@ theme="bootstrap-bp-hugo-theme"
   snapchat         = ""
   pinterest        = ""
   telegram         = ""
+  discord          = "" # invite link
   # Email
   email            = ""
 
