@@ -41,7 +41,7 @@ theme="bootstrap-bp-hugo-theme"
   # alwaysExpandMenu = true
   customDateFormat = "02.01.2006"
   # hideReadingTime = true
-  # themeColor="dark" # dark, light, blue, do not set for bootstrap default
+  themeColor="blue" # dark, light, blue, do not set for bootstrap default
   # js=["/js/test_site.js"]
   # css=["/css/test_site.css"]
   # csscdn=["https://fonts.googleapis.com/css?family=Concert+One|Roboto&display=swap"]
