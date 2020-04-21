@@ -38,3 +38,6 @@
     {{ $pagestyle := resources.Get . | minify | fingerprint "sha512" }}
     <link rel="stylesheet" href="{{ $pagestyle.RelPermalink }}" integrity="{{ $pagestyle.Data.Integrity }}">
 {{- end }}
+
+<!-- allow easy customization -->
+{{- partial "head_custom.html" . -}}
