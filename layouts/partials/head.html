@@ -29,6 +29,10 @@
     <link rel="stylesheet" href="{{ . }}">
 {{- end }}
 
+{{- range .Params.csscdn }}
+    <link rel="stylesheet" href="{{ . }}">
+{{- end }}
+
 {{- range .Site.Params.css }}
     {{ $pagestyle := resources.Get . | minify | fingerprint "sha512" }}
     <link rel="stylesheet" href="{{ $pagestyle.RelPermalink }}" integrity="{{ $pagestyle.Data.Integrity }}">

@@ -249,6 +249,7 @@ The second way is using the Site configuration or the post metadata to target sp
 ```toml
 [params]
   js=["/js/test_site.js"]
+  jscdn=["https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"]
   css=["/css/test_site.css"]
   csscdn=["https://fonts.googleapis.com/css?family=Roboto&display=swap"]
 ```
@@ -257,7 +258,11 @@ The second way is using the Site configuration or the post metadata to target sp
 ---
 js:
     - /js/test.js
+jscdn:
+    - https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js
 css:
     - /css/test.css
+csscdn:
+    - https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900
 ---
 ```

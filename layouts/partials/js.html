@@ -4,6 +4,14 @@
 {{ $allscript := slice $jquery $bootstrap $customjs | resources.Concat "/js/vendor.js" | minify | fingerprint "sha512" }}
 <script src="{{ $allscript.RelPermalink }}" integrity="{{ $allscript.Data.Integrity }}"></script>
 
+{{- range .Site.Params.jscdn }}
+    <script src="{{ . }}"></script>
+{{- end }}
+
+{{- range .Params.jscdn }}
+    <script src="{{ . }}"></script>
+{{- end }}
+
 {{- range .Site.Params.js }}
     {{ $pagescript := resources.Get . | minify | fingerprint "sha512" }}
     <script src="{{ $pagescript.RelPermalink }}" integrity="{{ $pagescript.Data.Integrity }}"></script>
