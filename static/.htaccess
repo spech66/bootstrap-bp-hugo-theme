@@ -29,7 +29,7 @@ Header append X-Content-Type-Options: nosniff
 # Content Security Policy
 # Don't implement the above policy yet; instead just report violations that would have occured
 # Header set Content-Security-Policy-Report-Only: "default-src https: 'unsafe-eval' 'unsafe-inline' data:; img-src * data:; object-src 'none'; frame-src 'self' *.google.de google.de *.google.com google.com; font-src * https: data:; frame-ancestors 'self';"
-Header set Content-Security-Policy: "default-src https: 'unsafe-eval' 'unsafe-inline' data:; img-src * data:; object-src 'none'; frame-src 'self' *.google.de google.de *.google.com google.com; font-src * data:; frame-ancestors 'self';"
+Header set Content-Security-Policy: "default-src https: 'unsafe-eval' 'unsafe-inline' data:; img-src * data:; object-src 'none'; frame-src 'self' *.youtube.com youtube.com *.youtube-nocookie.com youtube-nocookie.com *.google.de google.de *.google.com google.com; font-src * data:; frame-ancestors 'self';"
 
 # Active GZIP compression
 <IfModule mod_deflate.c>
