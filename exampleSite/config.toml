@@ -1,5 +1,4 @@
-ignoreFiles = ["content/portfolio/\\.*","content/product/\\.*","content/sketch/\\.*"]
-baseURL = "https://gohugo.io/"
+baseURL = "https://gohugo.io"
 title = "Hugo Themes"
 # author = "Steve Francia"
 # copyright = "Copyright © 2008–2019, Steve Francia and the Hugo Authors; all rights reserved."
@@ -7,6 +6,10 @@ title = "Hugo Themes"
 languageCode = "en"
 DefaultContentLanguage = "en"
 enableInlineShortcodes = true
+# prevent build failures when using Hugo's Instagram shortcode due to deprecated Instagram API.
+# See https://github.com/gohugoio/hugo/issues/7228#issuecomment-714490456
+ignoreErrors = ["error-remote-getjson"]
+
 footnoteReturnLinkContents = "^"
 
 # Theme specific examples
@@ -144,20 +147,20 @@ series = "series"
 [privacy]
 
   [privacy.vimeo]
-    disable = false
+    disabled = false
     simple = true
 
   [privacy.twitter]
-    disable = false
+    disabled = false
     enableDNT = true
     simple = true
 
   [privacy.instagram]
-    disable = false
+    disabled = false
     simple = true
 
   [privacy.youtube]
-    disable = false
+    disabled = false
     privacyEnhanced = true
 
 [services]
