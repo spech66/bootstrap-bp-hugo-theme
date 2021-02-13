@@ -2,8 +2,15 @@
     <h5>{{ i18n "translations" }}</h5>
     <ul class="list-unstyled">
         {{ range .Translations }}
-            <li><a href="{{ .RelPermalink }}">{{ .Title }} ({{ .Lang }})</a></li>
+            <li><a href="{{ .RelPermalink }}">{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }} ({{ .Lang }})</a></li>
         {{ end}}
+        {{ range $.Site.Home.AllTranslations }}
+            <li><a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a></li>
+        {{ end }}
+    </ul>
+{{ else if gt (len $.Site.Home.AllTranslations) 0 }}
+    <h5>{{ i18n "translations" }}</h5>
+    <ul class="list-unstyled">
         {{ range $.Site.Home.AllTranslations }}
             <li><a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a></li>
         {{ end }}
