@@ -1,7 +1,6 @@
-{{ $jquery := resources.Get "/js/jquery-3.5.1.slim.min.js" }}
-{{ $bootstrap := resources.Get "/js/bootstrap.min.js" }}
+{{ $bootstrap := resources.Get "/js/bootstrap.bundle.min.js" }}
 {{ $customjs := resources.Get "/js/custom.js" }}
-{{ $allscript := slice $jquery $bootstrap $customjs | resources.Concat "/js/vendor.js" | minify | fingerprint "sha512" }}
+{{ $allscript := slice $bootstrap $customjs | resources.Concat "/js/vendor.js" | minify | fingerprint "sha512" }}
 <script src="{{ $allscript.RelPermalink }}" integrity="{{ $allscript.Data.Integrity }}"></script>
 
 {{- range .Site.Params.jscdn }}

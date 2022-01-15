@@ -4,14 +4,14 @@
             {{ if gt .Params.categories 0 }}
                 <i class="fas fa-folder text-primary"></i>&nbsp;
                 {{ range .Params.categories }}
-                    <a href="{{ "/categories/" | relLangURL }}#{{ . | urlize }}" class="badge badge-primary"><span>{{ . }}</span></a>
+                    <a href="{{ "/categories/" | relLangURL }}#{{ . | urlize }}" class="badge bg-primary"><span>{{ . }}</span></a>
                 {{ end }}
                 <br />
             {{ end }}
             {{ if gt .Params.tags 0 }}
                 <i class="fas fa-tags text-secondary"></i>&nbsp; 
                 {{ range .Params.tags }}
-                    <a href="{{ "/tags/" | relLangURL }}#{{ . | urlize }}" class="badge badge-secondary"><span>{{ . }}</span></a>
+                    <a href="{{ "/tags/" | relLangURL }}#{{ . | urlize }}" class="badge bg-secondary"><span>{{ . }}</span></a>
                 {{ end }}
             {{ end }}
         {{ end }}

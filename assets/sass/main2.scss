@@ -1,0 +1,16 @@
+blockquote { border-left: 2px solid #6c757d; padding-left: 10px; margin-top: 2rem; margin-bottom: 2rem; }
+
+figure > img {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
+.gridcards > div.col > div.card > div.card-body > h1.card-title { font-size: 1.5rem!important; }
+
+div.highlight > pre { padding: 0.5rem; }
+
+/* Revert v5 links */
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }

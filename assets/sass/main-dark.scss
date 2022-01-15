@@ -1,0 +1,42 @@
+// *-dark.css
+$primary:#a9a9b3;
+$secondary:#a9a9b3;
+$success:#28a745;
+$danger:#dc3545;
+$info:#17a2b8;
+$warning:#ffc107;
+$light:#a9a9b3;
+$dark:#252627;
+$body-bg:$primary; // $dark
+$body-color:#a9a9b3;
+$white:#a9a9b3;
+$black:#252627;
+$link-color:#f0f0f0;
+$link-hover-color:darken($link-color,20%);
+$navbar-dark-hover-color:$white;
+$card-border-color:rgba($black, 0.6);
+$card-bg:lighten($dark, 5%);
+
+// Shared styles
+@import "main.scss";
+
+// Bootstrap
+@import "./bootstrap/bootstrap";
+
+// Shared styles overrides
+@import "main2.scss";
+
+.navbar-light { background-color: #252627!important; }
+
+.dropdown-menu { background-color: #252627!important; }
+.dropdown-item { color: #a9a9b3!important; background-color: #252627!important; }
+
+.page-item.active .page-link {
+    color: #fff;
+    background-color: #333;
+    border-color: #333;
+}
+
+pre { color: #fff; }
+
+a.badge { color: #212529; }

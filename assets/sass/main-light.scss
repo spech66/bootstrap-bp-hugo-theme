@@ -1,0 +1,42 @@
+// *-light.css
+$primary:#333333;
+$secondary:#333333;
+$success:#28a745;
+$danger:#dc3545;
+$info:#17a2b8;
+$warning:#ffc107;
+$light:#f8f9fa;
+$dark:#6c757d;
+$body-bg:#f4f4f4;
+
+// Shared styles
+@import "main.scss";
+
+// Bootstrap
+@import "./bootstrap/bootstrap";
+
+// Shared styles overrides
+@import "main2.scss";
+
+a:hover { text-decoration: none; }
+
+.navbar-light { background-color: #fff!important; }
+
+body { background-color: #f4f4f4; }
+
+a { border-bottom: dotted 2px rgba(160,160,160,.65); }
+a:link { border-bottom: dotted 2px rgba(160,160,160,.65); }
+a:visited { border-bottom: dotted 2px rgba(160,160,160,.65); }
+a:hover { border-bottom: solid 2px rgba(160,160,160,.65); }
+a:active { border-bottom: solid 2px rgba(160,160,160,.65); }
+.navbar-light .navbar-brand { border-bottom: 0px; }
+.navbar-light .navbar-brand:hover { border-bottom: 0px; } 
+.navbar-light .navbar-nav .nav-link { border-bottom: 0px; }
+.dropdown-menu .dropdown-item { border-bottom: 0px; }
+h1 a { border-bottom: 0px; }
+h1 a:link  { border-bottom: 0px; }
+a.fab { border-bottom: 0px; }
+a.fas { border-bottom: 0px; }
+a.badge { border-bottom: 0px; }
+a.page-link { border-bottom: 1px solid rgba(160,160,160,.65); }
+a.badge:hover { color: $body-bg; }
