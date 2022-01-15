@@ -5,18 +5,29 @@
   "description": "Bootstrap based Hugo theme which supports out of the box best practices.",
   "main": "index.js",
   "scripts": {
-    "start": "cd ../.. && hugo server"
+    "start": "cd ../.. && hugo server",
+    "example": "cd exampleSite && hugo server --themesDir ../.."
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/spech66/bootstrap-bp-hugo-theme.git"
+    "url": "git+https://github.com/spech66/bootstrap-bp-hugo-theme.git"
   },
   "keywords": [
-    "hugo", "bootstrap", "blog", "fontawesome", "gohugo", "website", "theme"
+    "hugo",
+    "bootstrap",
+    "blog",
+    "fontawesome",
+    "gohugo",
+    "website",
+    "theme"
   ],
   "author": "Sebastian Pech (https://www.spech.de/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/spech66/bootstrap-bp-hugo-theme/issues"
+  },
+  "private": "true",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
   }
 }
