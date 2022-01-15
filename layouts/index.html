@@ -3,9 +3,11 @@
 <div class="container mt-3 mb-3">
     {{ $paginator := .Paginate ( where .Site.RegularPages.ByPublishDate.Reverse "Type" "!=" "page") }}
     {{ if .Site.Params.startPageColumns }}
-        <div class="card-columns">
+        <div class="row row-cols-1 row-cols-md-3 g-4 mb-3">
             {{ range $paginator.Pages }}
-                {{- partial "content_index.html" . -}}
+                <div class="col">
+                    {{- partial "content_index.html" . -}}
+                </div>
             {{ end }}
         </div>
     {{ else }}
