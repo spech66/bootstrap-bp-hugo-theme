@@ -1,0 +1,15 @@
+// *-light.css
+$primary:#333333;
+$secondary:#333333;
+$success:#28a745;
+$danger:#dc3545;
+$info:#17a2b8;
+$warning:#ffc107;
+$light:#f8f9fa;
+$dark:#6c757d;
+
+// Shared styles
+@import "main.scss";
+
+// Bootstrap
+@import "./bootstrap/bootstrap";
