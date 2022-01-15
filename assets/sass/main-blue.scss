@@ -18,3 +18,4 @@ $dark:#6c757d;
 @import "main2.scss";
 
 .navbar-light { background-color: rgba(0,0,0,.03)!important; }
+a.badge:hover { color: $body-bg; }
