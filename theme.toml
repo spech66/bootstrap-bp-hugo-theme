@@ -7,7 +7,7 @@ licenselink = "https://github.com/spech66/bootstrap-bp-hugo-theme/blob/master/LI
 description = "Bootstrap based Hugo theme which supports out of the box best practices."
 homepage = "https://github.com/spech66/bootstrap-bp-hugo-theme/"
 tags = ["minimalist", "minimal", "blog", "clean", "simple", "bootstrap", "responsive", "google analytics", "syntax sighlighting", "light", "fast", "dark", "pages", "font awesome", "fontawesome", "multilingual", "customizable", "mobile"]
-features = ["responsive", "google analytics", "bootstrap v4.3.x", "open graph", "twitter cards"]
+features = ["responsive", "google analytics", "bootstrap v5.x", "open graph", "twitter cards"]
 min_version = "0.57.0"
 
 [author]
