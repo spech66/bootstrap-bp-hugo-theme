@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <h1>{{ $sitetitle }}</h1>
                     {{ range $key, $value := .Pages.GroupByDate "2006" }}
-                        <a href="#{{ .Key | urlize }}" class="badge badge-primary"><span>{{ .Key }}</span> <span class="badge badge-light">{{ len .Pages }}</span></a>
+                        <a href="#{{ .Key | urlize }}" class="badge bg-primary"><span>{{ .Key }}</span> <span class="badge bg-light">{{ len .Pages }}</span></a>
                     {{ end}}
                 </div>
             </div>
