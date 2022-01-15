@@ -17,12 +17,10 @@
     {{ $themeColor = .Site.Params.themeColor }}
 {{ end }}
 
-{{ $cssbootstrap := resources.Get (printf "/css/bootstrap-%s.min.css" $themeColor) }}
 {{ $cssfontawesome := resources.Get "/css/fontawesome-free-5.13.0-web-all.min.css" }}
-{{ $cssmain := resources.Get "/css/main.css" }}
-{{ $csstheme := resources.Get (printf "/css/main-%s.css" $themeColor) }}
+{{ $csstheme := resources.Get (printf "/sass/main-%s.scss" $themeColor) | toCSS }}
 {{ $customcss := resources.Get "/css/custom.css" }}
-{{ $allcss := slice $cssbootstrap $cssfontawesome $cssmain $csstheme $customcss | resources.Concat "/css/vendor.css" | minify | fingerprint "sha512" }}
+{{ $allcss := slice $cssfontawesome $csstheme $customcss | resources.Concat "/css/vendor.css" | minify | fingerprint "sha512" }}
 <link rel="stylesheet" href="{{ $allcss.RelPermalink }}" integrity="{{ $allcss.Data.Integrity }}">
 
 {{- range .Site.Params.csscdn }}
