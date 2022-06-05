@@ -221,16 +221,16 @@ Icons for Social Media. Add the block to the config.
   xing             = ""
   slideshare       = ""
   # Social Networks
-  facebook         = "spechde" # https://fb.me/spech.de
+  facebook         = ""
   googleplus       = ""
   reddit           = ""
   quora            = ""
-  youtube          = "/channel/UCrRRKovAoTYGIIB9T08pbHw" # https://www.youtube.com/channel/UCrRRKovAoTYGIIB9T08pbHw
+  youtube          = ""
   vimeo            = ""
   whatsapp         = "" # WhatsApp Number
-  instagram        = "sebastian_pech" # https://www.instagram.com/flowartsde/
+  instagram        = ""
   tumblr           = ""
-  twitter          = "spech84"
+  twitter          = ""
   skype            = ""
   snapchat         = ""
   pinterest        = ""

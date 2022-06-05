@@ -7771,3 +7771,6 @@ a:hover {
 
 .navbar-light {
   background-color: rgba(0, 0, 0, 0.03) !important; }
+
+a.badge:hover {
+  color: #fff; }
