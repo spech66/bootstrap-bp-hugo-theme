@@ -1,0 +1,40 @@
+{{- $customDateFormat := "02.01.2006" -}}
+{{- with .Site.Params.customDateFormat -}}{{- $customDateFormat = . -}}{{- end -}}
+
+{{- $card_subtitle_data := slice -}}
+{{- if isset .Params "publishdate" -}}
+    {{- $pub_string := "<i class=\"fas fa-calendar-day\"></i>&nbsp;" -}} 
+    {{- $update_string := "" -}}
+    {{- if gt .Lastmod .PublishDate -}}
+        {{- $update_label := i18n "lastupdated" -}}
+        {{- $update_date := .Lastmod.Format $customDateFormat -}}
+        {{- $update_string = printf "%s%s %s" ", " $update_label $update_date | htmlEscape}}
+    {{- end -}}
+    {{- $pub_date := .PublishDate.Format $customDateFormat | htmlEscape -}}
+    {{- $pub_string := printf "%s%s%s" $pub_string $pub_date $update_string -}}
+    {{- $card_subtitle_data = $card_subtitle_data | append $pub_string -}}
+{{- end -}}
+{{- if isset .Params "author" -}}
+    {{- $author := $.Param "author" -}}
+    {{- $author_string := "<i class=\"fas fa-user\"></i>&nbsp;" -}}
+    {{- $author_data := "" -}}
+    {{- if reflect.IsSlice ($author) -}}
+        {{- $author_data = delimit $author ", " | htmlEscape -}}
+    {{- else -}}
+        {{- $author_data = $author | htmlEscape -}}
+    {{- end -}}
+    {{- $author_string := printf "%s%s" $author_string $author_data -}}
+    {{- $card_subtitle_data = $card_subtitle_data | append $author_string -}}
+{{- end -}}
+{{- if ne .Site.Params.hideReadingTime true -}}
+    {{- $read_time_string := "<i class=\"fas fa-clock\"></i>&nbsp;~" -}}
+    {{- if and (not (.Scratch.Get "showPostSummary")) (.Scratch.Get "fullsize") -}}
+        {{- $read_time_data := i18n "readingTime" .ReadingTime | htmlEscape -}}
+        {{- $read_time_string := printf "%s%s" $read_time_string $read_time_data -}}
+        {{- $card_subtitle_data = $card_subtitle_data | append $read_time_string -}}
+    {{- end -}}
+{{- end -}}
+{{- $card_subtitle_length := len $card_subtitle_data -}}
+{{- if gt $card_subtitle_length 0 -}}
+<h6 class="card-subtitle mb-2 text-muted">{{ delimit $card_subtitle_data " - " | safeHTML }}</h6>
+{{- end -}}

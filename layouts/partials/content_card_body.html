@@ -1,18 +1,6 @@
-{{ $customDateFormat := "02.01.2006" }}
-{{ with .Site.Params.customDateFormat }}{{ $customDateFormat = . }}{{ end }}
-
 <div class="card-body">
     <h1 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h1>
-    <h6 class="card-subtitle mb-2 text-muted">
-        <i class="fas fa-calendar-day"></i>&nbsp;{{ .PublishDate.Format $customDateFormat }}{{ if gt .Lastmod .PublishDate }}, {{ i18n "lastupdated" }} {{ .Lastmod.Format $customDateFormat }}{{ end }} -
-        <i class="fas fa-user"></i>&nbsp;{{ range .Site.Author }}{{ . }}{{ end }}
-        {{ if ne .Site.Params.hideReadingTime true }}
-            {{ if and (not (.Scratch.Get "showPostSummary")) (.Scratch.Get "fullsize") }}
-                - <i class="fas fa-clock"></i>&nbsp;~{{ i18n "readingTime" .ReadingTime }}
-            {{ end }}
-        {{ end }}
-    </h6>
-
+    {{ partial "content_card_body_subtitle.html" . }}
     {{ if eq .Type "video" }}
     {{ else if eq .Type "audio" }}
     {{ else if eq .Type "link" }}
