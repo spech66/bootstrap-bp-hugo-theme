@@ -38,6 +38,7 @@ theme="bootstrap-bp-hugo-theme"
 [params]
   description = "Text about the site"
   #images = ["logo.jpg"]
+  # copyrightYears = "2018 - 2024"
   # showPostSummary = true
   # startPageColumns = true
   # showListsGrouped = true
