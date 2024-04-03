@@ -19,7 +19,7 @@ Other themes by Sebastian Pech: [Bootstrap-BP](https://github.com/spech66/bootst
   - [Update the theme](#update-the-theme)
   - [Run example site](#run-example-site)
   - [Configuration and theme specific settings](#configuration-and-theme-specific-settings)
-  - [Screenshots of cofigurations](#screenshots-of-cofigurations)
+  - [Screenshots of configurations](#screenshots-of-configurations)
   - [Google Analytics](#google-analytics)
   - [Page templates / archetypes](#page-templates--archetypes)
   - [Schema.org support](#schemaorg-support)
@@ -35,7 +35,7 @@ Other themes by Sebastian Pech: [Bootstrap-BP](https://github.com/spech66/bootst
 - Color themes
 - SEO best practices supported (Schema.org, open graph, meta information, ...)
 - Automatically resizing of images
-- One minified file per ressource only (js, css)
+- One minified file per resource only (js, css)
 - CDN font support (Google Fonts, ...)
 - Optional masonry-like mode for startpage
 - Settings for easy customization of layouts and features
@@ -86,7 +86,7 @@ Use the `config.toml` from the `exampleSite` subdirectory as base.
 - `themeColor` set to dark, light, blue (do not set for bootstrap default).
 - `hideReadingTime` to hide reading time.
 
-## Screenshots of cofigurations
+## Screenshots of configurations
 
 `startPageColumns = false`
 
@@ -124,7 +124,7 @@ Provide one author to enable the Schema.org support.
 
 This theme uses Hugos `feature/cover` name method to set the optimized feature image. The image named `*feature*` or `*cover*` is used for the posts featured image and get resized. This will also be in the Twitter Cards and Open Graph block.
 
-The header image is automatically added if there is a file called `*feature*` or `*cover*`. The first wildcard is prefered over the second one. If there are multiple images the first one is used.
+The header image is automatically added if there is a file called `*feature*` or `*cover*`. The first wildcard is preferred over the second one. If there are multiple images the first one is used.
 
 ```yaml
 # Site Config toml
