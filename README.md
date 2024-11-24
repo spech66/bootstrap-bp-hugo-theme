@@ -116,7 +116,7 @@ This theme has support for the following archetypes. Based on the specified type
 Provide one author to enable the Schema.org support.
 
 ```yaml
-[Author]  
+[params.author]  
   name = "Sebastian Pech"
 ```
 
@@ -194,7 +194,7 @@ Icons for Social Media. Add the block to the config.
 # Sets Social Media icons to appear and link to your account. Value should be your
 # username unless otherwise noted.
 # Code from https://themes.gohugo.io/future-imperfect/ theme
-[social]
+[params.social]
   # Coding Communities
   github           = ""
   gitlab           = ""

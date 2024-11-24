@@ -1,5 +1,5 @@
 {{ $author := slice "" -}}
-{{ with .Site.Author }}{{ $author = . }}{{ end -}}
+{{ with .Site.Params.Author }}{{ $author = . }}{{ end -}}
 ---
 title: "{{ replace .Name "-" " " | title }}"
 type: link

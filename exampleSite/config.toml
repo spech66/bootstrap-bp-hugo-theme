@@ -2,7 +2,6 @@ baseURL = "https://gohugo.io"
 title = "Hugo Themes"
 # author = "Steve Francia"
 # copyright = "Copyright © 2008–2019, Steve Francia and the Hugo Authors; all rights reserved."
-# paginate = 3
 languageCode = "en"
 DefaultContentLanguage = "en"
 enableInlineShortcodes = true
@@ -18,8 +17,10 @@ copyright = "Sebastian Pech"
 enableRobotsTXT = true
 pygmentsCodeFences = true
 canonifyurls = true
-paginate = 6
 theme="bootstrap-bp-hugo-theme"
+
+[pagination]
+  pagerSize = 6
 
 [sitemap]
     changefreq = "weekly"
@@ -31,7 +32,7 @@ theme="bootstrap-bp-hugo-theme"
     pages = "/:slug/"
     page = "/:slug/"
 
-[Author]  
+[params.author]  
   name = "Sebastian Pech"
 
 [params]
@@ -66,7 +67,7 @@ theme="bootstrap-bp-hugo-theme"
 # Sets Social Media icons to appear and link to your account. Value should be your
 # username unless otherwise noted.
 # Code from https://themes.gohugo.io/future-imperfect/ theme
-[social]
+[params.social]
   # Coding Communities
   github           = "spech66"
   gitlab           = ""

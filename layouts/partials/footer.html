@@ -29,7 +29,7 @@
             <div class="col-12 col-md-3 mb-3">
                 {{ partial "i18nlist.html" . }}
 
-                &copy; {{ .Site.Params.copyrightYears | default (now.Format "2006") }} {{ range .Site.Author }}{{ . }}{{ end }}<br/>
+                &copy; {{ .Site.Params.copyrightYears | default (now.Format "2006") }} {{ range .Site.Params.Author }}{{ . }}{{ end }}<br/>
                 {{ i18n "themeby" }} <a href="https://www.spech.de" target="_blank" rel="noopener noreferrer">Sebastian Pech</a>.
             </div>
         </div>
