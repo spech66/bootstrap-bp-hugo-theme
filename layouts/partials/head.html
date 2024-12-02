@@ -17,7 +17,7 @@
     {{ $themeColor = .Site.Params.themeColor }}
 {{ end }}
 
-{{ $cssfontawesome := resources.Get "/css/fontawesome-free-5.13.0-web-all.min.css" }}
+{{ $cssfontawesome := resources.Get "/css/fontawesome.min.css" }}
 {{ $csstheme := resources.Get (printf "/sass/main-%s.scss" $themeColor) | toCSS }}
 {{ $customcss := resources.Get "/css/custom.css" }}
 {{ $allcss := slice $cssfontawesome $csstheme $customcss | resources.Concat "/css/vendor.css" | minify | fingerprint "sha512" }}
