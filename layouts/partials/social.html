@@ -102,6 +102,14 @@
   <li class="list-inline-item"><a href="https://instagram.com/{{.}}" target="_blank" rel="noopener noreferrer" title="Instagram" class="fab fa-instagram fa-2x"></a></li>
 {{ end }}
 
+{{ with .Site.Params.Social.tiktok }}
+  <li class="list-inline-item"><a href="https://www.tiktok.com/{{.}}" target="_blank" rel="noopener noreferrer" title="TikTok" class="fab fa-tiktok fa-2x"></a></li>
+{{ end }}
+
+{{ with .Site.Params.Social.tiktok }}
+  <li class="list-inline-item"><a href="https://www.tiktok.com/{{.}}" target="_blank" rel="noopener noreferrer" title="TikTok" class="fab fa-tiktok fa-2x"></a></li>
+{{ end }}
+
 {{ with .Site.Params.Social.tumblr }}
   <li class="list-inline-item"><a href="https://{{.}}.tumblr.com" target="_blank" rel="noopener noreferrer" title="Tumblr" class="fab fa-tumblr fa-2x"></a></li>
 {{ end }}
