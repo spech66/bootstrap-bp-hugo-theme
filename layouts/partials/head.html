@@ -18,7 +18,7 @@
 {{ end }}
 
 {{ $cssfontawesome := resources.Get "/css/fontawesome.min.css" }}
-{{ $csstheme := resources.Get (printf "/sass/main-%s.scss" $themeColor) | toCSS }}
+{{ $csstheme := resources.Get (printf "/sass/main-%s.scss" $themeColor) | css.Sass }}
 {{ $customcss := resources.Get "/css/custom.css" }}
 {{ $allcss := slice $cssfontawesome $csstheme $customcss | resources.Concat "/css/vendor.css" | minify | fingerprint "sha512" }}
 <link rel="stylesheet" href="{{ $allcss.RelPermalink }}" integrity="{{ $allcss.Data.Integrity }}">
