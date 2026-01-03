@@ -12,6 +12,6 @@ Copy-Item -Path ".\node_modules\bootstrap\scss\*" -Destination ".\assets\sass\bo
 $pkg = Get-Content "package-lock.json" | ConvertFrom-Json -AsHashtable
 $bversion = $pkg["packages"]["node_modules/bootstrap"]["version"]
 Write-Host "Bootstrap: $bversion"
-Write-Host "For tagging:"
+Write-Host "For tagging (after commit and push!):"
 Write-Host "git tag -a v$bversion -m ""Bootstrap version $bversion"""
 Write-Host "git push origin v$bversion"
