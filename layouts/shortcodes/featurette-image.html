@@ -1,0 +1,26 @@
+{{ with .Parent }}
+    {{ $type := .Get "type" | default "l" }}
+    {{ $first := .Get "first" | default false }}
+    {{ if eq $type "r" }}
+        <div class="col-md-5">
+    {{ else }}
+        <div class="col-md-5 order-md-1">
+    {{ end }}
+{{ end }}
+
+    {{ $alt := .Get "alt" }}
+    {{ $title := .Get "title" | default $alt }}
+
+    {{ if ne $alt $title }}
+        <h3 class="text-primary">{{ $title }}</h3>
+    {{ end }}
+
+    {{ $src := .Get "src" }}
+    {{ with .Page.Resources.GetMatch $src }}
+        {{ $img := . }}
+        {{ if gt $img.Width 800 }}{{ $img = $img.Process "resize 800x webp q80" }}{{ else }}{{ $img = $img.Process "webp q80" }}{{ end }}
+        <img class="featurette-image img-fluid mx-auto rounded" src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $alt }}" title="{{ $title }}" loading="lazy">
+    {{ else }}
+        <img class="featurette-image img-fluid mx-auto rounded" src="{{ $src }}" alt="{{ $alt }}" title="{{ $title }}" loading="lazy">
+    {{ end }}
+</div>
