@@ -11,6 +11,6 @@ figure > img {
 
 div.highlight > pre { padding: 0.5rem; }
 
-/* Revert v5 links */
+/* Revert v5 links: no underline, color change only (handled by $link-hover-color) */
 a { text-decoration: none; }
-a:hover { text-decoration: underline; }
+a:hover { text-decoration: none; }
