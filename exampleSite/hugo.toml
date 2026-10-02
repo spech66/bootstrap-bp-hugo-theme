@@ -117,28 +117,32 @@ theme="bootstrap-bp-hugo-theme"
     name = "About"
     url = "/about/"
     weight = 10
-    pre = "<i class='fas fa-heart'></i>"
+    [menu.main.params]
+      icon = "heart"
 
   [[menu.footer]]
     identifier = "about"
     name = "About"
     url = "/about/"
     weight = 10
-    pre = "<i class='fas fa-address-card'></i>"
+    [menu.footer.params]
+      icon = "address-card"
 
   [[menu.footer]]
     identifier = "categories"
     name = "Categories"
     url = "/categories/"
     weight = 20
-    pre = "<i class='fas fa-folder'></i>"
+    [menu.footer.params]
+      icon = "folder"
 
   [[menu.footer]]
     identifier = "tags"
     name = "Tags"
     url = "/tags/"
     weight = 30
-    pre = "<i class='fas fa-tags'></i>"
+    [menu.footer.params]
+      icon = "tags"
 
 
 [taxonomies]

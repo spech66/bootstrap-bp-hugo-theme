@@ -152,7 +152,7 @@ tags:
 
 ## Menus
 
-There are two menus in the theme. `main` and `footer`. Specify the entries in the config or the header of the content.
+There are two menus in the theme. `main` and `footer`. Specify the entries in the config or the header of the content. `params.icon` shows an icon from `data/bpicons.json` in front of the name (see [Icons](#icons)).
 
 ```yaml
 [menu]
@@ -162,7 +162,8 @@ There are two menus in the theme. `main` and `footer`. Specify the entries in th
     name = "About"
     url = "/about/"
     weight = 10
-    pre = "<i class='fas fa-newspaper'></i>"
+    [menu.main.params]
+      icon = "newspaper"
 
   [[menu.footer]]
     identifier = "Imprint"
@@ -288,6 +289,7 @@ If you need one of them, copy `assets/sass/_bootstrap-imports.scss` from the the
 **Upgrading from older versions:** Font Awesome is no longer part of the theme and the Bootstrap JavaScript bundle is no longer loaded by default.
 
 - Bootstrap JavaScript components (modal, tooltip, ...): set `bootstrapJS = true`.
+- Menu icons via `pre = "<i class='fas fa-...'></i>"`: replace them with `[menu.main.params] icon = "..."`.
 - Font Awesome classes in your content or layouts (`<i class="fas fa-...">`): switch to `{{ partial "icon.html" "name" }}`, or load Font Awesome yourself with the existing `csscdn` parameter:
 
 ```toml

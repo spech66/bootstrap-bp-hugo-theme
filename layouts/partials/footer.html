@@ -16,12 +16,12 @@
                 <ul class="list-unstyled">
                     {{ range $index, $element := .Site.Menus.footer }}
                         {{ if .HasChildren }}
-                            <li><a href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a></li>
+                            <li><a href="{{ .URL }}">{{ partial "menu_label.html" . }}</a></li>
                             {{ range .Children }}
-                                <li><a href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a></li>
+                                <li><a href="{{ .URL }}">{{ partial "menu_label.html" . }}</a></li>
                             {{ end }}
                         {{ else }}
-                            <li><a href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a></li>
+                            <li><a href="{{ .URL }}">{{ partial "menu_label.html" . }}</a></li>
                         {{ end }}
                     {{ end }}
                 </ul>

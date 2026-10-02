@@ -21,16 +21,16 @@
                 {{ range $index, $element := .Site.Menus.main }}
                     {{ if .HasChildren }}
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle link-primary" href="#" id="dropdown{{$index}}" data-bs-toggle="dropdown" aria-expanded="false">{{ .Pre }} {{ .Name }}</a>
+                            <a class="nav-link dropdown-toggle link-primary" href="#" id="dropdown{{$index}}" data-bs-toggle="dropdown" aria-expanded="false">{{ partial "menu_label.html" . }}</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown{{$index}}">
                             {{ range .Children }}
-                                <a class="dropdown-item link-primary" href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a>
+                                <a class="dropdown-item link-primary" href="{{ .URL }}">{{ partial "menu_label.html" . }}</a>
                             {{ end }}
                             </div>
                         </li>
                     {{ else }}
                         <li class="nav-item">
-                            <a class="nav-link link-primary" href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a>
+                            <a class="nav-link link-primary" href="{{ .URL }}">{{ partial "menu_label.html" . }}</a>
                         </li>
                     {{ end }}
                 {{ end }}

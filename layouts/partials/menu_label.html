@@ -1,0 +1,11 @@
+{{- /*
+  Label of a menu entry: optional icon (params.icon, see data/bpicons.json), .Pre and .Name.
+
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    [menu.main.params]
+      icon = "newspaper"
+*/ -}}
+{{- with .Params.icon }}{{ partial "icon.html" . }}&nbsp;{{ end -}}
+{{- .Pre }} {{ .Name -}}
