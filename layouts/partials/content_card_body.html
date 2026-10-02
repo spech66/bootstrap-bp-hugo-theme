@@ -1,6 +1,15 @@
+{{- $summary := .Scratch.Get "showPostSummary" -}}
 <div class="card-body">
-    <h1 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h1>
+    {{- if and (ne .Type "page") .Params.categories }}
+    <p class="card-kicker">
+        {{- range $i, $c := .Params.categories -}}
+            {{ if $i }}<span class="sep" aria-hidden="true"> · </span>{{ end }}<a href="{{ "/categories/" | relLangURL }}#{{ $c | urlize }}">{{ $c }}</a>
+        {{- end -}}
+    </p>
+    {{- end }}
+    <h1 class="card-title"><a href="{{ .RelPermalink }}"{{ if $summary }} class="stretched-link"{{ end }}>{{ .Title | markdownify }}</a></h1>
     {{ partial "content_card_body_subtitle.html" . }}
+    {{ partial "content_card_body_extra.html" . }}
     {{ if eq .Type "video" }}
     {{ else if eq .Type "audio" }}
     {{ else if eq .Type "link" }}
@@ -12,13 +21,8 @@
         </blockquote>
     {{ end }}
 
-    {{ if .Scratch.Get "showPostSummary" }}
-        <p class="card-text">{{ .Summary }}</p>
-
-        <a href="{{ .RelPermalink }}" class="card-link">{{ i18n "readmore" }}&hellip;</a>
-        {{ if ne .Site.Params.hideReadingTime true }}
-             ({{ partial "icon.html" "clock" }}&nbsp;~{{ .ReadingTime }} Min.)
-        {{end}}
+    {{ if $summary }}
+        <p class="card-text card-summary">{{ .Summary | plainify | htmlUnescape }}</p>
     {{ else }}
         <p class="card-text">{{ .Content }}</p>
     {{ end }}

@@ -22,7 +22,7 @@
             {{ $thumb := partial "image-webp.html" (dict "image" . "width" 1108) }}
             <img class="card-img-top" src="{{ $thumb.RelPermalink }}"{{ with $thumb.Width }} width="{{ . }}" height="{{ $thumb.Height }}"{{ end }} alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
         {{ else }}
-            {{ $thumb := partial "image-webp.html" (dict "image" . "fill" "360x270 center") }}
+            {{ $thumb := partial "image-webp.html" (dict "image" . "fill" "640x360 center") }}
             <img class="card-img-top" src="{{ $thumb.RelPermalink }}"{{ with $thumb.Width }} width="{{ . }}" height="{{ $thumb.Height }}"{{ end }} alt="{{ $sitetitle }}" title="{{ $sitetitle }}" loading="lazy">
         {{ end }}
     {{ end }}

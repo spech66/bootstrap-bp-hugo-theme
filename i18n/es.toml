@@ -35,3 +35,6 @@ other = "Categoría"
 other = "Etiquetas"
 [Tag]
 other = "Etiqueta"
+
+[readingTimeShort]
+other = "{{.Count}} min de lectura"

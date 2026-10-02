@@ -19,3 +19,37 @@ a:hover { text-decoration: none; }
 .bp-icon { display: inline-block; height: 1em; width: auto; overflow: visible; vertical-align: -0.125em; fill: currentColor; }
 .bp-icon.icon-2x { height: 2em; vertical-align: -0.375em; }
 a.social-icon { display: inline-block; line-height: 1; }
+
+/* Accent color for the category line above card titles; schemes and sites can override it */
+:root { --bp-accent: #{$primary}; }
+
+/* Cards: category line, meta line, tags */
+.card-kicker { font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--bp-accent); margin-bottom: .35rem; }
+.card-kicker a { color: inherit; position: relative; z-index: 2; }
+.card-meta { font-size: .8125rem; color: var(--bs-secondary-color); margin-bottom: .75rem; }
+.card-meta .sep, .card-kicker .sep { opacity: .5; }
+.card-title a.stretched-link::after { z-index: 1; }
+.card-summary { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 0; }
+.card-tags { background: transparent; border-top: 0; padding-top: 0; padding-bottom: var(--bs-card-spacer-y); display: flex; flex-wrap: wrap; gap: .25rem .75rem; font-size: .75rem; position: relative; z-index: 2; }
+.card-tags a { color: var(--bs-secondary-color); }
+.card-tags a::before { content: "#"; opacity: .6; }
+.card-tags a:hover { color: var(--bs-body-color); }
+.card-kicker a, .card-tags a, .card-title a, a.social-icon { border-bottom: 0 !important; }
+
+/* Card images: keep the ratio although img has width/height attributes */
+.card-img-top { height: auto; }
+
+/* Start page grid: images in one format, subtle hover */
+.gridcards .card { transition: border-color .15s ease, transform .15s ease; }
+.gridcards .card:hover { border-color: var(--bs-secondary-color); transform: translateY(-2px); }
+.gridcards .card-img-top { aspect-ratio: 16 / 9; object-fit: cover; }
+@media (prefers-reduced-motion: reduce) { .gridcards .card, .gridcards .card:hover { transition: none; transform: none; } }
+
+.badge { font-weight: 500; }
+
+/* Footer */
+.site-footer h5 { font-size: 1rem; font-weight: 600; margin-bottom: .5rem; }
+.site-footer .footer-description { max-width: 46ch; margin-bottom: 0; }
+.site-footer .bp-icon.icon-2x { height: 1.375em; vertical-align: -0.25em; }
+.site-footer .list-inline-item:not(:last-child) { margin-right: .75rem; }
+.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem; margin-top: .75rem; padding: .875rem 0 1rem; border-top: 1px solid var(--bs-border-color); font-size: .8125rem; color: var(--bs-secondary-color); }

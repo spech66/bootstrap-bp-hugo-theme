@@ -1,19 +1,15 @@
-<div class="card-footer">
-    <small class="text-muted">
-        {{ if ne .Type "page" }}
-            {{ if gt .Params.categories 0 }}
-                {{ partial "icon.html" (dict "name" "folder" "class" "text-primary") }}&nbsp;
-                {{ range .Params.categories }}
-                    <a href="{{ "/categories/" | relLangURL }}#{{ . | urlize }}" class="badge bg-primary"><span>{{ . }}</span></a>
-                {{ end }}
-                <br />
-            {{ end }}
-            {{ if gt .Params.tags 0 }}
-                {{ partial "icon.html" (dict "name" "tags" "class" "text-secondary") }}&nbsp; 
-                {{ range .Params.tags }}
-                    <a href="{{ "/tags/" | relLangURL }}#{{ . | urlize }}" class="badge bg-secondary"><span>{{ . }}</span></a>
-                {{ end }}
-            {{ end }}
-        {{ end }}
-    </small>
+{{- /*
+  Tags of a post. Categories are shown above the title (content_card_body.html),
+  so tags that are also a category are skipped. Lists show at most three tags.
+*/ -}}
+{{- if ne .Type "page" -}}
+    {{- $tags := complement (.Params.categories | default slice) (.Params.tags | default slice) -}}
+    {{- if .Scratch.Get "showPostSummary" }}{{ $tags = first 3 $tags }}{{ end -}}
+    {{- with $tags }}
+<div class="card-footer card-tags">
+    {{- range . }}
+    <a href="{{ "/tags/" | relLangURL }}#{{ . | urlize }}">{{ . }}</a>
+    {{- end }}
 </div>
+    {{- end -}}
+{{- end -}}

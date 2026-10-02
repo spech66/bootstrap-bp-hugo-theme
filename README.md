@@ -28,6 +28,7 @@ Other themes by Sebastian Pech: [Bootstrap-BP](https://github.com/spech66/bootst
   - [Social Icons](#social-icons)
   - [Icons](#icons)
   - [Custom CSS/JS](#custom-cssjs)
+  - [Post cards](#post-cards)
   - [Performance: Bootstrap parts, JavaScript and Font Awesome](#performance-bootstrap-parts-javascript-and-font-awesome)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -279,6 +280,16 @@ csscdn:
     - https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900
 ---
 ```
+
+## Post cards
+
+Cards show the categories as a small line above the title, a meta line (date, reading time; on the full page also last updated and author) and the tags below. Tags that are also a category are skipped, lists show at most three tags. In lists the whole card links to the post and the summary is cut after four lines.
+
+- Accent color of the category line: set `--bp-accent` in your `assets/css/custom.css`, e.g. `:root { --bp-accent: #c2410c; }`. Default is the `$primary` color of the color theme.
+- Extra content below the meta line: create `layouts/partials/content_card_body_extra.html` in your site. The theme ships an empty one.
+- Reading time label: i18n key `readingTimeShort`.
+
+**Upgrading from older versions:** sites with their own copy of `content_card_body.html` should remove it (or compare it with the new one), otherwise the old meta line and "Read more" link stay.
 
 ## Performance: Bootstrap parts, JavaScript and Font Awesome
 

@@ -1,17 +1,11 @@
-<footer class="navbar-light border-top pt-4">
+<footer class="navbar-light border-top pt-4 site-footer">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-3 mb-3">
+            <div class="col-12 col-md-6 mb-3">
                 <h5>{{ .Site.Title }}</h5>
-                {{ .Site.Params.description }}
+                <p class="footer-description">{{ .Site.Params.description }}</p>
             </div>
-            <div class="col-12 col-md-3 mb-3">
-                <h5>{{ i18n "social" }}</h5>
-                <ul class="list-unstyled list-inline">
-                    {{- partial "social.html" . -}}
-                </ul>
-            </div>
-            <div class="col-12 col-md-3 mb-3">
+            <div class="col-6 col-md-3 mb-3">
                 <h5>{{ i18n "site" }}</h5>
                 <ul class="list-unstyled">
                     {{ range $index, $element := .Site.Menus.footer }}
@@ -25,13 +19,18 @@
                         {{ end }}
                     {{ end }}
                 </ul>
-            </div>
-            <div class="col-12 col-md-3 mb-3">
                 {{ partial "i18nlist.html" . }}
-
-                &copy; {{ .Site.Params.copyrightYears | default (now.Format "2006") }} {{ range .Site.Params.Author }}{{ . }}{{ end }}<br/>
-                {{ i18n "themeby" }} <a href="https://www.spech.de" target="_blank" rel="noopener noreferrer">Sebastian Pech</a>.
             </div>
+            <div class="col-6 col-md-3 mb-3">
+                <h5>{{ i18n "social" }}</h5>
+                <ul class="list-unstyled list-inline">
+                    {{- partial "social.html" . -}}
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; {{ .Site.Params.copyrightYears | default (now.Format "2006") }} {{ range .Site.Params.Author }}{{ . }}{{ end }}</span>
+            <span>{{ i18n "themeby" }} <a href="https://www.spech.de" target="_blank" rel="noopener noreferrer">Sebastian Pech</a></span>
         </div>
     </div>
 </footer>
