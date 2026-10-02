@@ -14,3 +14,8 @@ div.highlight > pre { padding: 0.5rem; }
 /* Revert v5 links: no underline, color change only (handled by $link-hover-color) */
 a { text-decoration: none; }
 a:hover { text-decoration: none; }
+
+/* Inline SVG icons (partial "icon.html") */
+.bp-icon { display: inline-block; height: 1em; width: auto; overflow: visible; vertical-align: -0.125em; fill: currentColor; }
+.bp-icon.icon-2x { height: 2em; vertical-align: -0.375em; }
+a.social-icon { display: inline-block; line-height: 1; }

@@ -13,7 +13,7 @@ $body-bg:#f4f4f4;
 @import "main.scss";
 
 // Bootstrap
-@import "./bootstrap/bootstrap";
+@import "bootstrap-imports";
 
 // Shared styles overrides
 @import "main2.scss";

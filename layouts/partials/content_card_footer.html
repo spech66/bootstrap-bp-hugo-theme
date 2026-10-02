@@ -2,14 +2,14 @@
     <small class="text-muted">
         {{ if ne .Type "page" }}
             {{ if gt .Params.categories 0 }}
-                <i class="fas fa-folder text-primary"></i>&nbsp;
+                {{ partial "icon.html" (dict "name" "folder" "class" "text-primary") }}&nbsp;
                 {{ range .Params.categories }}
                     <a href="{{ "/categories/" | relLangURL }}#{{ . | urlize }}" class="badge bg-primary"><span>{{ . }}</span></a>
                 {{ end }}
                 <br />
             {{ end }}
             {{ if gt .Params.tags 0 }}
-                <i class="fas fa-tags text-secondary"></i>&nbsp; 
+                {{ partial "icon.html" (dict "name" "tags" "class" "text-secondary") }}&nbsp; 
                 {{ range .Params.tags }}
                     <a href="{{ "/tags/" | relLangURL }}#{{ . | urlize }}" class="badge bg-secondary"><span>{{ . }}</span></a>
                 {{ end }}

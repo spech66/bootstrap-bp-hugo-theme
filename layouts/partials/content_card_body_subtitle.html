@@ -3,7 +3,7 @@
 
 {{- $card_subtitle_data := slice -}}
 {{- if isset .Params "publishdate" -}}
-    {{- $pub_string := "<i class=\"fas fa-calendar-day\"></i>&nbsp;" -}} 
+    {{- $pub_string := print (partial "icon.html" "calendar-day") "&nbsp;" -}} 
     {{- $update_string := "" -}}
     {{- if gt .Lastmod .PublishDate -}}
         {{- $update_label := i18n "lastupdated" -}}
@@ -16,7 +16,7 @@
 {{- end -}}
 {{- if isset .Params "author" -}}
     {{- $author := $.Param "author" -}}
-    {{- $author_string := "<i class=\"fas fa-user\"></i>&nbsp;" -}}
+    {{- $author_string := print (partial "icon.html" "user") "&nbsp;" -}}
     {{- $author_data := "" -}}
     {{- if reflect.IsSlice ($author) -}}
         {{- $author_data = delimit $author ", " | htmlEscape -}}
@@ -27,7 +27,7 @@
     {{- $card_subtitle_data = $card_subtitle_data | append $author_string -}}
 {{- end -}}
 {{- if ne .Site.Params.hideReadingTime true -}}
-    {{- $read_time_string := "<i class=\"fas fa-clock\"></i>&nbsp;~" -}}
+    {{- $read_time_string := print (partial "icon.html" "clock") "&nbsp;~" -}}
     {{- if and (not (.Scratch.Get "showPostSummary")) (.Scratch.Get "fullsize") -}}
         {{- $read_time_data := i18n "readingTime" .ReadingTime | htmlEscape -}}
         {{- $read_time_string := printf "%s%s" $read_time_string $read_time_data -}}

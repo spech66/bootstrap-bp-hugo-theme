@@ -26,7 +26,9 @@ Other themes by Sebastian Pech: [Bootstrap-BP](https://github.com/spech66/bootst
   - [Images, Open Graph and Twitter Cards](#images-open-graph-and-twitter-cards)
   - [Menus](#menus)
   - [Social Icons](#social-icons)
+  - [Icons](#icons)
   - [Custom CSS/JS](#custom-cssjs)
+  - [Performance: Bootstrap parts, JavaScript and Font Awesome](#performance-bootstrap-parts-javascript-and-font-awesome)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -40,7 +42,8 @@ Other themes by Sebastian Pech: [Bootstrap-BP](https://github.com/spech66/bootst
 - Optional masonry-like mode for startpage
 - Settings for easy customization of layouts and features
 - Multiple page templates / archetypes supported
-- Icons for Social Media
+- Icons for Social Media as inline SVG (no icon font)
+- No Bootstrap JavaScript bundle by default (~1 KB navigation script)
 - Custom css/js
 - Multilingual and i18n support
 - ...
@@ -85,6 +88,7 @@ Use the `config.toml` from the `exampleSite` subdirectory as base.
 - `alwaysExpandMenu = true` to expand the menu on non-mobile devices otherwise the mobile button is shown on all devices.
 - `themeColor` set to dark, light, blue (do not set for bootstrap default).
 - `hideReadingTime` to hide reading time.
+- `bootstrapJS = true` to load the full Bootstrap JavaScript bundle (modals, tooltips, carousels, ...). Default: only a small navigation script.
 
 ## Screenshots of configurations
 
@@ -237,6 +241,17 @@ Icons for Social Media. Add the block to the config.
   email            = ""
 ```
 
+## Icons
+
+All icons of the theme are inline SVGs rendered by the `icon.html` partial. Only the icons a page actually uses end up in its HTML, no icon font is downloaded.
+
+```go-html-template
+{{ partial "icon.html" "clock" }}
+{{ partial "icon.html" (dict "name" "github" "class" "icon-2x") }}
+```
+
+The icons are stored in `data/bpicons.json` (glyphs from [Font Awesome Free 5](https://fontawesome.com/license/free), CC BY 4.0). To add your own icon, create `data/bpicons.json` in your site with an entry `"name": {"w": <width>, "d": "<path>"}`. The path uses font units (512 units high, baseline at 0, like the Font Awesome 5 SVG fonts).
+
 ## Custom CSS/JS
 
 The theme provides two ways for custom css/js. The first way is writing your styles to `/assets/css/custom.css` and scripts to `/assets/js/custom.js`. This will merge and minify the styles/scripts with the theme specific files resulting in only one file for the whole website.
@@ -262,4 +277,20 @@ css:
 csscdn:
     - https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900
 ---
+```
+
+## Performance: Bootstrap parts, JavaScript and Font Awesome
+
+To keep pages small the theme only compiles the Bootstrap components it uses (see `assets/sass/_bootstrap-imports.scss`). Modal, carousel, tooltip, popover, offcanvas, accordion, toasts and a few others are left out.
+
+If you need one of them, copy `assets/sass/_bootstrap-imports.scss` from the theme to `assets/sass/_bootstrap-imports.scss` in your site and uncomment the component. Components that need JavaScript also require `bootstrapJS = true`.
+
+**Upgrading from older versions:** Font Awesome is no longer part of the theme and the Bootstrap JavaScript bundle is no longer loaded by default.
+
+- Bootstrap JavaScript components (modal, tooltip, ...): set `bootstrapJS = true`.
+- Font Awesome classes in your content or layouts (`<i class="fas fa-...">`): switch to `{{ partial "icon.html" "name" }}`, or load Font Awesome yourself with the existing `csscdn` parameter:
+
+```toml
+[params]
+  csscdn = ["https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"]
 ```

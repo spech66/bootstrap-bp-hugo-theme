@@ -4,10 +4,10 @@
     {{ if eq .Type "video" }}
     {{ else if eq .Type "audio" }}
     {{ else if eq .Type "link" }}
-        <p class="text-center"><a href="{{ .Params.link }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" tabindex="-1" role="button"><i class="fas fa-link"></i>&nbsp;{{ .Title }}</a></p>
+        <p class="text-center"><a href="{{ .Params.link }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" tabindex="-1" role="button">{{ partial "icon.html" "link" }}&nbsp;{{ .Title }}</a></p>
     {{ else if eq .Type "quote" }}
         <blockquote class="blockquote text-center">
-            <p class="mb-0"><i class="fas fa-quote-left fa-2x"></i>&nbsp;{{ .Params.quote }}&nbsp;<i class="fas fa-quote-right fa-2x"></i></p>
+            <p class="mb-0">{{ partial "icon.html" (dict "name" "quote-left" "class" "icon-2x") }}&nbsp;{{ .Params.quote }}&nbsp;{{ partial "icon.html" (dict "name" "quote-right" "class" "icon-2x") }}</p>
             <p class="blockquote-footer"><cite title="{{ .Params.quoteauthor }}">{{ .Params.quoteauthor }}</cite></p>
         </blockquote>
     {{ end }}
@@ -17,7 +17,7 @@
 
         <a href="{{ .RelPermalink }}" class="card-link">{{ i18n "readmore" }}&hellip;</a>
         {{ if ne .Site.Params.hideReadingTime true }}
-             (<i class="fas fa-clock"></i>&nbsp;~{{ .ReadingTime }} Min.)
+             ({{ partial "icon.html" "clock" }}&nbsp;~{{ .ReadingTime }} Min.)
         {{end}}
     {{ else }}
         <p class="card-text">{{ .Content }}</p>

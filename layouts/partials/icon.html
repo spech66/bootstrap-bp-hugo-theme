@@ -1,0 +1,22 @@
+{{- /*
+  Inline SVG icon from data/bpicons.json (Font Awesome Free 5 glyphs, CC BY 4.0).
+  Only the icons a page actually uses end up in its HTML, no icon font is loaded.
+
+  Usage:
+    {{ partial "icon.html" "clock" }}
+    {{ partial "icon.html" (dict "name" "github" "class" "icon-2x") }}
+
+  Add more icons by adding an entry to data/bpicons.json in your site
+  (key = icon name, w = glyph width, d = glyph path in font units).
+*/ -}}
+{{- $name := . -}}
+{{- $class := "" -}}
+{{- if reflect.IsMap . -}}
+    {{- $name = .name -}}
+    {{- $class = .class | default "" -}}
+{{- end -}}
+{{- with index hugo.Data.bpicons $name -}}
+<svg class="bp-icon{{ with $class }} {{ . }}{{ end }}" viewBox="0 -448 {{ .w }} 512" aria-hidden="true" focusable="false"><path transform="scale(1,-1)" d="{{ .d }}"/></svg>
+{{- else -}}
+    {{- warnf "bootstrap-bp-hugo-theme: icon %q not found in data/bpicons.json" $name -}}
+{{- end -}}

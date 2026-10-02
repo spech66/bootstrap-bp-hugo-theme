@@ -21,7 +21,7 @@ $card-bg:lighten($dark, 5%);
 @import "main.scss";
 
 // Bootstrap
-@import "./bootstrap/bootstrap";
+@import "bootstrap-imports";
 
 // Shared styles overrides
 @import "main2.scss";
