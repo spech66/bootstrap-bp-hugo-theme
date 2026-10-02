@@ -1,8 +1,4 @@
-<a href="{{ .Destination | safeURL }}"{{ with .Title}} title="{{ . }}"{{ end }}{{ if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>
-{{ .Text | safeHTML }}
-{{ if strings.HasPrefix .Destination "https://amzn.to" }}&nbsp;{{ partial "icon.html" "amazon" }}
-{{ else if strings.HasPrefix .Destination "https://github" }}&nbsp;{{ partial "icon.html" "github" }}
-{{ else if strings.HasPrefix .Destination "https://" }}&nbsp;{{ partial "icon.html" "external-link-alt" }}
-{{ else if strings.HasPrefix .Destination "http://" }}&nbsp;{{ partial "icon.html" "external-link-alt" }}
-{{ end }}
+{{- $external := strings.HasPrefix .Destination "http" -}}
+<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Text | safeHTML }}
+{{- if $external }}&nbsp;{{ partial "icon.html" (dict "name" (cond (strings.HasPrefix .Destination "https://github") "github" "external-link-alt") "class" "link-icon") }}{{ end -}}
 </a>

@@ -53,3 +53,6 @@ a.social-icon { display: inline-block; line-height: 1; }
 .site-footer .bp-icon.icon-2x { height: 1.375em; vertical-align: -0.25em; }
 .site-footer .list-inline-item:not(:last-child) { margin-right: .75rem; }
 .footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem; margin-top: .75rem; padding: .875rem 0 1rem; border-top: 1px solid var(--bs-border-color); font-size: .8125rem; color: var(--bs-secondary-color); }
+
+/* External link icon in content (render-link.html): small and quiet */
+.bp-icon.link-icon { height: .7em; vertical-align: baseline; opacity: .55; }

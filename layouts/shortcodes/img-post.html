@@ -1,0 +1,31 @@
+{{- /*
+  Image resource of the page, max. 384 px wide as WebP, floating next to the text.
+
+  Usage:
+    {{< img-post file="photo.jpg" alt="Description" type="right" >}}
+    {{< img-post "/ignored-path/" "photo.jpg" "Description" "left" >}}
+
+  type: right, left or center (default). "path" is accepted for older content but not used.
+*/ -}}
+{{- $file := .Get "file" -}}
+{{- $alt := .Get "alt" -}}
+{{- $type := .Get "type" -}}
+{{- if not .IsNamedParams -}}
+    {{- $file = .Get 1 -}}
+    {{- $alt = .Get 2 -}}
+    {{- $type = .Get 3 -}}
+{{- end -}}
+{{- $alt = $alt | default "" -}}
+{{- with .Page.Resources.GetMatch $file -}}
+    {{- $img := partial "image-webp.html" (dict "image" . "width" 384) -}}
+    {{- $tag := printf `<img src="%s" width="%d" height="%d" alt="%s" title="%s" loading="lazy" decoding="async">` $img.RelPermalink $img.Width $img.Height ($alt | htmlEscape) ($alt | htmlEscape) | safeHTML -}}
+    {{- if eq $type "left" }}
+<span class="image float-start rounded me-3">{{ $tag }}</span>
+    {{- else if eq $type "right" }}
+<span class="image float-end rounded ms-3">{{ $tag }}</span>
+    {{- else }}
+<p><span class="image mx-auto rounded">{{ $tag }}</span></p>
+    {{- end -}}
+{{- else -}}
+    {{- warnf "img-post: image %q not found in %s" $file $.Page.File.Path -}}
+{{- end -}}

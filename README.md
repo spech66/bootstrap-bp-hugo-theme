@@ -29,6 +29,7 @@ Other themes by Sebastian Pech: [Bootstrap-BP](https://github.com/spech66/bootst
   - [Icons](#icons)
   - [Custom CSS/JS](#custom-cssjs)
   - [Post cards](#post-cards)
+  - [Floating images](#floating-images)
   - [Performance: Bootstrap parts, JavaScript and Font Awesome](#performance-bootstrap-parts-javascript-and-font-awesome)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -46,6 +47,7 @@ Other themes by Sebastian Pech: [Bootstrap-BP](https://github.com/spech66/bootst
 - Icons for Social Media as inline SVG (no icon font)
 - No Bootstrap JavaScript bundle by default (~1 KB navigation script)
 - Custom css/js
+- Floating images in posts (shortcode `img-post`)
 - Multilingual and i18n support
 - ...
 
@@ -124,6 +126,8 @@ Provide one author to enable the Schema.org support.
 [params.author]  
   name = "Sebastian Pech"
 ```
+
+Pages with a `datum` in the front matter (courses, workshops, events) get an `Event` schema. Used parameters: `datum`, `enddatum` or `termine` (list with `end`), `ort`, `adresse`, `preis` ("kostenlos"/"Spende" becomes 0), `image` and `anmeldung_ab`. The offer's `validFrom` is taken from `anmeldung_ab`, then the page date, then a `YYYY-MM` prefix of the content folder name, otherwise the event start.
 
 ## Images, Open Graph and Twitter Cards
 
@@ -290,6 +294,16 @@ Cards show the categories as a small line above the title, a meta line (date, re
 - Reading time label: i18n key `readingTimeShort`.
 
 **Upgrading from older versions:** sites with their own copy of `content_card_body.html` should remove it (or compare it with the new one), otherwise the old meta line and "Read more" link stay.
+
+## Floating images
+
+`img-post` shows a resource of the page (max. 384 px wide, WebP) floating right or left of the text, or centered.
+
+```
+{{< img-post file="photo.jpg" alt="Description" type="right" >}}
+```
+
+`type` is `right`, `left` or `center` (default). Positional parameters (`path`, `file`, `alt`, `type`) still work, `path` is ignored.
 
 ## Performance: Bootstrap parts, JavaScript and Font Awesome
 
