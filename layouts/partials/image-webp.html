@@ -1,0 +1,25 @@
+{{- /*
+  Returns a WebP version of an image resource. Other formats (gif, svg, ...) are returned unchanged.
+
+  Parameters (dict):
+    image  image resource (required)
+    width  maximum width in px; only images wider than this are resized (optional)
+    fill   fill spec like "360x270 center" (optional, takes precedence over width)
+
+  PNGs are encoded with higher quality, they are often screenshots with text.
+
+  Usage:
+    {{ $img := partial "image-webp.html" (dict "image" . "width" 600) }}
+*/ -}}
+{{- $img := .image -}}
+{{- $result := $img -}}
+{{- if in (slice "jpeg" "png") $img.MediaType.SubType -}}
+    {{- $spec := printf "webp q%d" (cond (eq $img.MediaType.SubType "png") 90 80) -}}
+    {{- with .fill -}}
+        {{- $spec = printf "fill %s %s" . $spec -}}
+    {{- else -}}
+        {{- with .width }}{{ if gt $img.Width . }}{{ $spec = printf "resize %dx %s" . $spec }}{{ end }}{{ end -}}
+    {{- end -}}
+    {{- $result = $img.Process $spec -}}
+{{- end -}}
+{{- return $result -}}

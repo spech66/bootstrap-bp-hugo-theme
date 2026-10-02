@@ -17,8 +17,7 @@
 
     {{ $src := .Get "src" }}
     {{ with .Page.Resources.GetMatch $src }}
-        {{ $img := . }}
-        {{ if gt $img.Width 800 }}{{ $img = $img.Process "resize 800x webp q80" }}{{ else }}{{ $img = $img.Process "webp q80" }}{{ end }}
+        {{ $img := partial "image-webp.html" (dict "image" . "width" 800) }}
         <img class="featurette-image img-fluid mx-auto rounded" src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $alt }}" title="{{ $title }}" loading="lazy">
     {{ else }}
         <img class="featurette-image img-fluid mx-auto rounded" src="{{ $src }}" alt="{{ $alt }}" title="{{ $title }}" loading="lazy">

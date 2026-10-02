@@ -19,11 +19,11 @@
     {{ $fullsize := .Scratch.Get "fullsize" }}
     {{- with $featured -}}
         {{ if $fullsize }}
-            {{ $thumb := .Resize "1108x" }}
-            <img class="card-img-top" src="{{ $thumb.RelPermalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
+            {{ $thumb := partial "image-webp.html" (dict "image" . "width" 1108) }}
+            <img class="card-img-top" src="{{ $thumb.RelPermalink }}"{{ with $thumb.Width }} width="{{ . }}" height="{{ $thumb.Height }}"{{ end }} alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
         {{ else }}
-            {{ $thumb := .Fill "360x270 center" }}
-            <img class="card-img-top" src="{{ $thumb.RelPermalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
+            {{ $thumb := partial "image-webp.html" (dict "image" . "fill" "360x270 center") }}
+            <img class="card-img-top" src="{{ $thumb.RelPermalink }}"{{ with $thumb.Width }} width="{{ . }}" height="{{ $thumb.Height }}"{{ end }} alt="{{ $sitetitle }}" title="{{ $sitetitle }}" loading="lazy">
         {{ end }}
     {{ end }}
 {{ end }}

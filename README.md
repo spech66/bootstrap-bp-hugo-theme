@@ -36,7 +36,7 @@ Other themes by Sebastian Pech: [Bootstrap-BP](https://github.com/spech66/bootst
 
 - Color themes
 - SEO best practices supported (Schema.org, open graph, meta information, ...)
-- Automatically resizing of images
+- Automatically resizing of images and conversion to WebP (partial `image-webp.html`, used by cards, `optfigure` and `featurette-image`)
 - One minified file per resource only (js, css)
 - CDN font support (Google Fonts, ...)
 - Optional masonry-like mode for startpage

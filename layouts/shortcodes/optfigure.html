@@ -7,20 +7,12 @@
         <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
     {{- end }}
 {{ with $original }}
-    {{ if gt $original.Width 600 }}
-        {{ $image := .Resize "600x" }}
-        <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}"
-        {{- if or ($alt) ($caption) }}
-            alt="{{ with $alt }}{{ . }}{{ else }}{{ $caption | markdownify| plainify }}{{ end }}"
-            {{- end -}}
-        />
-    {{ else }}
-        <img src="{{ $original.RelPermalink }}" width="{{ $original.Width }}" height="{{ $original.Height }}"
-        {{- if or ($alt) ($caption) }}
-            alt="{{ with $alt }}{{ . }}{{ else }}{{ $caption | markdownify| plainify }}{{ end }}"
-            {{- end -}}
-        />
-    {{ end }}
+    {{ $image := partial "image-webp.html" (dict "image" . "width" 600) }}
+    <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" loading="lazy" decoding="async"
+    {{- if or ($alt) ($caption) }}
+        alt="{{ with $alt }}{{ . }}{{ else }}{{ $caption | markdownify| plainify }}{{ end }}"
+        {{- end -}}
+    />
 {{ end }}
     {{- if .Get "link" }}</a>{{ end -}}
     {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr") -}}
