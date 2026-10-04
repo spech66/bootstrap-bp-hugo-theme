@@ -1,0 +1,51 @@
+{{- /*
+  Below a post: link to the older and newer post of the section, and related posts
+  (Hugo's related content, by default by tags and keywords, max. three).
+  Only for pages in the main sections (params.mainSections, default: the section with the most pages),
+  older/newer only for pages with a date.
+  Turn off with params.hidePostNav = true / params.hideRelated = true.
+*/ -}}
+{{- if and (in site.MainSections .Section) (ne .Type "page") -}}
+{{- $customDateFormat := .Site.Params.customDateFormat | default "02.01.2006" -}}
+
+{{- if and (not .Site.Params.hidePostNav) (not .Date.IsZero) -}}
+{{- $newer := false -}}
+{{- $older := false -}}
+{{- range slice .PrevInSection .NextInSection -}}
+    {{- with . -}}
+        {{- if .Date.After $.Date }}{{ $newer = . }}{{ else }}{{ $older = . }}{{ end -}}
+    {{- end -}}
+{{- end -}}
+{{- if or $newer $older }}
+<nav class="post-nav" aria-label="{{ i18n "olderPost" }} / {{ i18n "newerPost" }}">
+    {{- with $older }}
+    <a class="card post-nav-link post-nav-older" href="{{ .RelPermalink }}" rel="prev">
+        <span class="post-nav-label">{{ partial "icon.html" "arrow-left" }} {{ i18n "olderPost" }}</span>
+        <span class="post-nav-title">{{ .Title | markdownify }}</span>
+    </a>
+    {{- end }}
+    {{- with $newer }}
+    <a class="card post-nav-link post-nav-newer" href="{{ .RelPermalink }}" rel="next">
+        <span class="post-nav-label">{{ i18n "newerPost" }} {{ partial "icon.html" "arrow-right" }}</span>
+        <span class="post-nav-title">{{ .Title | markdownify }}</span>
+    </a>
+    {{- end }}
+</nav>
+{{- end -}}
+{{- end -}}
+
+{{- if not .Site.Params.hideRelated -}}
+{{- with first 3 (site.RegularPages.Related .) }}
+<section class="card related-posts">
+    <div class="card-body">
+        <h2 class="related-posts-title">{{ i18n "relatedPosts" }}</h2>
+        <ul class="list-unstyled mb-0">
+            {{- range . }}
+            <li><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>{{ if not .PublishDate.IsZero }} <time class="card-meta" datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format $customDateFormat }}</time>{{ end }}</li>
+            {{- end }}
+        </ul>
+    </div>
+</section>
+{{- end -}}
+{{- end -}}
+{{- end -}}

@@ -43,6 +43,13 @@ $pagination-disabled-border-color:#2d2f34;
 
 :root { --bp-accent: #7cb4ec; }
 
+// Subtle colors (alerts ...) from Bootstrap's own dark color mode; the scheme is compiled as light mode
+:root {
+    @each $color, $value in $theme-colors-text-dark { --bs-#{$color}-text-emphasis: #{$value}; }
+    @each $color, $value in $theme-colors-bg-subtle-dark { --bs-#{$color}-bg-subtle: #{$value}; }
+    @each $color, $value in $theme-colors-border-subtle-dark { --bs-#{$color}-border-subtle: #{$value}; }
+}
+
 .navbar-light { background-color: #{$dark}!important; }
 
 .dropdown-menu { background-color: #{$card-bg}!important; border-color: #{$card-border-color}; }

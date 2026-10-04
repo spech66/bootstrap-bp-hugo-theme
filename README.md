@@ -29,6 +29,8 @@ Other themes by Sebastian Pech: [Bootstrap-BP](https://github.com/spech66/bootst
   - [Icons](#icons)
   - [Custom CSS/JS](#custom-cssjs)
   - [Post cards](#post-cards)
+  - [Below posts: older/newer and related posts](#below-posts-oldernewer-and-related-posts)
+  - [Markdown images and alerts](#markdown-images-and-alerts)
   - [Floating images](#floating-images)
   - [Performance: Bootstrap parts, JavaScript and Font Awesome](#performance-bootstrap-parts-javascript-and-font-awesome)
 
@@ -48,6 +50,8 @@ Other themes by Sebastian Pech: [Bootstrap-BP](https://github.com/spech66/bootst
 - No Bootstrap JavaScript bundle by default (~1 KB navigation script)
 - Custom css/js
 - Floating images in posts (shortcode `img-post`)
+- Markdown images as WebP with width/height, GitHub style alerts (`> [!NOTE]`) as Bootstrap alerts
+- Older/newer post and related posts below posts
 - Multilingual and i18n support
 - ...
 
@@ -92,6 +96,7 @@ Use the `config.toml` from the `exampleSite` subdirectory as base.
 - `themeColor` set to dark, light, blue (do not set for bootstrap default).
 - `hideReadingTime` to hide reading time.
 - `bootstrapJS = true` to load the full Bootstrap JavaScript bundle (modals, tooltips, carousels, ...). Default: only a small navigation script.
+- `hidePostNav = true` / `hideRelated = true` to hide the older/newer links / related posts below posts.
 
 ## Screenshots of configurations
 
@@ -207,12 +212,10 @@ menu = "main"
 
 ## Social Icons
 
-Icons for Social Media. Add the block to the config.
+Icons for Social Media in the footer. Add the block to the config, empty values are skipped. The links of profiles also go into the `sameAs` list of the start page schema and get `rel="me"` (e.g. for Mastodon verification).
 
-```yaml
-# Sets Social Media icons to appear and link to your account. Value should be your
-# username unless otherwise noted.
-# Code from https://themes.gohugo.io/future-imperfect/ theme
+```toml
+# Value should be your username unless otherwise noted.
 [params.social]
   # Coding Communities
   github           = ""
@@ -237,24 +240,29 @@ Icons for Social Media. Add the block to the config.
   slideshare       = ""
   # Social Networks
   facebook         = ""
-  googleplus       = ""
   reddit           = ""
   quora            = ""
-  youtube          = ""
+  youtube          = "" # e.g. "@name" or "channel/ID"
+  youtube2         = "" # second channel
   vimeo            = ""
   whatsapp         = "" # WhatsApp Number
   instagram        = ""
   tiktok           = "" # @username
   tumblr           = ""
-  twitter          = ""
-  skype            = ""
+  twitter          = "" # links to x.com
+  mastodon         = "" # full profile URL, e.g. "https://mastodon.social/@name"
   snapchat         = ""
   pinterest        = ""
   telegram         = ""
   discord          = "" # invite link
+  twitch           = ""
   # Email
   email            = ""
 ```
+
+The networks, their URLs, icons and order are defined in `data/bpsocial.yaml`. Copy it to `data/bpsocial.yaml` in your site to change the order or add a network (icon from `data/bpicons.json`).
+
+**Upgrading from older versions:** `googleplus` and `skype` were removed (both services are shut down).
 
 ## Icons
 
@@ -305,6 +313,29 @@ Cards show the categories as a small line above the title, a meta line (date, re
 The card partials (`content_card_header.html`, `content_card_body.html`, `content_card_body_subtitle.html`, `content_card_footer.html`) get a dict with `page`, `fullsize`, `summary` and `list` from `content.html` / `content_index.html` (called with a page they render the full page). `content_card_body_extra.html` gets the page. In lists the title is an `h2` styled as `h1`, only the page itself has an `h1`.
 
 **Upgrading from older versions:** sites with their own copy of `content_card_body.html` should remove it (or compare it with the new one), otherwise the old meta line and "Read more" link stay. Own copies of the card partials that use `.Scratch.Get "fullsize"` / `"showPostSummary"` must read `.fullsize` / `.summary` / `.page` from the dict instead. The `Event` schema for pages with `datum` moved out of the theme, use `seo_schema_page.html` for it.
+
+## Below posts: older/newer and related posts
+
+Pages of the main sections (Hugo's `mainSections`, by default the section with the most pages) show links to the older and newer post of the section and up to three related posts. Related posts use Hugo's [related content](https://gohugo.io/content-management/related-content/) (by default tags, keywords and date). Older/newer links are only shown for pages with a date.
+
+- Turn off with `hidePostNav = true` / `hideRelated = true` in `[params]`.
+- Change the markup: create `layouts/partials/post_footer.html` in your site.
+- Labels: i18n keys `olderPost`, `newerPost`, `relatedPosts`.
+
+## Markdown images and alerts
+
+Images in Markdown that are page resources (or files in `assets/`) are converted to WebP (max. 1108 px wide) with `width` and `height`; images in `static/`, remote images and SVGs stay as they are. All Markdown images load lazily.
+
+```markdown
+![Alt text](photo.jpg "Optional title")
+```
+
+GitHub style alerts are rendered as Bootstrap alerts. Types: `NOTE`, `TIP`, `IMPORTANT`, `WARNING`, `CAUTION`; a title after the type is optional (default: i18n keys `alertNote`, `alertTip`, ...).
+
+```markdown
+> [!TIP] Optional title
+> Helpful advice for doing things better or more easily.
+```
 
 ## Floating images
 

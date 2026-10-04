@@ -1,0 +1,18 @@
+{{- /*
+  Returns the configured social links (params.social) in the order of data/bpsocial.yaml
+  as a slice of dicts: title, url, icon, profile. Used by social.html and seo_schema.html.
+*/ -}}
+{{- $links := slice -}}
+{{- $social := site.Params.social | default dict -}}
+{{- range hugo.Data.bpsocial -}}
+    {{- $entry := . -}}
+    {{- with index $social .key -}}
+        {{- $links = $links | append (dict
+            "title" $entry.title
+            "url" (printf $entry.url (strings.TrimPrefix "/" .))
+            "icon" $entry.icon
+            "profile" (ne $entry.profile false)
+        ) -}}
+    {{- end -}}
+{{- end -}}
+{{- return $links -}}

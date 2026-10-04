@@ -21,6 +21,10 @@ categories:
 
 The header image is automatically added if there is a file called `*feature*` or `*cover*`. The first wildcard is preferred over the second one. If there are multiple images the first one is used.
 
+Images in Markdown that are page resources (or files in `assets/`) are converted to WebP with width and height:
+
+![Home office](cover-home-office-599475_1920.jpg "Page resource as WebP")
+
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
 ### Headline 3

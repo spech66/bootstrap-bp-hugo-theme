@@ -1,0 +1,26 @@
+{{- /*
+  Markdown images: page resources and files in assets/ become WebP (max. 1108 px wide,
+  the content width) with width/height. Other images (static/, remote, SVG) stay as they are.
+  All images are loaded lazily.
+*/ -}}
+{{- $u := urls.Parse .Destination -}}
+{{- $img := "" -}}
+{{- if not $u.IsAbs -}}
+    {{- with .PageInner.Resources.Get $u.Path -}}
+        {{- $img = . -}}
+    {{- else -}}
+        {{- with resources.Get (strings.TrimPrefix "/" $u.Path) }}{{ $img = . }}{{ end -}}
+    {{- end -}}
+{{- end -}}
+{{- $src := .Destination -}}
+{{- $width := 0 -}}
+{{- $height := 0 -}}
+{{- if and $img (in (slice "jpeg" "png" "gif" "webp") $img.MediaType.SubType) -}}
+    {{- $out := partial "image-webp.html" (dict "image" $img "width" 1108) -}}
+    {{- $src = $out.RelPermalink -}}
+    {{- $width = $out.Width -}}
+    {{- $height = $out.Height -}}
+{{- else if $img -}}
+    {{- $src = $img.RelPermalink -}}
+{{- end -}}
+<img src="{{ $src }}" alt="{{ .PlainText }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ with $width }} width="{{ . }}" height="{{ $height }}"{{ end }} loading="lazy" decoding="async">

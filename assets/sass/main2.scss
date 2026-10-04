@@ -58,3 +58,23 @@ a.social-icon { display: inline-block; line-height: 1; }
 
 /* External link icon in content (render-link.html): small and quiet */
 .bp-icon.link-icon { height: .7em; vertical-align: baseline; opacity: .55; }
+
+/* Content images (render-image.html) */
+.card-text img { max-width: 100%; height: auto; }
+
+/* Alerts (render-blockquote.html, > [!NOTE] ...) */
+.bp-alert > :last-child { margin-bottom: 0; }
+.bp-alert-title { font-weight: 600; margin-bottom: .25rem; }
+
+/* Below posts: older/newer post and related posts (post_footer.html) */
+.post-nav { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+.post-nav-link { flex: 1 1 16rem; gap: .125rem; padding: .75rem 1rem; }
+.post-nav-link, .post-nav-link:link, .post-nav-link:visited { border-bottom: var(--bs-card-border-width) solid var(--bs-card-border-color) !important; }
+.post-nav-link:hover { border-color: var(--bs-secondary-color) !important; }
+.post-nav-newer { text-align: right; margin-left: auto; }
+.post-nav-label { font-size: .8125rem; color: var(--bs-secondary-color); }
+.post-nav-title { font-weight: 500; }
+.related-posts { margin-top: 1rem; }
+.related-posts-title { font-size: 1rem; font-weight: 600; margin-bottom: .5rem; }
+.related-posts li + li { margin-top: .25rem; }
+.related-posts .card-meta { margin-left: .25rem; }

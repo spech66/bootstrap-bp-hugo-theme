@@ -38,3 +38,27 @@ other = "Tag"
 
 [readingTimeShort]
 other = "{{.Count}} Min. Lesezeit"
+
+[alertNote]
+other = "Hinweis"
+
+[alertTip]
+other = "Tipp"
+
+[alertImportant]
+other = "Wichtig"
+
+[alertWarning]
+other = "Warnung"
+
+[alertCaution]
+other = "Vorsicht"
+
+[newerPost]
+other = "Neuerer Beitrag"
+
+[olderPost]
+other = "Älterer Beitrag"
+
+[relatedPosts]
+other = "Ähnliche Beiträge"

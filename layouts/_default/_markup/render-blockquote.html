@@ -1,0 +1,28 @@
+{{- /*
+  Blockquotes. GitHub style alerts become Bootstrap alerts:
+
+    > [!NOTE]
+    > Text
+
+  Types: NOTE, TIP, IMPORTANT, WARNING, CAUTION. Own title: > [!TIP] My title
+*/ -}}
+{{- if eq .Type "alert" -}}
+{{- $types := dict
+    "note"      (dict "class" "info"    "icon" "info-circle")
+    "tip"       (dict "class" "success" "icon" "lightbulb")
+    "important" (dict "class" "primary" "icon" "exclamation-circle")
+    "warning"   (dict "class" "warning" "icon" "exclamation-triangle")
+    "caution"   (dict "class" "danger"  "icon" "hand-paper")
+-}}
+{{- $name := lower .AlertType -}}
+{{- $type := index $types $name | default $types.note -}}
+{{- $title := .AlertTitle | default (i18n (printf "alert%s" (strings.FirstUpper $name))) | default (strings.FirstUpper $name) -}}
+<div class="alert alert-{{ $type.class }} bp-alert" role="note">
+<p class="bp-alert-title">{{ partial "icon.html" $type.icon }} {{ $title }}</p>
+{{ .Text }}
+</div>
+{{- else -}}
+<blockquote>
+{{ .Text }}
+</blockquote>
+{{- end }}

@@ -1,0 +1,41 @@
+# Social links for params.social (footer icons and the sameAs list of the start page schema).
+#   key:     name in [params.social]
+#   url:     link, %s is replaced by the configured value (a leading "/" of the value is dropped)
+#   icon:    icon name in data/bpicons.json
+#   profile: false for contact links that are no profile (not in sameAs, no rel="me")
+# Copy this file to data/bpsocial.yaml in your site to change the list or the order.
+- { key: github, title: GitHub, url: "https://github.com/%s", icon: github }
+- { key: gitlab, title: GitLab, url: "https://gitlab.com/%s", icon: gitlab }
+- { key: stackoverflow, title: Stack Overflow, url: "https://stackoverflow.com/users/%s", icon: stack-overflow }
+- { key: bitbucket, title: Bitbucket, url: "https://bitbucket.org/%s/", icon: bitbucket }
+- { key: jsfiddle, title: JSFiddle, url: "https://jsfiddle.net/user/%s/", icon: jsfiddle }
+- { key: codepen, title: CodePen, url: "https://codepen.io/%s", icon: codepen }
+- { key: deviantart, title: DeviantArt, url: "https://www.deviantart.com/%s", icon: deviantart }
+- { key: flickr, title: Flickr, url: "https://flickr.com/photos/%s", icon: flickr }
+- { key: behance, title: Behance, url: "https://behance.net/%s", icon: behance }
+- { key: dribbble, title: Dribbble, url: "https://dribbble.com/%s", icon: dribbble }
+- { key: wordpress, title: WordPress, url: "https://%s.wordpress.com", icon: wordpress }
+- { key: medium, title: Medium, url: "https://medium.com/@%s", icon: medium }
+- { key: linkedin, title: LinkedIn, url: "https://linkedin.com/in/%s", icon: linkedin }
+- { key: linkedin_company, title: LinkedIn, url: "https://linkedin.com/company/%s", icon: linkedin }
+- { key: foursquare, title: Foursquare, url: "https://foursquare.com/%s", icon: foursquare }
+- { key: xing, title: Xing, url: "https://www.xing.com/profile/%s", icon: xing }
+- { key: slideshare, title: SlideShare, url: "https://slideshare.net/%s", icon: slideshare }
+- { key: facebook, title: Facebook, url: "https://facebook.com/%s", icon: facebook }
+- { key: reddit, title: Reddit, url: "https://www.reddit.com/user/%s", icon: reddit }
+- { key: quora, title: Quora, url: "https://quora.com/profile/%s", icon: quora }
+- { key: youtube, title: YouTube, url: "https://www.youtube.com/%s", icon: youtube }
+- { key: youtube2, title: YouTube, url: "https://www.youtube.com/%s", icon: youtube }
+- { key: vimeo, title: Vimeo, url: "https://vimeo.com/%s", icon: vimeo }
+- { key: whatsapp, title: WhatsApp, url: "https://api.whatsapp.com/send?phone=%s", icon: whatsapp, profile: false }
+- { key: instagram, title: Instagram, url: "https://instagram.com/%s", icon: instagram }
+- { key: tiktok, title: TikTok, url: "https://www.tiktok.com/%s", icon: tiktok }
+- { key: tumblr, title: Tumblr, url: "https://%s.tumblr.com", icon: tumblr }
+- { key: twitter, title: X (Twitter), url: "https://x.com/%s", icon: twitter }
+- { key: mastodon, title: Mastodon, url: "%s", icon: mastodon }
+- { key: snapchat, title: Snapchat, url: "https://snapchat.com/add/%s", icon: snapchat }
+- { key: pinterest, title: Pinterest, url: "https://www.pinterest.com/%s", icon: pinterest-p }
+- { key: telegram, title: Telegram, url: "https://telegram.me/%s", icon: telegram }
+- { key: discord, title: Discord, url: "%s", icon: discord, profile: false }
+- { key: twitch, title: Twitch, url: "https://www.twitch.tv/%s", icon: twitch }
+- { key: email, title: Email, url: "mailto:%s", icon: envelope, profile: false }

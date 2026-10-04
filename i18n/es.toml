@@ -38,3 +38,27 @@ other = "Etiqueta"
 
 [readingTimeShort]
 other = "{{.Count}} min de lectura"
+
+[alertNote]
+other = "Nota"
+
+[alertTip]
+other = "Consejo"
+
+[alertImportant]
+other = "Importante"
+
+[alertWarning]
+other = "Advertencia"
+
+[alertCaution]
+other = "Precaución"
+
+[newerPost]
+other = "Entrada más reciente"
+
+[olderPost]
+other = "Entrada anterior"
+
+[relatedPosts]
+other = "Entradas relacionadas"

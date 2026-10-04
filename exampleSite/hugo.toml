@@ -91,7 +91,6 @@ theme="bootstrap-bp-hugo-theme"
   slideshare       = ""
   # Social Networks
   facebook         = ""
-  googleplus       = ""
   reddit           = ""
   quora            = ""
   youtube          = "" 
@@ -101,7 +100,7 @@ theme="bootstrap-bp-hugo-theme"
   tiktok           = "" # @username
   tumblr           = ""
   twitter          = ""
-  skype            = ""
+  mastodon         = "" # full profile URL
   snapchat         = ""
   pinterest        = ""
   telegram         = ""
