@@ -1,7 +1,7 @@
 {{- /*
   Hook for sites: return a schema.org dict for the page, e.g. an Event for course pages.
   It is rendered as JSON-LD instead of the theme's BlogPosting/WebSite data.
-  Return an empty dict to keep the default. Example in the site's layouts/partials/seo_schema_page.html:
+  Return an empty dict to keep the default. Example in the site's layouts/_partials/seo_schema_page.html:
 
     {{- if .Params.eventDate -}}
     {{- return dict "@context" "https://schema.org" "@type" "Event" "name" .Title "startDate" (.Params.eventDate | time.Format "2006-01-02T15:04:05-07:00") -}}

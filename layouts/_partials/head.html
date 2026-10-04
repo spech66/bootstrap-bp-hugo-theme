@@ -10,9 +10,9 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">-->
 
-{{ template "_internal/schema.html" . }}
-{{ template "_internal/opengraph.html" . }}
-{{ template "_internal/twitter_cards.html" . }}
+{{ partial "schema.html" . }}
+{{ partial "opengraph.html" . }}
+{{ partial "twitter_cards.html" . }}
 
 {{ with .OutputFormats.Get "RSS" }}<link rel="alternate" href="{{ .RelPermalink }}" type="application/rss+xml" title="{{ $.Site.Title }}"/>{{ end }}
 

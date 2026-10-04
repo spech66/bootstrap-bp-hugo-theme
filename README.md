@@ -18,6 +18,7 @@ Other themes by Sebastian Pech: [Bootstrap-BP](https://github.com/spech66/bootst
   - [Install the theme](#install-the-theme)
   - [Update the theme](#update-the-theme)
   - [Run example site](#run-example-site)
+  - [Template structure and overrides](#template-structure-and-overrides)
   - [Configuration and theme specific settings](#configuration-and-theme-specific-settings)
   - [Screenshots of configurations](#screenshots-of-configurations)
   - [Google Analytics](#google-analytics)
@@ -83,6 +84,10 @@ Go to the `exampleSite` folder from the theme `themes/bootstrap-bp-hugo-theme/ex
 hugo server --themesDir ../..
 ```
 
+## Template structure and overrides
+
+The theme uses Hugo's template structure (Hugo 0.146 and later): `baseof.html`, `home.html`, `page.html`, `list.html`, `taxonomy.html`, partials in `layouts/_partials/`, shortcodes in `layouts/_shortcodes/` and render hooks in `layouts/_markup/`. To change a template, create a file with the same name in your site, e.g. `layouts/_partials/header.html`. The older paths (`layouts/partials/`, `layouts/shortcodes/`, `layouts/index.html`, `layouts/_default/...`, `layouts/<section>/single.html`) still work in your site and override the theme as before.
+
 ## Configuration and theme specific settings
 
 Most settings should be done with hugo specific variables. There are only a few (optional) additional `[params]`.
@@ -134,7 +139,7 @@ Provide one author to enable the Schema.org support.
 
 Posts get a `BlogPosting` schema, the start page `WebSite` and `Person` (with `sameAs` links from `params.social`).
 
-Own schema for other pages (e.g. an `Event` for courses): create `layouts/partials/seo_schema_page.html` in your site and return a dict. It replaces the theme's data for that page, an empty dict keeps the default.
+Own schema for other pages (e.g. an `Event` for courses): create `layouts/_partials/seo_schema_page.html` in your site and return a dict. It replaces the theme's data for that page, an empty dict keeps the default.
 
 ```go-html-template
 {{- if .Params.eventDate -}}
@@ -307,7 +312,7 @@ csscdn:
 Cards show the categories as a small line above the title, a meta line (date, reading time; on the full page also last updated and author) and the tags below. Tags that are also a category are skipped, lists show at most three tags. In lists the whole card links to the post and the summary is cut after four lines.
 
 - Accent color of the category line: set `--bp-accent` in your `assets/css/custom.css`, e.g. `:root { --bp-accent: #c2410c; }`. Default is the `$primary` color of the color theme.
-- Extra content below the meta line: create `layouts/partials/content_card_body_extra.html` in your site. The theme ships an empty one.
+- Extra content below the meta line: create `layouts/_partials/content_card_body_extra.html` in your site. The theme ships an empty one.
 - Reading time label: i18n key `readingTimeShort`.
 
 The card partials (`content_card_header.html`, `content_card_body.html`, `content_card_body_subtitle.html`, `content_card_footer.html`) get a dict with `page`, `fullsize`, `summary` and `list` from `content.html` / `content_index.html` (called with a page they render the full page). `content_card_body_extra.html` gets the page. In lists the title is an `h2` styled as `h1`, only the page itself has an `h1`.
@@ -319,7 +324,7 @@ The card partials (`content_card_header.html`, `content_card_body.html`, `conten
 Pages of the main sections (Hugo's `mainSections`, by default the section with the most pages) show links to the older and newer post of the section and up to three related posts. Related posts use Hugo's [related content](https://gohugo.io/content-management/related-content/) (by default tags, keywords and date). Older/newer links are only shown for pages with a date.
 
 - Turn off with `hidePostNav = true` / `hideRelated = true` in `[params]`.
-- Change the markup: create `layouts/partials/post_footer.html` in your site.
+- Change the markup: create `layouts/_partials/post_footer.html` in your site.
 - Labels: i18n keys `olderPost`, `newerPost`, `relatedPosts`.
 
 ## Markdown images and alerts

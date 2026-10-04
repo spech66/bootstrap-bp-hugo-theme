@@ -63,5 +63,8 @@ device scale factor 1 (screenshots) and 0.6 (thumbnails), e.g. with headless Edg
   no Bootstrap JS bundle by default (`navigation.js`, opt in with `params.bootstrapJS`), only the
   needed Bootstrap components in `_bootstrap-imports.scss`, images as WebP via `image-webp.html`.
 - Keep site specific features out of the theme. Sites override partials in their own `layouts/`.
+- Template structure of Hugo 0.146+: `layouts/_partials/`, `_shortcodes/`, `_markup/`, `home.html`,
+  `page.html`, `list.html`, `taxonomy.html`. Embedded templates via `partial "opengraph.html"` etc.,
+  not `template "_internal/..."`. Sites may still use the old paths for their overrides.
 - Document new parameters, partials and shortcodes in `README.md` (and the table of contents there).
 - Keep `min_version` in `theme.toml` in line with the Hugo features used.
