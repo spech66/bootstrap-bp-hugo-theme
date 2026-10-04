@@ -1,11 +1,20 @@
+{{- /*
+  Image of a feature block (max. 800 px wide as WebP, resource of the page or path).
+
+  Usage:
+    {{< featurette-image src="photo.jpg" alt="Description" title="Optional heading" >}}
+
+  Inside a site's own row shortcode (e.g. featurette with type="l" or "r") it renders as the
+  5 column image part of the row, otherwise as a centered block.
+*/ -}}
 {{ with .Parent }}
-    {{ $type := .Get "type" | default "l" }}
-    {{ $first := .Get "first" | default false }}
-    {{ if eq $type "r" }}
+    {{ if eq (.Get "type") "r" }}
         <div class="col-md-5">
     {{ else }}
         <div class="col-md-5 order-md-1">
     {{ end }}
+{{ else }}
+    <div class="text-center my-4">
 {{ end }}
 
     {{ $alt := .Get "alt" }}

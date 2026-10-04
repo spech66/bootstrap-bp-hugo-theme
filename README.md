@@ -34,7 +34,7 @@ Best practices and ideas for Hugo: [hugo-best-practices](https://github.com/spec
   - [Below posts: older/newer and related posts](#below-posts-oldernewer-and-related-posts)
   - [Markdown images and alerts](#markdown-images-and-alerts)
   - [YouTube videos](#youtube-videos)
-  - [Floating images](#floating-images)
+  - [Floating and feature images](#floating-and-feature-images)
   - [Performance: Bootstrap parts, JavaScript and Font Awesome](#performance-bootstrap-parts-javascript-and-font-awesome)
   - [Sites using this theme](#sites-using-this-theme)
 
@@ -362,7 +362,7 @@ Video posts (`type: video` with `youtube: "<id>"`) and the `youtube` shortcode s
 
 The preview image is downloaded once at build time from `i.ytimg.com` (HD if available) and served from your site as WebP. Videos without a preview image (deleted or private) cause a build warning and show a dark area with the play button. `[privacy.youtube] disable = true` hides all videos as before. In your own templates use `{{ partial "youtube.html" (dict "id" "..." "title" "...") }}`.
 
-## Floating images
+## Floating and feature images
 
 `img-post` shows a resource of the page (max. 384 px wide, WebP) floating right or left of the text, or centered.
 
@@ -371,6 +371,14 @@ The preview image is downloaded once at build time from `i.ytimg.com` (HD if ava
 ```
 
 `type` is `right`, `left` or `center` (default). Positional parameters (`path`, `file`, `alt`, `type`) still work, `path` is ignored.
+
+`featurette-image` shows a larger image (max. 800 px wide, WebP; page resource or path), with `title` as heading if it differs from `alt`.
+
+```
+{{< featurette-image src="photo.jpg" alt="Description" title="Heading" >}}
+```
+
+On its own it is a centered block. Inside a row shortcode of your site (e.g. `featurette` with `type="l"` or `type="r"`) it becomes the image column of the row.
 
 ## Performance: Bootstrap parts, JavaScript and Font Awesome
 
