@@ -29,7 +29,8 @@ the matching tag commands. Then:
 
 1. Build the example site and check the start page, a post and the dark/light/blue color themes.
 2. Check `assets/sass/_bootstrap-imports.scss` against the new Bootstrap SCSS (new or renamed
-   components), and `assets/js/navigation.js` if collapse or dropdown markup changed.
+   components, form parts, utility keys in the `map-remove` list), and `assets/js/navigation.js`
+   if collapse or dropdown markup changed.
 3. Commit, push, tag with the plain Bootstrap version (see above).
 
 `node_modules/` and `resources/` are build artifacts, do not commit them.

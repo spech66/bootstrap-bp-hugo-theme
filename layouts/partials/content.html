@@ -2,7 +2,7 @@
   Full page card. The card partials get a dict instead of the page, so the settings
   are not stored on the page (lists and the page itself are rendered in parallel).
 */ -}}
-{{- $ctx := dict "page" . "fullsize" true "summary" false "list" false -}}
+{{- $ctx := dict "page" . "fullsize" true "summary" false "list" false "eager" true -}}
 <div class="card">
     {{- partial "content_card_header.html" $ctx -}}
     {{- partial "content_card_body.html" $ctx -}}

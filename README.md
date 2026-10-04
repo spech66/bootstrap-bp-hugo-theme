@@ -40,7 +40,7 @@ Other themes by Sebastian Pech: [Bootstrap-BP](https://github.com/spech66/bootst
 
 - Color themes
 - SEO best practices supported (Schema.org, open graph, meta information, ...)
-- Automatically resizing of images and conversion to WebP (partial `image-webp.html`, used by cards, `optfigure` and `featurette-image`)
+- Automatically resizing of images and conversion to WebP (partial `image-webp.html`, used by cards, `optfigure` and `featurette-image`); card images in several widths (`srcset`), only the first cards load their image right away
 - One minified file per resource only (js, css)
 - CDN font support (Google Fonts, ...)
 - Optional masonry-like mode for startpage
@@ -349,11 +349,16 @@ GitHub style alerts are rendered as Bootstrap alerts. Types: `NOTE`, `TIP`, `IMP
 
 ## Performance: Bootstrap parts, JavaScript and Font Awesome
 
-To keep pages small the theme only compiles the Bootstrap components it uses (see `assets/sass/_bootstrap-imports.scss`). Modal, carousel, tooltip, popover, offcanvas, accordion, toasts and a few others are left out.
+To keep pages small the theme only compiles the Bootstrap parts it uses (see `assets/sass/_bootstrap-imports.scss`):
 
-If you need one of them, copy `assets/sass/_bootstrap-imports.scss` from the theme to `assets/sass/_bootstrap-imports.scss` in your site and uncomment the component. Components that need JavaScript also require `bootstrapJS = true`.
+- Components: modal, carousel, tooltip, popover, offcanvas, accordion, toasts and a few others are left out.
+- Forms: no range slider (`form-range`), floating labels and validation styles (`was-validated`, `is-invalid`, ...).
+- Utilities: rarely used groups are left out, e.g. `align-content-*`, `row-gap-*`/`column-gap-*`, `flex-grow-*`/`flex-shrink-*`, `object-fit-*`, `overflow-x/y-*`, `vh-*`/`vw-*`, `link-*` (opacity, offset, underline), `focus-ring`, `user-select-*`, `pointer-events`, `z-*`, `bg-gradient`.
+- Bootstrap's color modes (`data-bs-theme="dark"`) are off, the color themes are separate stylesheets (`themeColor`).
 
-**Upgrading from older versions:** Font Awesome is no longer part of the theme and the Bootstrap JavaScript bundle is no longer loaded by default.
+If you need one of them, copy `assets/sass/_bootstrap-imports.scss` from the theme to `assets/sass/_bootstrap-imports.scss` in your site and uncomment the component or remove the utility group from the `map-remove` list. Components that need JavaScript also require `bootstrapJS = true`.
+
+**Upgrading from older versions:** Font Awesome is no longer part of the theme and the Bootstrap JavaScript bundle is no longer loaded by default. Since v5.3.8.11 the form parts and utility groups listed above are left out as well. `content_index.html` gets a dict (`page`, `eager`) from `index.html`; own copies of `content_index.html` that are called by the theme's `index.html` must read `.page` (or also override `index.html`).
 
 - Bootstrap JavaScript components (modal, tooltip, ...): set `bootstrapJS = true`.
 - Menu icons via `pre = "<i class='fas fa-...'></i>"`: replace them with `[menu.main.params] icon = "..."`.

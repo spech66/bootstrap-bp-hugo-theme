@@ -5,16 +5,16 @@
     {{ $paginator := .Paginate ( where .Site.RegularPages.ByPublishDate.Reverse "Type" "!=" "page") }}
     {{ if .Site.Params.startPageColumns }}
         <div class="row row-cols-1 row-cols-md-3 g-4 mb-3 gridcards">
-            {{ range $paginator.Pages }}
+            {{ range $i, $p := $paginator.Pages }}
                 <div class="col">
-                    {{- partial "content_index.html" . -}}
+                    {{- partial "content_index.html" (dict "page" $p "eager" (lt $i 3)) -}}
                 </div>
             {{ end }}
         </div>
     {{ else }}
-        {{ range $paginator.Pages }}
+        {{ range $i, $p := $paginator.Pages }}
             <div class="mb-3">
-                {{- partial "content_index.html" . -}}
+                {{- partial "content_index.html" (dict "page" $p "eager" (eq $i 0)) -}}
             </div>
         {{ end }}
     {{ end }}

@@ -44,10 +44,20 @@ $pagination-disabled-border-color:#2d2f34;
 :root { --bp-accent: #7cb4ec; }
 
 // Subtle colors (alerts ...) from Bootstrap's own dark color mode; the scheme is compiled as light mode
+$bp-dark-subtle: (
+    "primary":   ($primary-text-emphasis-dark,   $primary-bg-subtle-dark,   $primary-border-subtle-dark),
+    "secondary": ($secondary-text-emphasis-dark, $secondary-bg-subtle-dark, $secondary-border-subtle-dark),
+    "success":   ($success-text-emphasis-dark,   $success-bg-subtle-dark,   $success-border-subtle-dark),
+    "info":      ($info-text-emphasis-dark,      $info-bg-subtle-dark,      $info-border-subtle-dark),
+    "warning":   ($warning-text-emphasis-dark,   $warning-bg-subtle-dark,   $warning-border-subtle-dark),
+    "danger":    ($danger-text-emphasis-dark,    $danger-bg-subtle-dark,    $danger-border-subtle-dark),
+);
 :root {
-    @each $color, $value in $theme-colors-text-dark { --bs-#{$color}-text-emphasis: #{$value}; }
-    @each $color, $value in $theme-colors-bg-subtle-dark { --bs-#{$color}-bg-subtle: #{$value}; }
-    @each $color, $value in $theme-colors-border-subtle-dark { --bs-#{$color}-border-subtle: #{$value}; }
+    @each $color, $values in $bp-dark-subtle {
+        --bs-#{$color}-text-emphasis: #{nth($values, 1)};
+        --bs-#{$color}-bg-subtle: #{nth($values, 2)};
+        --bs-#{$color}-border-subtle: #{nth($values, 3)};
+    }
 }
 
 .navbar-light { background-color: #{$dark}!important; }

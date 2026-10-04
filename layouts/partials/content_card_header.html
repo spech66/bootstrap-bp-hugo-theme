@@ -1,14 +1,17 @@
 {{- /*
   Card header: video, audio or featured image.
-  Context: dict "page" "fullsize" (see content.html); a page alone counts as full size.
+  Context: dict "page" "fullsize" "eager" (see content.html); a page alone counts as full size.
+  JPEG and PNG images come in several widths (srcset). Only "eager" cards (the page itself,
+  the first cards of the start page) load their image right away, the others lazily.
 */ -}}
 {{- $page := . -}}
 {{- $fullsize := true -}}
-{{- if reflect.IsMap . }}{{ $page = .page }}{{ $fullsize = .fullsize }}{{ end -}}
+{{- $eager := true -}}
+{{- if reflect.IsMap . }}{{ $page = .page }}{{ $fullsize = .fullsize }}{{ $eager = .eager | default false }}{{ end -}}
 {{- with $page -}}
 {{ if and (eq .Type "video") (not .Site.Config.Privacy.YouTube.Disable) }}
     <div class="ratio ratio-16x9">
-        <iframe src="https://www.youtube-nocookie.com/embed/{{ .Params.youtube }}?rel=0" title="{{ .Title | plainify }}" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen{{ if not $fullsize }} loading="lazy"{{ end }}></iframe>
+        <iframe src="https://www.youtube-nocookie.com/embed/{{ .Params.youtube }}?rel=0" title="{{ .Title | plainify }}" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen{{ if not $eager }} loading="lazy"{{ end }}></iframe>
     </div>
 {{ else if eq .Type "audio" }}
     <div class="w-100">
@@ -21,13 +24,41 @@
     {{- with .Params.featured_image }}{{ $featured = $page.Resources.GetMatch (printf "*%s" .) }}{{ end -}}
     {{- $title := .Title | plainify -}}
     {{- with $featured -}}
-        {{ if $fullsize }}
-            {{ $thumb := partial "image-webp.html" (dict "image" . "width" 1108) }}
-            <img class="card-img-top" src="{{ $thumb.RelPermalink }}"{{ with $thumb.Width }} width="{{ . }}" height="{{ $thumb.Height }}"{{ end }} alt="{{ $title }}" title="{{ $title }}">
-        {{ else }}
-            {{ $thumb := partial "image-webp.html" (dict "image" . "fill" "640x360 center") }}
-            <img class="card-img-top" src="{{ $thumb.RelPermalink }}"{{ with $thumb.Width }} width="{{ . }}" height="{{ $thumb.Height }}"{{ end }} alt="{{ $title }}" title="{{ $title }}" loading="lazy">
-        {{ end }}
+        {{- $img := . -}}
+        {{- $thumb := $img -}}
+        {{- $variants := slice -}}
+        {{- $sizes := "" -}}
+        {{- if $fullsize -}}
+            {{- /* Content width: container minus padding, max. 1296 px */ -}}
+            {{- $thumb = partial "image-webp.html" (dict "image" $img "width" 1108) -}}
+            {{- if in (slice "jpeg" "png") $img.MediaType.SubType -}}
+                {{- range slice 640 1108 1600 -}}
+                    {{- $variants = $variants | append (partial "image-webp.html" (dict "image" $img "width" .)) -}}
+                {{- end -}}
+            {{- end -}}
+            {{- $sizes = "(min-width: 1400px) 1296px, (min-width: 1200px) 1116px, (min-width: 992px) 936px, (min-width: 768px) 696px, (min-width: 576px) 516px, calc(100vw - 24px)" -}}
+        {{- else -}}
+            {{- /* Start page grid: three columns from md, one column below; 16:9, no upscaling of extra sizes */ -}}
+            {{- $thumb = partial "image-webp.html" (dict "image" $img "fill" "640x360 center") -}}
+            {{- if in (slice "jpeg" "png") $img.MediaType.SubType -}}
+                {{- range slice (slice 400 225) (slice 640 360) (slice 960 540) -}}
+                    {{- $w := index . 0 }}{{ $h := index . 1 -}}
+                    {{- if or (eq $w 640) (and (ge $img.Width $w) (ge $img.Height $h)) -}}
+                        {{- $variants = $variants | append (partial "image-webp.html" (dict "image" $img "fill" (printf "%dx%d center" $w $h))) -}}
+                    {{- end -}}
+                {{- end -}}
+            {{- end -}}
+            {{- $sizes = "(min-width: 1400px) 416px, (min-width: 1200px) 356px, (min-width: 992px) 296px, (min-width: 768px) 216px, (min-width: 576px) 516px, calc(100vw - 24px)" -}}
+        {{- end -}}
+        {{- $srcset := slice -}}
+        {{- $seen := slice -}}
+        {{- range $variants -}}
+            {{- if not (in $seen .Width) -}}
+                {{- $srcset = $srcset | append (printf "%s %dw" .RelPermalink .Width) -}}
+                {{- $seen = $seen | append .Width -}}
+            {{- end -}}
+        {{- end }}
+            <img class="card-img-top" src="{{ $thumb.RelPermalink }}"{{ if gt (len $srcset) 1 }} srcset="{{ delimit $srcset ", " }}" sizes="{{ $sizes }}"{{ end }}{{ with $thumb.Width }} width="{{ . }}" height="{{ $thumb.Height }}"{{ end }} alt="{{ $title }}" title="{{ $title }}"{{ if $eager }} fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
     {{ end }}
 {{ end }}
 {{- end -}}

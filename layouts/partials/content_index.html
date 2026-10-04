@@ -1,9 +1,16 @@
-{{- /* Card on the start page, see content.html for the dict passed to the card partials */ -}}
+{{- /*
+  Card on the start page, see content.html for the dict passed to the card partials.
+  Context: a page, or dict "page" "eager" (index.html: true for the first cards, their image loads right away).
+*/ -}}
+{{- $page := . -}}
+{{- $eager := false -}}
+{{- if reflect.IsMap . }}{{ $page = .page }}{{ $eager = .eager | default false }}{{ end -}}
 {{- $ctx := dict
-    "page" .
-    "fullsize" (not .Site.Params.startPageColumns)
-    "summary" (.Site.Params.showPostSummary | default false)
+    "page" $page
+    "fullsize" (not $page.Site.Params.startPageColumns)
+    "summary" ($page.Site.Params.showPostSummary | default false)
     "list" true
+    "eager" $eager
 -}}
 <div class="card">
     {{- partial "content_card_header.html" $ctx -}}
