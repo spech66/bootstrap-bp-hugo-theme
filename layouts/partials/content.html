@@ -1,9 +1,10 @@
+{{- /*
+  Full page card. The card partials get a dict instead of the page, so the settings
+  are not stored on the page (lists and the page itself are rendered in parallel).
+*/ -}}
+{{- $ctx := dict "page" . "fullsize" true "summary" false "list" false -}}
 <div class="card">
-    {{ .Scratch.Set "fullsize" true }}
-    {{- partial "content_card_header.html" . -}}
-
-    {{ .Scratch.Set "showPostSummary" false }}
-    {{- partial "content_card_body.html" . -}}
-
-    {{- partial "content_card_footer.html" . -}}
+    {{- partial "content_card_header.html" $ctx -}}
+    {{- partial "content_card_body.html" $ctx -}}
+    {{- partial "content_card_footer.html" $ctx -}}
 </div>

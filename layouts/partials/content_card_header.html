@@ -1,29 +1,33 @@
-{{ if and (eq .Type "video") (not .Site.Config.Privacy.YouTube.Disable) }} 
-    <div class="w-100">
-        {{ if .Scratch.Get "fullsize" }}
-            <iframe src="https://www.youtube-nocookie.com/embed/{{ .Params.youtube }}?rel=0" width="100%" height="600px" frameborder="0" allowfullscreen></iframe>
-        {{ else }}
-            <iframe src="https://www.youtube-nocookie.com/embed/{{ .Params.youtube }}?rel=0" width="100%" height="200px" frameborder="0" allowfullscreen></iframe>
-        {{ end }}
+{{- /*
+  Card header: video, audio or featured image.
+  Context: dict "page" "fullsize" (see content.html); a page alone counts as full size.
+*/ -}}
+{{- $page := . -}}
+{{- $fullsize := true -}}
+{{- if reflect.IsMap . }}{{ $page = .page }}{{ $fullsize = .fullsize }}{{ end -}}
+{{- with $page -}}
+{{ if and (eq .Type "video") (not .Site.Config.Privacy.YouTube.Disable) }}
+    <div class="ratio ratio-16x9">
+        <iframe src="https://www.youtube-nocookie.com/embed/{{ .Params.youtube }}?rel=0" title="{{ .Title | plainify }}" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen{{ if not $fullsize }} loading="lazy"{{ end }}></iframe>
     </div>
 {{ else if eq .Type "audio" }}
     <div class="w-100">
-        <iframe src="https://open.spotify.com/embed?uri={{ .Params.spotify }}" width="100%" height="80" frameborder="0" allowtransparency="true"></iframe>
+        <iframe src="https://open.spotify.com/embed?uri={{ .Params.spotify }}" title="{{ .Title | plainify }}" width="100%" height="80" allow="encrypted-media" loading="lazy"></iframe>
     </div>
 {{ else }}
-    {{- $images := $.Resources.ByType "image" -}}
+    {{- $images := .Resources.ByType "image" -}}
     {{- $featured := $images.GetMatch "*feature*" -}}
-    {{- $featured := cond (ne $featured nil) $featured ($images.GetMatch "{*cover*,*thumbnail*}") -}}
-    {{- $featured := cond (ne $.Params.featured_image nil) (.Page.Resources.GetMatch (printf "*%s" $.Params.featured_image)) $featured -}}
-    {{ $sitetitle := (.Title) }}
-    {{ $fullsize := .Scratch.Get "fullsize" }}
+    {{- $featured = cond (ne $featured nil) $featured ($images.GetMatch "{*cover*,*thumbnail*}") -}}
+    {{- with .Params.featured_image }}{{ $featured = $page.Resources.GetMatch (printf "*%s" .) }}{{ end -}}
+    {{- $title := .Title | plainify -}}
     {{- with $featured -}}
         {{ if $fullsize }}
             {{ $thumb := partial "image-webp.html" (dict "image" . "width" 1108) }}
-            <img class="card-img-top" src="{{ $thumb.RelPermalink }}"{{ with $thumb.Width }} width="{{ . }}" height="{{ $thumb.Height }}"{{ end }} alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
+            <img class="card-img-top" src="{{ $thumb.RelPermalink }}"{{ with $thumb.Width }} width="{{ . }}" height="{{ $thumb.Height }}"{{ end }} alt="{{ $title }}" title="{{ $title }}">
         {{ else }}
             {{ $thumb := partial "image-webp.html" (dict "image" . "fill" "640x360 center") }}
-            <img class="card-img-top" src="{{ $thumb.RelPermalink }}"{{ with $thumb.Width }} width="{{ . }}" height="{{ $thumb.Height }}"{{ end }} alt="{{ $sitetitle }}" title="{{ $sitetitle }}" loading="lazy">
+            <img class="card-img-top" src="{{ $thumb.RelPermalink }}"{{ with $thumb.Width }} width="{{ . }}" height="{{ $thumb.Height }}"{{ end }} alt="{{ $title }}" title="{{ $title }}" loading="lazy">
         {{ end }}
     {{ end }}
 {{ end }}
+{{- end -}}

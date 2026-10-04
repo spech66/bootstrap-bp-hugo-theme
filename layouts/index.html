@@ -1,6 +1,7 @@
 {{ define "main" }}
 
 <div class="container mt-3 mb-3">
+    <h1 class="visually-hidden">{{ .Site.Params.homeTitle | default .Site.Title }}</h1>
     {{ $paginator := .Paginate ( where .Site.RegularPages.ByPublishDate.Reverse "Type" "!=" "page") }}
     {{ if .Site.Params.startPageColumns }}
         <div class="row row-cols-1 row-cols-md-3 g-4 mb-3 gridcards">

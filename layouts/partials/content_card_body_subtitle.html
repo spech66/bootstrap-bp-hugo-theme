@@ -1,9 +1,13 @@
 {{- /*
   Meta line below the card title: date · (last updated) · author · reading time.
   Updated date and author are only shown on the full page, lists stay short.
+  Context: dict "page" "fullsize" "summary" (see content.html); a page alone is a full page.
 */ -}}
+{{- $page := . -}}
+{{- $fullsize := true -}}
+{{- if reflect.IsMap . }}{{ $page = .page }}{{ $fullsize = and .fullsize (not .summary) }}{{ end -}}
+{{- with $page -}}
 {{- $customDateFormat := .Site.Params.customDateFormat | default "02.01.2006" -}}
-{{- $fullsize := and (not (.Scratch.Get "showPostSummary")) (.Scratch.Get "fullsize") -}}
 {{- $items := slice -}}
 {{- if and (ne .Type "page") (not .PublishDate.IsZero) -}}
     {{- $items = $items | append (printf "<time datetime=\"%s\">%s</time>" (.PublishDate.Format "2006-01-02") (.PublishDate.Format $customDateFormat)) -}}
@@ -21,4 +25,5 @@
 {{- end -}}
 {{- with $items -}}
 <p class="card-meta">{{ delimit . "<span class=\"sep\" aria-hidden=\"true\"> · </span>" | safeHTML }}</p>
+{{- end -}}
 {{- end -}}

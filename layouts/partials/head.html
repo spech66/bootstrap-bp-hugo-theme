@@ -2,7 +2,7 @@
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <meta name="author" content="{{ range .Site.Params.Author }}{{ . }}{{ end }}">
 <link rel="canonical" href="{{ .Permalink }}">
-{{- if in (slice "taxonomy" "term") .Kind }}
+{{- if in (slice "taxonomy" "term" "404") .Kind }}
 <meta name="robots" content="noindex,follow">
 {{- end }}
 <link rel="icon" href="/favicon.ico">

@@ -1,10 +1,12 @@
+{{- /* Card on the start page, see content.html for the dict passed to the card partials */ -}}
+{{- $ctx := dict
+    "page" .
+    "fullsize" (not .Site.Params.startPageColumns)
+    "summary" (.Site.Params.showPostSummary | default false)
+    "list" true
+-}}
 <div class="card">
-    {{ $startPageColumns := .Site.Params.startPageColumns }}
-    {{ .Scratch.Set "fullsize" (not $startPageColumns) }}
-    {{- partial "content_card_header.html" . -}}
-
-    {{ .Scratch.Set "showPostSummary" .Site.Params.showPostSummary }}
-    {{- partial "content_card_body.html" . -}}
-
-    {{- partial "content_card_footer.html" . -}}
+    {{- partial "content_card_header.html" $ctx -}}
+    {{- partial "content_card_body.html" $ctx -}}
+    {{- partial "content_card_footer.html" $ctx -}}
 </div>

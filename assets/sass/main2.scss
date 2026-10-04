@@ -7,7 +7,9 @@ figure > img {
     height: auto;
 }
 
-.gridcards > div.col > div.card > div.card-body > h1.card-title { font-size: 1.5rem!important; }
+.gridcards .card-title { font-size: 1.5rem!important; }
+
+iframe { border: 0; }
 
 div.highlight > pre { padding: 0.5rem; }
 

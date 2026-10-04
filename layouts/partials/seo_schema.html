@@ -1,42 +1,13 @@
-{{- /* Strukturierte Daten je Seitentyp: Event (Sections mit .Params.datum), BlogPosting (Blog-Posts), WebSite+Person (Startseite) */ -}}
+{{- /*
+  Structured data (JSON-LD) per page type:
+  - own schema of the site via the hook partial seo_schema_page.html (e.g. Event), if it returns one
+  - BlogPosting for posts
+  - WebSite and Person on the start page
+*/ -}}
 {{- $authorName := .Site.Params.author.name | default .Site.Params.Author -}}
-{{- if .Params.datum -}}
-{{- $name := replace (.Params.name | default .Title) "|" " " -}}
-{{- $end := "" -}}
-{{- with .Params.enddatum }}{{ $end = . }}{{ end -}}
-{{- with .Params.termine }}{{ with index (last 1 .) 0 }}{{ with .end }}{{ $end = . }}{{ end }}{{ end }}{{ end -}}
-{{- $start := (time.AsTime .Params.datum) | time.Format "2006-01-02T15:04:05-07:00" -}}
-{{- $price := "" -}}
-{{- with .Params.preis -}}
-{{- $num := index (findRE `[0-9]+(?:[.,][0-9]+)?` .) 0 -}}
-{{- if $num }}{{ $price = replace $num "," "." }}{{ else if findRE `(?i)(kostenlos|spende)` . }}{{ $price = "0" }}{{ end -}}
-{{- end -}}
-{{- $schema := dict
-    "@context" "https://schema.org"
-    "@type" "Event"
-    "name" $name
-    "description" (or .Description (.Summary | plainify | chomp))
-    "url" .Permalink
-    "startDate" $start
-    "eventStatus" "https://schema.org/EventScheduled"
-    "eventAttendanceMode" "https://schema.org/OfflineEventAttendanceMode"
--}}
-{{- with $authorName -}}
-{{- $schema = merge $schema (dict "organizer" (dict "@type" "Person" "name" . "url" $.Site.BaseURL) "performer" (dict "@type" "Person" "name" .)) -}}
-{{- end -}}
-{{- with .Params.ort }}{{ $schema = merge $schema (dict "location" (dict "@type" "Place" "name" . "address" ($.Params.adresse | default .))) }}{{ end -}}
-{{- with .Params.image }}{{ with $.Resources.GetMatch . }}{{ $schema = merge $schema (dict "image" .Permalink) }}{{ end }}{{ end -}}
-{{- with $end }}{{ $schema = merge $schema (dict "endDate" ((time.AsTime .) | time.Format "2006-01-02T15:04:05-07:00")) }}{{ end -}}
-{{- if ne $price "" -}}
-{{- /* validFrom: ab wann die Anmeldung gilt. Reihenfolge: Frontmatter-Param, Seitendatum, Datumspraefix des Ordners (z. B. 2026-03-...), sonst Veranstaltungsbeginn. */ -}}
-{{- $validFrom := "" -}}
-{{- with .Params.anmeldung_ab }}{{ $validFrom = (time.AsTime .) | time.Format "2006-01-02T15:04:05-07:00" }}{{ end -}}
-{{- if and (eq $validFrom "") (not .Date.IsZero) }}{{ $validFrom = .Date | time.Format "2006-01-02T15:04:05-07:00" }}{{ end -}}
-{{- if eq $validFrom "" }}{{ with .File }}{{ with findRE `^\d{4}-\d{2}` .ContentBaseName }}{{ $validFrom = (time.AsTime (printf "%s-01" (index . 0))) | time.Format "2006-01-02T15:04:05-07:00" }}{{ end }}{{ end }}{{ end -}}
-{{- if eq $validFrom "" }}{{ $validFrom = $start }}{{ end -}}
-{{- $schema = merge $schema (dict "offers" (dict "@type" "Offer" "price" $price "priceCurrency" "EUR" "availability" "https://schema.org/InStock" "url" .Permalink "validFrom" $validFrom)) -}}
-{{- end -}}
-<script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
+{{- $pageSchema := partial "seo_schema_page.html" . -}}
+{{- if $pageSchema -}}
+<script type="application/ld+json">{{ $pageSchema | jsonify | safeJS }}</script>
 {{- else if eq .Section "posts" -}}
 {{- $schema := dict
     "@context" "https://schema.org"

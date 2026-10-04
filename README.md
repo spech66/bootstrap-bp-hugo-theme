@@ -127,7 +127,16 @@ Provide one author to enable the Schema.org support.
   name = "Sebastian Pech"
 ```
 
-Pages with a `datum` in the front matter (courses, workshops, events) get an `Event` schema. Used parameters: `datum`, `enddatum` or `termine` (list with `end`), `ort`, `adresse`, `preis` ("kostenlos"/"Spende" becomes 0), `image` and `anmeldung_ab`. The offer's `validFrom` is taken from `anmeldung_ab`, then the page date, then a `YYYY-MM` prefix of the content folder name, otherwise the event start.
+Posts get a `BlogPosting` schema, the start page `WebSite` and `Person` (with `sameAs` links from `params.social`).
+
+Own schema for other pages (e.g. an `Event` for courses): create `layouts/partials/seo_schema_page.html` in your site and return a dict. It replaces the theme's data for that page, an empty dict keeps the default.
+
+```go-html-template
+{{- if .Params.eventDate -}}
+{{- return dict "@context" "https://schema.org" "@type" "Event" "name" .Title "startDate" (.Params.eventDate | time.Format "2006-01-02T15:04:05-07:00") -}}
+{{- end -}}
+{{- return dict -}}
+```
 
 ## Images, Open Graph and Twitter Cards
 
@@ -293,7 +302,9 @@ Cards show the categories as a small line above the title, a meta line (date, re
 - Extra content below the meta line: create `layouts/partials/content_card_body_extra.html` in your site. The theme ships an empty one.
 - Reading time label: i18n key `readingTimeShort`.
 
-**Upgrading from older versions:** sites with their own copy of `content_card_body.html` should remove it (or compare it with the new one), otherwise the old meta line and "Read more" link stay.
+The card partials (`content_card_header.html`, `content_card_body.html`, `content_card_body_subtitle.html`, `content_card_footer.html`) get a dict with `page`, `fullsize`, `summary` and `list` from `content.html` / `content_index.html` (called with a page they render the full page). `content_card_body_extra.html` gets the page. In lists the title is an `h2` styled as `h1`, only the page itself has an `h1`.
+
+**Upgrading from older versions:** sites with their own copy of `content_card_body.html` should remove it (or compare it with the new one), otherwise the old meta line and "Read more" link stay. Own copies of the card partials that use `.Scratch.Get "fullsize"` / `"showPostSummary"` must read `.fullsize` / `.summary` / `.page` from the dict instead. The `Event` schema for pages with `datum` moved out of the theme, use `seo_schema_page.html` for it.
 
 ## Floating images
 

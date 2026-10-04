@@ -1,4 +1,14 @@
-{{- $summary := .Scratch.Get "showPostSummary" -}}
+{{- /*
+  Card body: categories, title, meta line, type specific block, content or summary.
+  Context: dict "page" "fullsize" "summary" "list" (see content.html); a page alone is a full page.
+  In lists the title is an h2 with the size of an h1, the page itself keeps the only h1.
+*/ -}}
+{{- $ctx := . -}}
+{{- $page := . -}}
+{{- $summary := false -}}
+{{- $list := false -}}
+{{- if reflect.IsMap . }}{{ $page = .page }}{{ $summary = .summary }}{{ $list = .list }}{{ else }}{{ $ctx = dict "page" . "fullsize" true "summary" false "list" false }}{{ end -}}
+{{- with $page -}}
 <div class="card-body">
     {{- if and (ne .Type "page") .Params.categories }}
     <p class="card-kicker">
@@ -7,13 +17,18 @@
         {{- end -}}
     </p>
     {{- end }}
-    <h1 class="card-title"><a href="{{ .RelPermalink }}"{{ if $summary }} class="stretched-link"{{ end }}>{{ .Title | markdownify }}</a></h1>
-    {{ partial "content_card_body_subtitle.html" . }}
+    {{- $title := printf `<a href="%s"%s>%s</a>` .RelPermalink (cond $summary ` class="stretched-link"` "") (.Title | markdownify) | safeHTML }}
+    {{- if $list }}
+    <h2 class="card-title h1">{{ $title }}</h2>
+    {{- else }}
+    <h1 class="card-title">{{ $title }}</h1>
+    {{- end }}
+    {{ partial "content_card_body_subtitle.html" $ctx }}
     {{ partial "content_card_body_extra.html" . }}
     {{ if eq .Type "video" }}
     {{ else if eq .Type "audio" }}
     {{ else if eq .Type "link" }}
-        <p class="text-center"><a href="{{ .Params.link }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" tabindex="-1" role="button">{{ partial "icon.html" "link" }}&nbsp;{{ .Title }}</a></p>
+        <p class="text-center"><a href="{{ .Params.link }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">{{ partial "icon.html" "link" }}&nbsp;{{ .Title }}</a></p>
     {{ else if eq .Type "quote" }}
         <blockquote class="blockquote text-center">
             <p class="mb-0">{{ partial "icon.html" (dict "name" "quote-left" "class" "icon-2x") }}&nbsp;{{ .Params.quote }}&nbsp;{{ partial "icon.html" (dict "name" "quote-right" "class" "icon-2x") }}</p>
@@ -24,6 +39,7 @@
     {{ if $summary }}
         <p class="card-text card-summary">{{ .Summary | plainify | htmlUnescape }}</p>
     {{ else }}
-        <p class="card-text">{{ .Content }}</p>
+        <div class="card-text">{{ .Content }}</div>
     {{ end }}
 </div>
+{{- end -}}
