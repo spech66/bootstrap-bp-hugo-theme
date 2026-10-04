@@ -5,21 +5,30 @@ Listed in the Hugo themes gallery, so `theme.toml`, `README.md` and `images/` ar
 
 ## Versioning and tags
 
-Tags follow the Bootstrap version the theme ships, plus an optional fourth number for theme releases:
+Tags must be valid semver (`vMAJOR.MINOR.PATCH`): the Hugo themes gallery
+(github.com/gohugoio/hugoThemesSiteBuilder) and `hugo mod get` resolve versions through the Go
+module proxy, which ignores everything else and shows the highest semver tag as the latest version.
 
-- `vMAJOR.MINOR.PATCH` is the bundled Bootstrap version, e.g. `v5.3.8`.
-- Theme changes on top of an already tagged Bootstrap version get a fourth number, counting up:
-  `v5.3.8.1`, `v5.3.8.2`, ... Check the last one with `git tag -l "v5.3.8*"`.
-- After a Bootstrap update the fourth number starts over: the first tag is the plain Bootstrap
-  version (e.g. `v5.3.9`), later theme releases are `v5.3.9.1`, `v5.3.9.2`, ...
+The tag encodes the bundled Bootstrap version plus the theme release:
+`vMAJOR.MINOR.(PATCH * 100 + RELEASE)`
+
+- Bootstrap 5.3.8, theme release 14: `v5.3.814`; next release `v5.3.815`.
+- After a Bootstrap update the release starts at 0: Bootstrap 5.3.9 is `v5.3.900`, then `v5.3.901`.
+  Bootstrap 5.4.0 is `v5.4.0`, then `v5.4.1`; Bootstrap 5.4.1 is `v5.4.100`.
+- Check the last tag with `git tag -l "v5.3.8[0-9][0-9]"` (or `git tag --sort=-v:refname | head`).
+- The old four part tags (`v5.3.8.1` ... `v5.3.8.13`) stay for history but are invisible to Go.
+  Do not create new ones.
 
 Release steps (always commit and push first, then tag):
 
 ```
 git push origin master
-git tag -a v5.3.8.7 -m "Short description of the release"
-git push origin v5.3.8.7
+git tag -a v5.3.815 -m "Short description of the release"
+git push origin v5.3.815
 ```
+
+Check what the gallery will see (can take a few minutes after pushing the tag):
+`curl https://proxy.golang.org/github.com/spech66/bootstrap-bp-hugo-theme/@latest`
 
 ## Updating Bootstrap
 
@@ -31,7 +40,7 @@ the matching tag commands. Then:
 2. Check `assets/sass/_bootstrap-imports.scss` against the new Bootstrap SCSS (new or renamed
    components, form parts, utility keys in the `map-remove` list), and `assets/js/navigation.js`
    if collapse or dropdown markup changed.
-3. Commit, push, tag with the plain Bootstrap version (see above).
+3. Commit, push, tag with the new Bootstrap version and release 0 (see above, `update.ps1` prints it).
 
 `node_modules/` and `resources/` are build artifacts, do not commit them.
 
@@ -67,4 +76,5 @@ device scale factor 1 (screenshots) and 0.6 (thumbnails), e.g. with headless Edg
   `page.html`, `list.html`, `taxonomy.html`. Embedded templates via `partial "opengraph.html"` etc.,
   not `template "_internal/..."`. Sites may still use the old paths for their overrides.
 - Document new parameters, partials and shortcodes in `README.md` (and the table of contents there).
-- Keep `min_version` in `theme.toml` in line with the Hugo features used.
+- Keep `min_version` in `theme.toml` and `module.hugoVersion.min` in `hugo.toml` in line with the
+  Hugo features used.

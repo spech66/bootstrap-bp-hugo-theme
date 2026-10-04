@@ -1,0 +1,5 @@
+# Supported Hugo versions (read by Hugo Modules and the Hugo themes gallery), see min_version in theme.toml
+[module]
+  [module.hugoVersion]
+    extended = true # Sass (css.Sass)
+    min = "0.158.0"

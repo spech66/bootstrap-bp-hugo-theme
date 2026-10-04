@@ -12,6 +12,9 @@ Copy-Item -Path ".\node_modules\bootstrap\scss\*" -Destination ".\assets\sass\bo
 $pkg = Get-Content "package-lock.json" | ConvertFrom-Json -AsHashtable
 $bversion = $pkg["packages"]["node_modules/bootstrap"]["version"]
 Write-Host "Bootstrap: $bversion"
+# Tag = MAJOR.MINOR.(PATCH * 100 + release), release 0 after a Bootstrap update (see CLAUDE.md)
+$parts = $bversion.Split(".")
+$tag = "v{0}.{1}.{2}" -f $parts[0], $parts[1], ([int]$parts[2] * 100)
 Write-Host "For tagging (after commit and push!):"
-Write-Host "git tag -a v$bversion -m ""Bootstrap version $bversion"""
-Write-Host "git push origin v$bversion"
+Write-Host "git tag -a $tag -m ""Bootstrap version $bversion"""
+Write-Host "git push origin $tag"
