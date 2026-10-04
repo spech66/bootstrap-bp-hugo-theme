@@ -31,6 +31,7 @@ $pagination-active-border-color:#3a3d44;
 $pagination-disabled-color:#6b6d75;
 $pagination-disabled-bg:#1b1c1f;
 $pagination-disabled-border-color:#2d2f34;
+$code-color:#e685b5; // pink of Bootstrap's dark color mode, the default pink is too dark on the dark background
 
 // Shared styles
 @import "main.scss";
@@ -67,5 +68,8 @@ $bp-dark-subtle: (
 .dropdown-item:hover { color: #{$white}!important; }
 
 pre { color: #fff; }
+
+// Inline code as a subtle chip, easier to spot and read in running text
+:not(pre) > code { background-color: #2a2c31; padding: .1em .35em; border-radius: .25rem; }
 
 a.badge { color: #{$black}; }
