@@ -5,6 +5,7 @@
 
 Other themes by Sebastian Pech: [Bootstrap-BP](https://github.com/spech66/bootstrap-bp-hugo-theme), [Flex-BP hugo CV](https://github.com/spech66/flex-bp-hugo-cv),
 [Bootstrap-BP hugo startpage](https://github.com/spech66/bootstrap-bp-hugo-startpage).
+Best practices and ideas for Hugo: [hugo-best-practices](https://github.com/spech66/hugo-best-practices).
 
 ## Table of contents
 
@@ -35,6 +36,7 @@ Other themes by Sebastian Pech: [Bootstrap-BP](https://github.com/spech66/bootst
   - [YouTube videos](#youtube-videos)
   - [Floating images](#floating-images)
   - [Performance: Bootstrap parts, JavaScript and Font Awesome](#performance-bootstrap-parts-javascript-and-font-awesome)
+  - [Sites using this theme](#sites-using-this-theme)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -391,3 +393,9 @@ If you need one of them, copy `assets/sass/_bootstrap-imports.scss` from the the
 [params]
   csscdn = ["https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"]
 ```
+
+## Sites using this theme
+
+- [SPech.de](https://www.spech.de/): blog, dark color theme
+- [Flow Arts](https://www.flow-arts.de/): knowledge base, light color theme
+- [Tanzen mit Sebastian](https://www.tanz-sebastian.de/): own color theme and templates for courses and workshops
