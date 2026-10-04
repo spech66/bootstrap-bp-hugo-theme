@@ -18,19 +18,23 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2">
                 {{ $currentPage := . }}
+                {{- /* Active entry: the current page (aria-current) or a page below the entry, e.g. a post below "Posts" */}}
                 {{ range $index, $element := .Site.Menus.main }}
+                    {{- $current := or ($currentPage.IsMenuCurrent "main" .) (eq $currentPage.RelPermalink .URL) }}
+                    {{- $active := or $current ($currentPage.HasMenuCurrent "main" .) (and (ne .URL "/") (strings.HasPrefix .URL "/") (strings.HasPrefix $currentPage.RelPermalink .URL)) }}
                     {{ if .HasChildren }}
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle link-primary" href="#" id="dropdown{{$index}}" data-bs-toggle="dropdown" aria-expanded="false">{{ partial "menu_label.html" . }}</a>
+                            <a class="nav-link dropdown-toggle link-primary{{ if $active }} active{{ end }}" href="#" id="dropdown{{$index}}" data-bs-toggle="dropdown" aria-expanded="false">{{ partial "menu_label.html" . }}</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown{{$index}}">
                             {{ range .Children }}
-                                <a class="dropdown-item link-primary" href="{{ .URL }}">{{ partial "menu_label.html" . }}</a>
+                                {{- $childCurrent := or ($currentPage.IsMenuCurrent "main" .) (eq $currentPage.RelPermalink .URL) }}
+                                <a class="dropdown-item link-primary" href="{{ .URL }}"{{ if $childCurrent }} aria-current="page"{{ end }}>{{ partial "menu_label.html" . }}</a>
                             {{ end }}
                             </div>
                         </li>
                     {{ else }}
                         <li class="nav-item">
-                            <a class="nav-link link-primary" href="{{ .URL }}">{{ partial "menu_label.html" . }}</a>
+                            <a class="nav-link link-primary{{ if $active }} active{{ end }}" href="{{ .URL }}"{{ if $current }} aria-current="page"{{ end }}>{{ partial "menu_label.html" . }}</a>
                         </li>
                     {{ end }}
                 {{ end }}

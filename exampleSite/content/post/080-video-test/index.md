@@ -10,8 +10,8 @@ tags:
     - "tag 1"
 categories:
     - Video
-videos: [https://www.youtube.com/v/wURYk4M6uHU] # for og information - you MUST use the /v/ link NOT watch?v=
-youtube: "wURYk4M6uHU" # https://www.youtube.com/watch?v=wURYk4M6uHU => wURYk4M6uHU
+videos: [https://www.youtube.com/v/ZJthWmvUzzc] # for og information - you MUST use the /v/ link NOT watch?v=
+youtube: "ZJthWmvUzzc" # https://www.youtube.com/watch?v=ZJthWmvUzzc => ZJthWmvUzzc
 ---
 
 ## Post Header
@@ -20,4 +20,4 @@ Show Video in header if privacy does not prevent this.
 
 [Hugo and the General Data Protection Regulation (GDPR)](https://gohugo.io/about/hugo-and-gdpr/)
 
-{{< youtube wURYk4M6uHU >}}
+{{< youtube ZJthWmvUzzc >}}

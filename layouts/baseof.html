@@ -7,8 +7,9 @@
         {{- partial "head.html" . -}}
     </head>
     <body>
+        <a class="skip-link visually-hidden-focusable" href="#main">{{ i18n "skipToContent" }}</a>
         {{- partial "header.html" . -}}
-        <main role="main">
+        <main id="main">
         {{- block "main" . }}{{- end }}
         </main>
         {{- partial "footer.html" . -}}

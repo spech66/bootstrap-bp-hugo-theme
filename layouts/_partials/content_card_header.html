@@ -10,9 +10,7 @@
 {{- if reflect.IsMap . }}{{ $page = .page }}{{ $fullsize = .fullsize }}{{ $eager = .eager | default false }}{{ end -}}
 {{- with $page -}}
 {{ if and (eq .Type "video") (not .Site.Config.Privacy.YouTube.Disable) }}
-    <div class="ratio ratio-16x9">
-        <iframe src="https://www.youtube-nocookie.com/embed/{{ .Params.youtube }}?rel=0" title="{{ .Title | plainify }}" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen{{ if not $eager }} loading="lazy"{{ end }}></iframe>
-    </div>
+    {{ partial "youtube.html" (dict "id" .Params.youtube "title" (.Title | plainify)) }}
 {{ else if eq .Type "audio" }}
     <div class="w-100">
         <iframe src="https://open.spotify.com/embed?uri={{ .Params.spotify }}" title="{{ .Title | plainify }}" width="100%" height="80" allow="encrypted-media" loading="lazy"></iframe>

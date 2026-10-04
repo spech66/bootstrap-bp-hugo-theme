@@ -4,8 +4,9 @@
 {{ if .Site.Params.bootstrapJS }}
     {{ $navjs = resources.Get "/js/bootstrap.bundle.min.js" }}
 {{ end }}
+{{ $youtubejs := resources.Get "/js/youtube.js" }}
 {{ $customjs := resources.Get "/js/custom.js" }}
-{{ $allscript := slice $navjs $customjs | resources.Concat "/js/vendor.js" | minify | fingerprint "sha512" }}
+{{ $allscript := slice $navjs $youtubejs $customjs | resources.Concat "/js/vendor.js" | minify | fingerprint "sha512" }}
 <script src="{{ $allscript.RelPermalink }}" integrity="{{ $allscript.Data.Integrity }}"></script>
 
 {{- range .Site.Params.jscdn }}

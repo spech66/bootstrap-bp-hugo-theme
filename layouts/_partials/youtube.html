@@ -1,0 +1,50 @@
+{{- /*
+  YouTube video that loads only after a click (privacy and performance): a preview image with
+  a play button; the click replaces it with the player (youtube-nocookie.com, js/youtube.js).
+  Without JavaScript the link opens the video on YouTube.
+
+  The preview image is downloaded once at build time and served from the site as WebP, so the
+  page itself makes no request to YouTube. params.youtubeThumbnails = false turns this off
+  (plain dark area with play button). params.youtubeFacade = false embeds the player directly.
+
+  Parameters (dict): id (required), title, start, end (seconds), class
+
+  Usage:
+    {{ partial "youtube.html" (dict "id" "dQw4w9WgXcQ" "title" "My video") }}
+*/ -}}
+{{- $id := .id -}}
+{{- $title := .title | default "" -}}
+{{- $query := slice "rel=0" -}}
+{{- with .start }}{{ $query = $query | append (printf "start=%v" .) }}{{ end -}}
+{{- with .end }}{{ $query = $query | append (printf "end=%v" .) }}{{ end -}}
+{{- $embed := printf "https://www.youtube-nocookie.com/embed/%s?%s" $id (delimit $query "&") -}}
+{{- if eq site.Params.youtubeFacade false }}
+<div class="ratio ratio-16x9{{ with .class }} {{ . }}{{ end }}">
+    <iframe src="{{ $embed }}" title="{{ $title | default "YouTube" }}" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>
+</div>
+{{- else -}}
+{{- $thumb := false -}}
+{{- if ne site.Params.youtubeThumbnails false -}}
+    {{- /* maxresdefault (1280x720) exists for HD videos, else hqdefault (4:3 with black bars, cut to 16:9) */ -}}
+    {{- range slice (slice "maxresdefault" "960x540") (slice "hqdefault" "480x270") -}}
+        {{- if not $thumb -}}
+            {{- $remote := try (resources.GetRemote (printf "https://i.ytimg.com/vi/%s/%s.jpg" $id (index . 0))) -}}
+            {{- if $remote.Err -}}
+                {{- warnf "youtube.html: preview image of video %q not loaded: %s" $id $remote.Err -}}
+            {{- else if $remote.Value -}}
+                {{- $thumb = partial "image-webp.html" (dict "image" $remote.Value "fill" (printf "%s center" (index . 1))) -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+    {{- if not $thumb }}{{ warnf "youtube.html: no preview image for video %q (deleted or private?)" $id }}{{ end -}}
+{{- end }}
+<div class="ratio ratio-16x9 yt-facade{{ with .class }} {{ . }}{{ end }}">
+    <a class="yt-facade-link" href="https://www.youtube.com/watch?v={{ $id }}" data-yt-src="{{ $embed }}&amp;autoplay=1" data-yt-title="{{ $title | default "YouTube" }}" target="_blank" rel="noopener noreferrer">
+        {{- with $thumb }}
+        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="" loading="lazy" decoding="async">
+        {{- end }}
+        <span class="yt-facade-play" aria-hidden="true">{{ partial "icon.html" "youtube" }}</span>
+        <span class="visually-hidden">{{ i18n "playVideo" }}{{ with $title }}: {{ . }}{{ end }}</span>
+    </a>
+</div>
+{{- end -}}

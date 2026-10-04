@@ -41,7 +41,7 @@ $pagination-disabled-border-color:#2d2f34;
 // Shared styles overrides
 @import "main2.scss";
 
-:root { --bp-accent: #7cb4ec; }
+:root { --bp-accent: #7cb4ec; color-scheme: dark; }
 
 // Subtle colors (alerts ...) from Bootstrap's own dark color mode; the scheme is compiled as light mode
 $bp-dark-subtle: (

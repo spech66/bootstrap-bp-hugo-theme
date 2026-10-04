@@ -62,3 +62,9 @@ other = "Entrada anterior"
 
 [relatedPosts]
 other = "Entradas relacionadas"
+
+[skipToContent]
+other = "Saltar al contenido"
+
+[playVideo]
+other = "Reproducir vídeo"

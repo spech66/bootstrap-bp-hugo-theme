@@ -62,3 +62,9 @@ other = "Older post"
 
 [relatedPosts]
 other = "Related posts"
+
+[skipToContent]
+other = "Skip to content"
+
+[playVideo]
+other = "Play video"

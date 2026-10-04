@@ -32,6 +32,7 @@ Other themes by Sebastian Pech: [Bootstrap-BP](https://github.com/spech66/bootst
   - [Post cards](#post-cards)
   - [Below posts: older/newer and related posts](#below-posts-oldernewer-and-related-posts)
   - [Markdown images and alerts](#markdown-images-and-alerts)
+  - [YouTube videos](#youtube-videos)
   - [Floating images](#floating-images)
   - [Performance: Bootstrap parts, JavaScript and Font Awesome](#performance-bootstrap-parts-javascript-and-font-awesome)
 
@@ -53,6 +54,8 @@ Other themes by Sebastian Pech: [Bootstrap-BP](https://github.com/spech66/bootst
 - Floating images in posts (shortcode `img-post`)
 - Markdown images as WebP with width/height, GitHub style alerts (`> [!NOTE]`) as Bootstrap alerts
 - Older/newer post and related posts below posts
+- YouTube videos load only after a click, with a local preview image (no request to YouTube before)
+- Accessibility: skip link, current menu entry with `aria-current`, `hreflang` links for translations
 - Multilingual and i18n support
 - ...
 
@@ -102,6 +105,10 @@ Use the `config.toml` from the `exampleSite` subdirectory as base.
 - `hideReadingTime` to hide reading time.
 - `bootstrapJS = true` to load the full Bootstrap JavaScript bundle (modals, tooltips, carousels, ...). Default: only a small navigation script.
 - `hidePostNav = true` / `hideRelated = true` to hide the older/newer links / related posts below posts.
+- `metaThemeColor = "#123456"` for the browser UI color on mobile (`<meta name="theme-color">`). Default: the navbar color of the color themes `default`, `blue`, `light` and `dark`; own color themes get none unless set.
+- `youtubeFacade = false` to embed YouTube players directly instead of loading them on click, `youtubeThumbnails = false` to not download preview images at build time (see [YouTube videos](#youtube-videos)).
+
+Favicons: `/favicon.ico` is always linked; `static/favicon.svg` and `static/apple-touch-icon.png` are linked automatically if they exist.
 
 ## Screenshots of configurations
 
@@ -341,6 +348,17 @@ GitHub style alerts are rendered as Bootstrap alerts. Types: `NOTE`, `TIP`, `IMP
 > [!TIP] Optional title
 > Helpful advice for doing things better or more easily.
 ```
+
+## YouTube videos
+
+Video posts (`type: video` with `youtube: "<id>"`) and the `youtube` shortcode show a preview image with a play button. The player (youtube-nocookie.com) is loaded only after a click, before that the page makes no request to YouTube. Without JavaScript the link opens the video on YouTube.
+
+```markdown
+{{< youtube dQw4w9WgXcQ >}}
+{{< youtube id="dQw4w9WgXcQ" title="My video" start="30" >}}
+```
+
+The preview image is downloaded once at build time from `i.ytimg.com` (HD if available) and served from your site as WebP. Videos without a preview image (deleted or private) cause a build warning and show a dark area with the play button. `[privacy.youtube] disable = true` hides all videos as before. In your own templates use `{{ partial "youtube.html" (dict "id" "..." "title" "...") }}`.
 
 ## Floating images
 

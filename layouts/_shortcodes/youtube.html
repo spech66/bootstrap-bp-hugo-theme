@@ -1,0 +1,16 @@
+{{- /*
+  Replaces Hugo's youtube shortcode: the video loads only after a click (partial youtube.html).
+
+  Usage:
+    {{< youtube dQw4w9WgXcQ >}}
+    {{< youtube id="dQw4w9WgXcQ" title="My video" start="30" >}}
+*/ -}}
+{{- $args := dict "id" (.Get 0) -}}
+{{- if .IsNamedParams -}}
+    {{- $args = dict "id" (.Get "id") "title" (.Get "title") "start" (.Get "start") "end" (.Get "end") "class" (.Get "class") -}}
+{{- end -}}
+{{- if not $args.id -}}
+    {{- errorf "youtube shortcode: missing video id in %s" .Position -}}
+{{- else if not site.Config.Privacy.YouTube.Disable -}}
+    {{- partial "youtube.html" $args -}}
+{{- end -}}

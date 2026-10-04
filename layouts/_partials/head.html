@@ -1,14 +1,33 @@
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <meta name="author" content="{{ range .Site.Params.Author }}{{ . }}{{ end }}">
 <link rel="canonical" href="{{ .Permalink }}">
 {{- if in (slice "taxonomy" "term" "404") .Kind }}
 <meta name="robots" content="noindex,follow">
 {{- end }}
+{{- /* Translations of the page (hreflang), x-default is the page in the default language */}}
+{{- if .IsTranslated }}
+    {{- $defaultLang := (index hugo.Sites 0).Language.Lang }}
+    {{- range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+        {{- if eq .Language.Lang $defaultLang }}
+<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+        {{- end }}
+    {{- end }}
+{{- end }}
 <link rel="icon" href="/favicon.ico">
-<!--<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">-->
+{{- /* Optional icons: only linked if the files exist in static/ */}}
+{{- if fileExists "static/favicon.svg" }}
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+{{- end }}
+{{- if fileExists "static/apple-touch-icon.png" }}
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+{{- end }}
+{{- /* Browser UI color (mobile address bar): params.metaThemeColor, else the navbar color of the color theme */}}
+{{- $metaThemeColor := .Site.Params.metaThemeColor | default (index (dict "default" "#f7f7f7" "blue" "#f7f7f7" "light" "#ffffff" "dark" "#121315") (.Site.Params.themeColor | default "default")) }}
+{{- with $metaThemeColor }}
+<meta name="theme-color" content="{{ . }}">
+{{- end }}
 
 {{ partial "schema.html" . }}
 {{ partial "opengraph.html" . }}
