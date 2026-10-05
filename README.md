@@ -114,13 +114,13 @@ Favicons: `/favicon.ico` is always linked; `static/favicon.svg` and `static/appl
 
 ## Screenshots of configurations
 
-`startPageColumns = false`
+`startPageColumns = true` (grid with three columns, also the screenshot in the Hugo themes gallery)
 
-![startPageColumns = false](https://raw.githubusercontent.com/spech66/bootstrap-bp-hugo-theme/master/images/tn.png)
+![startPageColumns = true](https://raw.githubusercontent.com/spech66/bootstrap-bp-hugo-theme/master/images/tn.png)
 
-`startPageColumns = true`
+`startPageColumns = false` (default, one post per row)
 
-![startPageColumns = true](https://raw.githubusercontent.com/spech66/bootstrap-bp-hugo-theme/master/images/tn2.png)
+![startPageColumns = false](https://raw.githubusercontent.com/spech66/bootstrap-bp-hugo-theme/master/images/tn2.png)
 
 ## Google Analytics
 

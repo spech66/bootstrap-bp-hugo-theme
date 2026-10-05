@@ -57,14 +57,20 @@ hugo server -s exampleSite --themesDir ../..
 The Hugo themes gallery uses `images/screenshot.png` (1500x1000) and `images/tn.png` (900x600).
 `screenshot2.png` and `tn2.png` show the second start page layout and are used in the README.
 
-- `screenshot.png` / `tn.png`: example site with default settings (`startPageColumns = false`).
-- `screenshot2.png` / `tn2.png`: `startPageColumns = true` and `showPostSummary = true`.
+- `screenshot.png` / `tn.png`: grid layout (`startPageColumns = true`, `showPostSummary = true`), shown in the gallery
+  and first in the README.
+- `screenshot2.png` / `tn2.png`: default settings (`startPageColumns = false`).
+
+Every post on the first start page needs a feature image (page bundle with `feature-*.jpg`), otherwise
+the grid has gaps. The demo photos are from Pixabay (sources at the end of `post/005-theme-info`).
 
 For both, set `alwaysExpandMenu = true` and disable YouTube embeds (`[privacy.youtube] disable = true`),
 the demo video does not render in headless browsers. An extra config file passed with
 `--config hugo.toml,shots.toml` keeps `exampleSite/hugo.toml` unchanged. Capture at 1500x1000 with
 device scale factor 1 (screenshots) and 0.6 (thumbnails), e.g. with headless Edge/Chrome
 (`--headless=new --hide-scrollbars --window-size=1500,1000 --screenshot=...`).
+Building with `-b "file:///<output dir>/"` and opening `index.html` needs no server, but then Edge needs
+`--allow-file-access-from-files`, otherwise the CSS (with SRI) is not loaded.
 
 ## Conventions
 

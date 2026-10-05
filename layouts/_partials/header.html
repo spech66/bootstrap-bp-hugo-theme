@@ -16,7 +16,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 {{ $currentPage := . }}
                 {{- /* Active entry: the current page (aria-current) or a page below the entry, e.g. a post below "Posts" */}}
                 {{ range $index, $element := .Site.Menus.main }}

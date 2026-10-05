@@ -7,5 +7,5 @@
     [menu.main.params]
       icon = "newspaper"
 */ -}}
-{{- with .Params.icon }}{{ partial "icon.html" . }}&nbsp;{{ end -}}
-{{- .Pre }} {{ .Name -}}
+{{- with .Params.icon }}{{ partial "icon.html" (dict "name" . "class" "me-1") }}{{ end -}}
+{{- with .Pre }}{{ . }} {{ end }}{{ .Name -}}
